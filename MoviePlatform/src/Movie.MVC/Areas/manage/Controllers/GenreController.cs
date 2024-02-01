@@ -21,11 +21,10 @@ namespace Movie.MVC.Areas.manage.Controllers
         }
         public async Task<IActionResult> Index(int? sortBy,string? search)
         {
-            int? value = search?.Length;
             List<Genre> genres = new List<Genre>();
             try
             {
-                genres = await _genreService.SortByAsync(sortBy)
+                genres = await _genreService.SortByAsync(sortBy,search)
                       ?? await _genreService.GetAllAsync();
             }
             catch (InvalidSortByIdException)

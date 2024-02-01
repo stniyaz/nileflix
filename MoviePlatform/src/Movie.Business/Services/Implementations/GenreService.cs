@@ -72,15 +72,23 @@ namespace Movie.Business.Services.Implementations
             await _genreRepository.CommitAsync();
         }
 
-        public async Task<List<Genre>> SortByAsync(int? sortBy)
+        public async Task<List<Genre>> SortByAsync(int? sortBy, string? search)
         {
             var genres = _genreRepository.GetAllAsync();
+
+            if (!string.IsNullOrEmpty(search))
+                genres = genres.Where(x => x.Name.Contains(search));
+
+
             if(sortBy is not null)
             {
                 switch (sortBy)
                 {
                     case 1:
                         genres = genres.OrderByDescending(x => x.CreatedDate);
+                        break;
+                    case 2:
+                        genres = genres.OrderBy(x => x.Name);
                         break;
                     default:
                         throw new InvalidSortByIdException();

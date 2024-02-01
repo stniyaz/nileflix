@@ -10,7 +10,7 @@ namespace Movie.Business.Services.Interfaces
         Task UpdateAsync(GenreUpdateDTO dto);
         Task HardDeleteAsync(int id);
         Task SoftDeleteAsync(int id);
-        Task<List<Genre>> SortByAsync(int? sortBy);
+        Task<List<Genre>> SortByAsync(int? sortBy,string? search);
 
         Task<Genre> GetAsync(Expression<Func<Genre, bool>>? expression = null, params string[]? includes);
         Task<List<Genre>> GetAllAsync(Expression<Func<Genre, bool>>? expression = null, params string[]? includes);
