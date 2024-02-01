@@ -1,0 +1,16 @@
+﻿@using Movie.Business.DTOs.GenreDTOs
+@model GenreCreateDTO
+
+<form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="ImageFile" class="form-label"></label>
+        <input asp-for="ImageFile" class="form-control" />
+        <span asp-validation-for="ImageFile" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
