@@ -77,15 +77,19 @@ namespace Movie.Business.Services.Implementations
             var genres = _genreRepository.GetAllAsync();
 
             if (!string.IsNullOrEmpty(search))
-                genres = genres.Where(x => x.Name.Contains(search));
-
+            {
+                if (search.Length >= 2)
+                    genres = genres.Where(x => x.Name.Contains(search));
+                else
+                    throw new InvalidSearchException();
+			}
 
             if(sortBy is not null)
             {
                 switch (sortBy)
                 {
                     case 1:
-                        genres = genres.OrderByDescending(x => x.CreatedDate);
+                        genres = genres.OrderBy(x => x.CreatedDate);
                         break;
                     case 2:
                         genres = genres.OrderBy(x => x.Name);

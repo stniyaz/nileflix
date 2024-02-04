@@ -27,6 +27,10 @@ namespace Movie.MVC.Areas.manage.Controllers
                 genres = await _genreService.SortByAsync(sortBy,search)
                       ?? await _genreService.GetAllAsync();
             }
+            catch (InvalidSearchException)
+            {
+                return NotFound();
+            }
             catch (InvalidSortByIdException)
             {
                 return NotFound();

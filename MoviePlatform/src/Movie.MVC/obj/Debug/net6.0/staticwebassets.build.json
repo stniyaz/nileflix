@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "f7f0vWPWcshkFygJ7o49aDoASQ61pwdYFmfd+r7+RnI=",
+  "Hash": "arZY022Gvdi8x8pifk8T/wDfp19utfh2Q63xcc34DAI=",
   "Source": "Movie.MVC",
   "BasePath": "_content/Movie.MVC",
   "Mode": "Default",
@@ -2031,12 +2031,12 @@
       "OriginalItemSpec": "wwwroot\\uploads\\genreImages\\20d68d23-a35f-4ed3-8ae4-37b1b12566edappSettings.png"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\uploads\\genreImages\\857b7fbb-7e40-4b78-82a1-3eba6e0a1a91appSettings.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\uploads\\genreImages\\8c1362bb-8a4b-43c7-8130-3c3bc332ff0cappSettings.png",
       "SourceId": "Movie.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\",
       "BasePath": "_content/Movie.MVC",
-      "RelativePath": "uploads/genreImages/857b7fbb-7e40-4b78-82a1-3eba6e0a1a91appSettings.png",
+      "RelativePath": "uploads/genreImages/8c1362bb-8a4b-43c7-8130-3c3bc332ff0cappSettings.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2047,7 +2047,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\genreImages\\857b7fbb-7e40-4b78-82a1-3eba6e0a1a91appSettings.png"
+      "OriginalItemSpec": "wwwroot\\uploads\\genreImages\\8c1362bb-8a4b-43c7-8130-3c3bc332ff0cappSettings.png"
     }
   ]
 }

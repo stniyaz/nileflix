@@ -25,3 +25,4 @@ btns.forEach(btn => btn.addEventListener("click", function (e) {
 	});
 
 }))
+
