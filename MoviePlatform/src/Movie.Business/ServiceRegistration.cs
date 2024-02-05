@@ -5,12 +5,14 @@ using Movie.Business.Services.Interfaces;
 
 namespace Movie.Business
 {
-    public static class ServiceRegistration
-    {
-        public static void AddServices(this IServiceCollection services)
-        {
-            services.AddScoped<IGenreService, GenreService>();
-            services.AddAutoMapper(typeof(MapProfile).Assembly);
-        }
-    }
+	public static class ServiceRegistration
+	{
+		public static void AddServices(this IServiceCollection services)
+		{
+			services.AddScoped<IGenreService, GenreService>();
+			services.AddAutoMapper(typeof(MapProfile).Assembly);
+			services.AddScoped<IMovieService, MovieService>();
+			services.AddScoped<ICountryService, CountryService>();
+		}
+	}
 }

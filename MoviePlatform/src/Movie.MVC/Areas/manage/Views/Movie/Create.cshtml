@@ -1,0 +1,141 @@
+﻿@model MovieCreateDTO
+
+<main class="main">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- main title -->
+            <div class="col-12">
+                <div class="main__title">
+                    <h2>Add new item</h2>
+                </div>
+            </div>
+            <!-- end main title -->
+            <!-- form -->
+            <div class="col-12">
+                <form class="form" method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-12 col-md-5 form__cover">
+                            <div class="row">
+                                <div class="col-12 col-sm-6 col-md-12">
+                                    <div class="form__img">
+                                        <label asp-for="CoverImage" for="form__img-upload">Upload cover (190 x 270)</label>
+                                        <input asp-for="CoverImage" id="form__img-upload" type="file" accept=".png, .jpg, .jpeg">
+                                        <span asp-validation-for="CoverImage" style="color: red"></span>
+                                        <img id="form__img" src="#" alt=" ">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-7 form__content">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form__group">
+                                        <input asp-for="Title" type="text" class="form__input" placeholder="Title">
+                                        <span asp-validation-for="Title" style="color: red"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form__group">
+                                        <textarea asp-for="Description" class="form__textarea" placeholder="Description"></textarea>
+                                        <span asp-validation-for="Description" style="color: red"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-sm-6 col-lg-3">
+                                    <div class="form__group">
+                                        <input asp-for="ReleaseYear" type="number" class="form__input" placeholder="Release year">
+                                        <span asp-validation-for="ReleaseYear" style="color: red"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-sm-6 col-lg-3">
+                                    <div class="form__group">
+                                        <input asp-for="MovieLong" class="form__input" placeholder="Running timed in minutes">
+                                        <span asp-validation-for="MovieLong" style="color: red"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-sm-6 col-lg-3">
+                                    <div class="form__group">
+                                        <input asp-for="AgeLimit" type="number" class="form__input" placeholder="Age">
+                                        <span asp-validation-for="AgeLimit" style="color: red"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-lg-6">
+                                    <div class="form__group">
+                                        <select asp-for="CountryId" class="js-example-basic-multiple" id="country" asp-items="@(new SelectList(ViewBag.Countires,"Id","Name"))"></select>
+                                        <span asp-validation-for="CountryId" style="color: red"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-lg-6">
+                                    <div class="form__group">
+                                        <select asp-for="GenreIds" class="js-example-basic-multiple" id="genre"
+                                                multiple="multiple" asp-items="@(new SelectList(ViewBag.Genres,"Id","Name"))">
+                                        </select>
+                                        <span asp-validation-for="GenreIds" style="color: red"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form__gallery">
+                                        <label asp-for="OtherImages" id="gallery1" for="form__gallery-upload">Upload photos</label>
+                                        <input asp-for="OtherImages" data-name="#gallery1" id="form__gallery-upload" class="form__gallery-upload" type="file" accept=".png, .jpg, .jpeg" multiple>
+                                    </div>
+                                    <span asp-validation-for="OtherImages" style="color: red"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="row">
+
+
+                                <div class="col-12 row">
+                                    <div class="col-12 col-lg-6">
+                                        <div class="form__video">
+                                            <label asp-for="FullVideo" id="movie1" for="form__fullVideo-upload">Upload video</label>
+                                            <input asp-for="FullVideo" id="form__fullVideo-upload" class="form__video-upload" accept="video/mp4,video/x-msvideo,video/mpeg,video/3gpp">
+                                        </div>
+                                            <span asp-validation-for="FullVideo" style="color: red"></span>
+                                    </div>
+
+                                    <div class="col-12 col-lg-6">
+                                        <div class="form__video">
+                                            <label asp-for="TrailerVideo" id="movie1" for="form__trailerVideo-upload">Upload trailer</label>
+                                            <input asp-for="TrailerVideo" id="form__trailerVideo-upload" class="form__video-upload" accept="video/mp4,video/x-msvideo,video/mpeg,video/3gpp">
+                                        </div>
+                                            <span asp-validation-for="TrailerVideo" style="color: red"></span>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-12 col-lg-1">
+                                    <div class="sign__group sign__group--checkbox">
+                                        <input asp-for="IsNewst" id="isNew" type="checkbox">
+                                        <label asp-for ="IsNewst" for="isNew">New</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-lg-1">
+                                    <div class="sign__group sign__group--checkbox">
+                                        <input asp-for="IsPopular" id="isPopular" type="checkbox">
+                                        <label asp-for="IsPopular" for="isPopular">Popular</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <button type="submit" class="form__btn">Create</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- end form -->
+        </div>
+    </div>
+</main>

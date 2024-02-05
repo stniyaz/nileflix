@@ -2,24 +2,24 @@
 
 namespace Movie.Business.Helpers.Common
 {
-    public static class ImageFileManager
+    public static class FileManager
     {
-        public static string Save(string root, string folderPath, IFormFile imageFile)
+        public static string Save(string root, string folderPath, IFormFile file)
         {
-            var newName = imageFile.FileName;
+            var newName = file.FileName;
             newName = newName.Length > 64 ? newName.Substring(newName.Length - 64, 64) : newName;
             newName = Guid.NewGuid().ToString() + newName;
             string savePath = Path.Combine(root, folderPath, newName);
 
             using (FileStream stream = new FileStream(savePath,FileMode.Create))
             {
-                imageFile.CopyTo(stream);
+				file.CopyTo(stream);
             }
             return newName;
         }
-        public static void Remove(string root,string folderPath,string imageUrl)
+        public static void Remove(string root,string folderPath,string fileUrl)
         {
-            var deletePath = Path.Combine(root, folderPath, imageUrl);
+            var deletePath = Path.Combine(root, folderPath, fileUrl);
             if(File.Exists(deletePath))
             {
                 File.Delete(deletePath);

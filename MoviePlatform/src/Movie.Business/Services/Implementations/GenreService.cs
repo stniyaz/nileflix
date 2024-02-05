@@ -32,7 +32,7 @@ namespace Movie.Business.Services.Implementations
             CheckImage(dto.ImageFile);
 
             var newGenre = _mapper.Map<Genre>(dto);
-            newGenre.ImageUrl = Helpers.Common.ImageFileManager.Save(_env.WebRootPath, folderPath, dto.ImageFile);
+            newGenre.ImageUrl = Helpers.Common.FileManager.Save(_env.WebRootPath, folderPath, dto.ImageFile);
             await _genreRepository.CreateAsync(newGenre);
             await _genreRepository.CommitAsync();
         }
@@ -57,7 +57,7 @@ namespace Movie.Business.Services.Implementations
             var wanted = await _genreRepository.GetAsync(x => x.Id == id);
             if (wanted is null) throw new GenreNotFoundException();
 
-            Helpers.Common.ImageFileManager.Remove(_env.WebRootPath, folderPath, wanted.ImageUrl);
+            Helpers.Common.FileManager.Remove(_env.WebRootPath, folderPath, wanted.ImageUrl);
             _genreRepository.Delete(wanted);
 
             await _genreRepository.CommitAsync();
@@ -113,8 +113,8 @@ namespace Movie.Business.Services.Implementations
             if (dto.ImageFile is not null)
             {
                 CheckImage(dto.ImageFile);
-                Helpers.Common.ImageFileManager.Remove(_env.WebRootPath, folderPath, exist.ImageUrl);
-                exist.ImageUrl = Helpers.Common.ImageFileManager.Save(_env.WebRootPath, folderPath, dto.ImageFile);
+                Helpers.Common.FileManager.Remove(_env.WebRootPath, folderPath, exist.ImageUrl);
+                exist.ImageUrl = Helpers.Common.FileManager.Save(_env.WebRootPath, folderPath, dto.ImageFile);
             }
 
             exist = _mapper.Map(dto, exist);

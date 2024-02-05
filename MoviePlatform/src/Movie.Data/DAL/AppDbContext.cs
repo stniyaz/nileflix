@@ -9,6 +9,10 @@ namespace Movie.Data.DAL
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         public DbSet<Genre> Genres { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<Movie.Core.Models.Movie> Movies { get; set; }
+        public DbSet<MovieGenre> movieGenres { get; set; }
+        public DbSet<MovieImage> MovieImages { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

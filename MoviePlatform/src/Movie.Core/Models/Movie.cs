@@ -8,11 +8,18 @@
         public int ReleaseYear { get; set; }
         public int AgeLimit { get; set; }
         public int Views { get; set; }
-        public double Rating { get; set; }
+        public double? Rating { get; set; }
         public bool IsPopular { get; set; }
         public bool IsNewst { get; set; }
         public List<MovieImage> MovieImages { get; set; }
-        public string TrailerUrl { get; set; }
-        public string MovieUrl { get; set; }
+        public string? TrailerUrl { get; set; }
+        public string? MovieUrl { get; set; }
+
+
+        public int CountryId { get; set; }
+        public Country Country { get; set; }
+
+        public List<MovieGenre> MovieGenres { get; set; }
+
     }
 }

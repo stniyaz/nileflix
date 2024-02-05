@@ -34,6 +34,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcbWFuYWdlXFZpZXdzXEdlbnJlXFVwZGF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Admin/Desktop/NILE_Tv/MoviePlatform/src/Movie.MVC/Areas/manage/Views/Movie/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcbWFuYWdlXFZpZXdzXE1vdmllXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/Desktop/NILE_Tv/MoviePlatform/src/Movie.MVC/Areas/manage/Views/Movie/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcbWFuYWdlXFZpZXdzXE1vdmllXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Admin/Desktop/NILE_Tv/MoviePlatform/src/Movie.MVC/Areas/manage/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcbWFuYWdlXFZpZXdzXFNoYXJlZFxfTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
