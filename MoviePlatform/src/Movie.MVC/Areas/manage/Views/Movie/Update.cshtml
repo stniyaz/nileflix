@@ -30,7 +30,7 @@
                                         <input asp-for="CoverImage" id="form__img-upload" type="file" accept=".png, .jpg, .jpeg">
                                         <span asp-validation-for="CoverImage" style="color: red"></span>
                                         <img id="form__img"
-                                            src="~/uploads/movieImages/@movie.MovieImages.FirstOrDefault(x=> x.IsCover == true).ImageUrl"/>
+                                             src="~/uploads/movieImages/@movie.MovieImages.FirstOrDefault(x=> x.IsCover == true).ImageUrl" />
                                     </div>
                                 </div>
                             </div>
@@ -120,7 +120,7 @@
                                 <span asp-validation-for="FullVideo" style="color: red"></span>
                             </div>
                             <div>
-                                <video controls id="full">
+                                <video controls id="full" style="block-size: 360px;">
                                     <!-- Video files -->
                                     <source src="~/uploads/movieVideos/@movie.MovieUrl" type="video/mp4" size="1080">
                                 </video>
@@ -135,7 +135,7 @@
                                 <span asp-validation-for="TrailerVideo" style="color: red"></span>
                             </div>
                             <div>
-                                <video controls id="trailer">
+                                <video controls id="trailer" style="block-size: 360px;">
                                     <!-- Video files -->
                                     <source src="~/uploads/movieVideos/@movie.TrailerUrl" type="video/mp4" size="1080">
                                 </video>

@@ -13,19 +13,24 @@ namespace Movie.MVC.Areas.manage.Controllers
     {
         private readonly IGenreService _genreService;
         private readonly IMapper _mapper;
+        private readonly IMovieGenreService _movieGenreService;
 
-        public GenreController(IGenreService genreService, IMapper mapper)
+        public GenreController(IGenreService genreService,
+                               IMapper mapper,
+                               IMovieGenreService movieGenreService)
         {
             _genreService = genreService;
             _mapper = mapper;
+            _movieGenreService = movieGenreService;
         }
-        public async Task<IActionResult> Index(int? sortBy, string? search)
+        public async Task<IActionResult> Index(int? sortBy, string? search, int page = 1)
         {
             List<Genre> genres = new List<Genre>();
             try
             {
-                genres = await _genreService.SortByAsync(sortBy, search)
+                genres = await _genreService.SortByAsync(sortBy, search, page)
                       ?? await _genreService.GetAllAsync();
+                ViewBag.Movies = await _movieGenreService.GetAllAsync();
             }
             catch (InvalidSearchException)
             {

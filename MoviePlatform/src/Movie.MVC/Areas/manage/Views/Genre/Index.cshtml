@@ -2,6 +2,7 @@
 
 @{
     var counter = 0;
+    List<MovieGenre> movieGenres = ViewBag.Movies;
 }
 
 @section sweetCss {
@@ -92,7 +93,10 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <div class="main__table-text">Count movies</div>
+                                        @{
+                                            var count = movieGenres.Where(x => x.GenreId == genre.Id).Count(); ;
+                                        }
+                                        <div class="main__table-text">@count</div>
                                     </td>
                                     <td>
                                         <div class="main__table-btns">

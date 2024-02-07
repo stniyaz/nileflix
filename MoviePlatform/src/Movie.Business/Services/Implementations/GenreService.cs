@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Movie.Business.CustomExceptions.CommonExceptions;
 using Movie.Business.CustomExceptions.GenreExceptions;
 using Movie.Business.DTOs.GenreDTOs;
+using Movie.Business.Helpers.Pagination;
 using Movie.Business.Services.Interfaces;
 using Movie.Core.Models;
 using Movie.Core.Repositories;
@@ -72,9 +73,11 @@ namespace Movie.Business.Services.Implementations
             await _genreRepository.CommitAsync();
         }
 
-        public async Task<List<Genre>> SortByAsync(int? sortBy, string? search)
+        public async Task<List<Genre>> SortByAsync(int? sortBy, string? search, int page)
         {
             var genres = _genreRepository.GetAllAsync();
+
+            var paginated = Helpers.Pagination.PaginatedList<Genre>.Create(genres, page, 5);
 
             if (!string.IsNullOrEmpty(search))
             {
@@ -82,9 +85,9 @@ namespace Movie.Business.Services.Implementations
                     genres = genres.Where(x => x.Name.Contains(search));
                 else
                     throw new InvalidSearchException();
-			}
+            }
 
-            if(sortBy is not null)
+            if (sortBy is not null)
             {
                 switch (sortBy)
                 {
@@ -98,7 +101,7 @@ namespace Movie.Business.Services.Implementations
                         throw new InvalidSortByIdException();
                 }
             }
-            
+
 
             return await genres.ToListAsync();
         }
