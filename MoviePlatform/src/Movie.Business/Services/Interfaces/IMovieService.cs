@@ -6,7 +6,10 @@ namespace Movie.Business.Services.Interfaces
 {
     public interface IMovieService
     {
-        Task Create(MovieCreateDTO dto);
+        Task CreateAsync(MovieCreateDTO dto);
+        Task SoftDeleteAsync(int id);
+        Task UpdateAsync(MovieUpdateDTO dto);
+        Task HardDeleteAsync(int id);
 
         Task<List<Core.Models.Movie>> SortByAsync(int? sortBy, string? search);
 

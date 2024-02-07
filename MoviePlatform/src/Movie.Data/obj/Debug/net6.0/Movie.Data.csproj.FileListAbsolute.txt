@@ -1,4 +1,5 @@
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Data\bin\Debug\net6.0\Movie.Data.deps.json
+C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Data\bin\Debug\net6.0\Movie.Data.runtimeconfig.json
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Data\bin\Debug\net6.0\Movie.Data.dll
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Data\bin\Debug\net6.0\Movie.Data.pdb
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Data\bin\Debug\net6.0\Movie.Core.dll
@@ -13,6 +14,5 @@ C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Data\obj\Debug\net6.0\Mov
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Data\obj\Debug\net6.0\Movie.Data.dll
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Data\obj\Debug\net6.0\refint\Movie.Data.dll
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Data\obj\Debug\net6.0\Movie.Data.pdb
-C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Data\obj\Debug\net6.0\ref\Movie.Data.dll
-C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Data\bin\Debug\net6.0\Movie.Data.runtimeconfig.json
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Data\obj\Debug\net6.0\Movie.Data.genruntimeconfig.cache
+C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Data\obj\Debug\net6.0\ref\Movie.Data.dll

@@ -13,6 +13,7 @@ namespace Movie.Business.Mapper
             CreateMap<Genre, GenreUpdateDTO>().ReverseMap();
 
             CreateMap<Core.Models.Movie, MovieCreateDTO>().ReverseMap();
+            CreateMap<Core.Models.Movie, MovieUpdateDTO>().ReverseMap();
         }
     }
 }

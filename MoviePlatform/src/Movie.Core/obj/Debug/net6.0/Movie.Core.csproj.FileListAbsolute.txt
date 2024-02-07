@@ -1,6 +1,7 @@
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Core\bin\Debug\net6.0\Movie.Core.deps.json
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Core\bin\Debug\net6.0\Movie.Core.dll
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Core\bin\Debug\net6.0\Movie.Core.pdb
+C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Core\obj\Debug\net6.0\Movie.Core.csproj.AssemblyReference.cache
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Core\obj\Debug\net6.0\Movie.Core.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Core\obj\Debug\net6.0\Movie.Core.AssemblyInfoInputs.cache
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Core\obj\Debug\net6.0\Movie.Core.AssemblyInfo.cs
@@ -10,4 +11,3 @@ C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Core\obj\Debug\net6.0\Mov
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Core\obj\Debug\net6.0\refint\Movie.Core.dll
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Core\obj\Debug\net6.0\Movie.Core.pdb
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Core\obj\Debug\net6.0\ref\Movie.Core.dll
-C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Core\obj\Debug\net6.0\Movie.Core.csproj.AssemblyReference.cache
