@@ -22,7 +22,6 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
-
 app.UseStatusCodePagesWithReExecute("/Error/Error", "?code={0}");
 
 app.UseEndpoints(endpoints =>

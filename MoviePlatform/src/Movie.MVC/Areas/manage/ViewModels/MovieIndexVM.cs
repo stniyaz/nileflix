@@ -1,10 +1,11 @@
-﻿using Movie.Core.Models;
+﻿using Movie.Business.Helpers.Pagination;
+using Movie.Core.Models;
 
 namespace Movie.MVC.Areas.manage.ViewModels
 {
     public class MovieIndexVM
     {
-        public List<Core.Models.Movie> Movies { get; set; }
+        public PaginatedList<Core.Models.Movie> PaginatedMovies { get; set; }
         public List<MovieGenre> MovieGenres { get; set; }
     }
 }

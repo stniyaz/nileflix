@@ -1,49 +1,32 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Movie.Business.CustomExceptions.GenreExceptions;
-using Movie.Business.DTOs.GenreDTOs;
 using Movie.Business.Services.Interfaces;
+using Movie.MVC.ViewModels;
 
 namespace Movie.MVC.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IGenreService _service;
+        private readonly IMovieService _movieService;
+        private readonly IGenreService _genreService;
+        private readonly IMovieGenreService _movieGenreService;
 
-        public HomeController(IGenreService service)
+        public HomeController(IMovieService movieService,
+                              IGenreService genreService,
+                              IMovieGenreService movieGenreService)
         {
-            _service = service;
+            _movieService = movieService;
+            _genreService = genreService;
+            _movieGenreService = movieGenreService;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
-        }
-        public IActionResult Create()
-        {
-            return View();
-        }
-        [HttpPost,ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(GenreCreateDTO dto)
-        {
-            if(!ModelState.IsValid) return View(dto);
-            try
+            HomeVM model = new HomeVM
             {
-                await _service.CreateAsync(dto);
-            }
-            catch(GenreImageContentTypeException ex)
-            {
-                ModelState.AddModelError(ex.PropertyName, ex.Message);
-                return View();
-            }
-            catch (GenreImageLengthException ex)
-            {
-                ModelState.AddModelError(ex.PropertyName, ex.Message);
-                return View();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            return View();
+                Movies = await _movieService.GetAllIncludesAsync(),
+                Genres = await _genreService.GetAllAsync(),
+                MovieGenres = await _movieGenreService.GetAllIncludesAsync(),
+            };
+            return View(model);
         }
     }
 }

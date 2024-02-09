@@ -1,6 +1,6 @@
 ﻿@model MovieIndexVM
 @{
-    var counter = 0;
+    var counter = 1 + (Model.PaginatedMovies.ActivePage - 1) * 5;
 }
 @section sweetCss {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.10.4/sweetalert2.min.css" integrity="sha512-OWGg8FcHstyYFwtjfkiCoYHW2hG3PDWwdtczPAPUcETobBJOVCouKig8rqED0NMLcT9GtE4jw6IT1CSrwY87uw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -14,25 +14,26 @@
                 <div class="main__title">
                     <h2>Movie</h2>
 
-                    <span class="main__title-stat">@Model.Movies.Count total</span>
+                    <span class="main__title-stat">@Model.PaginatedMovies.TotalDataCount total</span>
 
                     <a style="margin: 0 0 0 350px;" asp-action="create" asp-controller="movie" class="main__title-link">create</a>
                     <div class="main__title-wrap">
 
                         <div class="main__title-wrap">
                             <!-- filter sort -->
-                            <div class="filter" id="filter__sort">
-                                <span class="filter__item-label">Sort by:</span>
+                            <div class="filter">
+                                <span style="margin: 0px 0px -20px -44px;" class="filter__item-label">Sort by:</span>
 
                                 <div class="filter__item-btn dropdown-toggle" role="navigation" id="filter-sort" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <input type="button" value="Date created">
+                                    <input type="button" />
                                     <span></span>
                                 </div>
 
                                 <ul class="filter__item-menu dropdown-menu scrollbar-dropdown" aria-labelledby="filter-sort">
-                                    <li>Date created</li>
-                                    <li>salam</li>
-                                    <li>Views</li>
+                                    <li><a asp-action="index" asp-controller="movie" asp-route-sortBy="1">Date created</a></li>
+                                    <li>
+                                        <a asp-action="index" asp-controller="movie" asp-route-sortBy="2">A-Z</a>
+                                    </li>
                                 </ul>
                             </div>
                             <!-- end filter sort -->
@@ -67,9 +68,8 @@
 
                             <tbody>
 
-                                @foreach (var movie in Model.Movies)
+                                @foreach (var movie in Model.PaginatedMovies)
                                 {
-                                    counter++;
                                     <tr>
                                         <td>
                                             <div class="main__table-text">@counter</div>
@@ -127,7 +127,7 @@
                                             </div>
                                         </td>
                                     </tr>
-
+                                    counter++;
                                 }
 
                             </tbody>
@@ -141,20 +141,26 @@
                         <span class="paginator__pages">10 from 14 452</span>
 
                         <ul class="paginator__paginator">
-                            <li>
-                                <a href="#">
-                                    <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.75 5.36475L13.1992 5.36475" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M5.771 10.1271L0.749878 5.36496L5.771 0.602051" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                                </a>
-                            </li>
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li>
-                                <a href="#">
-                                    <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.1992 5.3645L0.75 5.3645" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M8.17822 0.602051L13.1993 5.36417L8.17822 10.1271" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                                </a>
-                            </li>
+                            @if (Model.PaginatedMovies.HasPrev)
+                            {
+                                <li>
+                                    <a asp-action="index" asp-controller="movie" asp-route-page="@((Model.PaginatedMovies.ActivePage-1).ToString())">
+                                        <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.75 5.36475L13.1992 5.36475" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M5.771 10.1271L0.749878 5.36496L5.771 0.602051" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                    </a>
+                                </li>
+                            }
+                            @for (int i = 1; i <= Model.PaginatedMovies.TotalPageCount; i++)
+                            {
+                                <li class="@(Model.PaginatedMovies.ActivePage == i ? "active" : "")"><a asp-action="index" asp-controller="movie" asp-route-page="@(i.ToString())">@i</a></li>
+                            }
+                            @if (Model.PaginatedMovies.HasNext)
+                            {
+                                <li>
+                                    <a asp-action="index" asp-controller="movie" asp-route-page="@((Model.PaginatedMovies.ActivePage+1).ToString())">
+                                        <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.1992 5.3645L0.75 5.3645" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M8.17822 0.602051L13.1993 5.36417L8.17822 10.1271" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                    </a>
+                                </li>
+                            }
                         </ul>
                     </div>
                 </div>

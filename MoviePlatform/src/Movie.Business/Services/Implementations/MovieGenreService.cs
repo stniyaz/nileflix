@@ -18,5 +18,10 @@ namespace Movie.Business.Services.Implementations
         {
             return await _movieGenreRepository.GetAllAsync(expression, includes).ToListAsync();
         }
+
+        public async Task<List<MovieGenre>> GetAllIncludesAsync()
+        {
+            return await _movieGenreRepository.GetAllAsync(null, "Movie", "Genre").ToListAsync();
+        }
     }
 }

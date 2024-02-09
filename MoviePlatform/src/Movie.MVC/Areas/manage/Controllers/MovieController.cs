@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
+using Movie.Business.CustomExceptions.CommonExceptions;
 using Movie.Business.CustomExceptions.MoiveExceptions;
 using Movie.Business.DTOs.MovieDTOs;
 using Movie.Business.Services.Interfaces;
@@ -31,14 +33,49 @@ namespace Movie.MVC.Areas.manage.Controllers
             _mapper = mapper;
             _movieImageService = movieImageService;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? sortBy, string? search, string page = "1")
         {
-            MovieIndexVM model = new MovieIndexVM
+            try
             {
-                MovieGenres = await _movieGenreService.GetAllAsync(null, "Genre"),
-                Movies = await _movieService.GetAllAsync(null, "MovieGenres", "MovieImages")
-            };
-            return View(model);
+                string? sortByValue = string.Empty;
+                string? refererUrl = HttpContext.Request.Headers["Referer"];
+                if (refererUrl != null)
+                {
+                    Uri? uri = new Uri(refererUrl);
+                    sortByValue = System.Web.HttpUtility.ParseQueryString(uri.Query)?.Get("sortBy");
+                    search = System.Web.HttpUtility.ParseQueryString(uri.Query)?.Get("search")
+                          ?? search;
+                    //page = System.Web.HttpUtility.ParseQueryString(uri.Query)?.Get("page")
+                    //    ?? page;
+                }
+                if (int.TryParse(sortByValue, out int intSort))
+                {
+                    sortBy = intSort;
+                }
+
+                MovieIndexVM model = new MovieIndexVM
+                {
+                    MovieGenres = await _movieGenreService.GetAllAsync(null, "Genre"),
+                    PaginatedMovies = _movieService.SortByAsync(sortBy, search, page)
+                };
+                return View(model);
+            }
+            catch (InvalidSearchException)
+            {
+                return NotFound();
+            }
+            catch (InvalidSortByIdException)
+            {
+                return NotFound();
+            }
+            catch (InvalidPageException)
+            {
+                return NotFound();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
         public async Task<IActionResult> Create()
         {

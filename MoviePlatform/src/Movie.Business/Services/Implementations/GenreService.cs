@@ -73,16 +73,24 @@ namespace Movie.Business.Services.Implementations
             await _genreRepository.CommitAsync();
         }
 
-        public async Task<List<Genre>> SortByAsync(int? sortBy, string? search, int page)
+        public PaginatedList<Genre> SortBy(int? sortBy, string? search, string page)
         {
             var genres = _genreRepository.GetAllAsync();
 
-            var paginated = Helpers.Pagination.PaginatedList<Genre>.Create(genres, page, 5);
+            int pageNumber;
+            if (int.TryParse(page, out pageNumber))
+            {
+                if (pageNumber <= 0) throw new InvalidPageException();
+            }
+            else
+            {
+                throw new InvalidPageException();
+            }
 
             if (!string.IsNullOrEmpty(search))
             {
                 if (search.Length >= 2)
-                    genres = genres.Where(x => x.Name.Contains(search));
+                    genres = genres.Where(x => x.Name.Trim().ToLower().Contains(search.Trim()));
                 else
                     throw new InvalidSearchException();
             }
@@ -92,7 +100,7 @@ namespace Movie.Business.Services.Implementations
                 switch (sortBy)
                 {
                     case 1:
-                        genres = genres.OrderBy(x => x.CreatedDate);
+                        genres = genres.OrderByDescending(x => x.CreatedDate);
                         break;
                     case 2:
                         genres = genres.OrderBy(x => x.Name);
@@ -102,8 +110,13 @@ namespace Movie.Business.Services.Implementations
                 }
             }
 
+            int totalDataCount = genres.Count();
+            var paginated = Helpers.Pagination.PaginatedList<Genre>.Create(genres, pageNumber, 5);
+            paginated.TotalDataCount = totalDataCount;
+            if (pageNumber > paginated.TotalPageCount && paginated.TotalPageCount != 0)
+                throw new InvalidPageException();
 
-            return await genres.ToListAsync();
+            return paginated;
         }
 
         public async Task UpdateAsync(GenreUpdateDTO dto)
@@ -118,6 +131,20 @@ namespace Movie.Business.Services.Implementations
                 CheckImage(dto.ImageFile);
                 Helpers.Common.FileManager.Remove(_env.WebRootPath, folderPath, exist.ImageUrl);
                 exist.ImageUrl = Helpers.Common.FileManager.Save(_env.WebRootPath, folderPath, dto.ImageFile);
+            }
+
+            // trim string properties
+            foreach (var property in dto.GetType().GetProperties())
+            {
+                if (property.PropertyType == typeof(string))
+                {
+                    var value = (string)property.GetValue(dto);
+                    if (value != null)
+                    {
+                        value = value.Trim();
+                        property.SetValue(dto, value);
+                    }
+                }
             }
 
             exist = _mapper.Map(dto, exist);

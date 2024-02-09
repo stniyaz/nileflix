@@ -2,8 +2,10 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Movie.Business.CustomExceptions.CommonExceptions;
 using Movie.Business.CustomExceptions.MoiveExceptions;
 using Movie.Business.DTOs.MovieDTOs;
+using Movie.Business.Helpers.Pagination;
 using Movie.Business.Services.Interfaces;
 using Movie.Core.Models;
 using Movie.Core.Repositories;
@@ -130,6 +132,11 @@ namespace Movie.Business.Services.Implementations
             return await _movieRepository.GetAllAsync(expression, includes).ToListAsync();
         }
 
+        public async Task<List<Core.Models.Movie>> GetAllIncludesAsync()
+        {
+            return await _movieRepository.GetAllAsync(null, "MovieImages", "MovieGenres").ToListAsync();
+        }
+
         public async Task<Core.Models.Movie> GetAsync(Expression<Func<Core.Models.Movie, bool>>? expression = null, params string[]? includes)
         {
             return await _movieRepository.GetAsync(expression, includes);
@@ -168,9 +175,53 @@ namespace Movie.Business.Services.Implementations
             await _movieRepository.CommitAsync();
         }
 
-        public Task<List<Core.Models.Movie>> SortByAsync(int? sortBy, string? search)
+        public PaginatedList<Core.Models.Movie> SortByAsync(int? sortBy, string? search, string page)
         {
-            throw new NotImplementedException();
+            var movies = _movieRepository.GetAllAsync(null, "MovieGenres", "MovieImages");
+
+            int pageNumber;
+            if (int.TryParse(page, out pageNumber))
+            {
+                if (pageNumber <= 0) throw new InvalidPageException();
+            }
+            else
+            {
+                throw new InvalidPageException();
+            }
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                if (search.Length >= 2)
+                    movies = movies.Where(x => x.Title.Trim().ToLower().Contains(search.Trim())
+                                            && x.Description.Trim().ToLower().Contains(search.Trim()));
+                else
+                    throw new InvalidSearchException();
+            }
+
+            if (sortBy is not null)
+            {
+                switch (sortBy)
+                {
+                    case 1:
+                        movies = movies.OrderByDescending(x => x.CreatedDate);
+                        break;
+                    case 2:
+                        movies = movies.OrderBy(x => x.Title);
+                        break;
+                    default:
+                        throw new InvalidSortByIdException();
+                }
+            }
+
+            int totalDataCount = movies.Count();
+
+            var paginated = Helpers.Pagination.PaginatedList<Core.Models.Movie>.Create(movies, pageNumber, 5);
+            paginated.TotalDataCount = totalDataCount;
+
+            if (pageNumber > paginated.TotalPageCount && paginated.TotalPageCount != 0)
+                throw new InvalidPageException();
+
+            return paginated;
         }
 
         public async Task UpdateAsync(MovieUpdateDTO dto)
