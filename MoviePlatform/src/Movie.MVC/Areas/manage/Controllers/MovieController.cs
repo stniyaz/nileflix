@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Movie.Business.CustomExceptions.CommonExceptions;
@@ -10,6 +11,7 @@ using Movie.MVC.Areas.manage.ViewModels;
 namespace Movie.MVC.Areas.manage.Controllers
 {
     [Area("manage")]
+    [Authorize(Roles = "Admin")]
     public class MovieController : Controller
     {
         private readonly IMovieService _movieService;

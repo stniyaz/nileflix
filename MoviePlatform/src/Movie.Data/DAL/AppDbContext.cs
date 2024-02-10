@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Movie.Core.Models;
 using Movie.Data.Configurations;
 
 namespace Movie.Data.DAL
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
@@ -13,6 +14,7 @@ namespace Movie.Data.DAL
         public DbSet<Movie.Core.Models.Movie> Movies { get; set; }
         public DbSet<MovieGenre> movieGenres { get; set; }
         public DbSet<MovieImage> MovieImages { get; set; }
+        public DbSet<AppUser> AppUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

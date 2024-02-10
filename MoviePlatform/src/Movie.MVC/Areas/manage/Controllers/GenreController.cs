@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Movie.Business.CustomExceptions.CommonExceptions;
 using Movie.Business.CustomExceptions.GenreExceptions;
@@ -10,6 +11,7 @@ using Movie.Core.Models;
 namespace Movie.MVC.Areas.manage.Controllers
 {
     [Area("manage")]
+    [Authorize(Roles = "Admin")]
     public class GenreController : Controller
     {
         private readonly IGenreService _genreService;
