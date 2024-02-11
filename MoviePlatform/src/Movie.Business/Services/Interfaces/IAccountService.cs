@@ -7,6 +7,6 @@ namespace Movie.Business.Services.Interfaces
 	{
 		Task LoginAsync(LoginVM model);
 		Task LogoutAsync();
-		Task<IdentityResult> RegisterAsync(RegisterVM model);
+		Task<ConfirmationVM> RegisterAsync(RegisterVM model);
 	}
 }

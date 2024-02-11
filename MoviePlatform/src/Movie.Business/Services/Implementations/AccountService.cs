@@ -1,12 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Routing;
+﻿using Microsoft.AspNetCore.Identity;
 using Movie.Business.CustomExceptions.UserException;
 using Movie.Business.Services.Interfaces;
 using Movie.Business.ViewModels;
 using Movie.Core.Models;
-using System;
 
 namespace Movie.Business.Services.Implementations
 {
@@ -56,7 +52,7 @@ namespace Movie.Business.Services.Implementations
             await _signInManager.SignOutAsync();
         }
 
-        public async Task<IdentityResult> RegisterAsync(RegisterVM model)
+        public async Task<ConfirmationVM> RegisterAsync(RegisterVM model)
         {
             if (!model.Privacy)
                 throw new UnacceptablePrivacyException("Please accept the agreement to complete registration.");
@@ -85,15 +81,12 @@ namespace Movie.Business.Services.Implementations
             {
                 throw new UnexceptedException(result.Errors?.FirstOrDefault()?.Description);
             }
-            else
-            {
-
-            }
-            //var urlHelper = new UrlHelper(HttpContext.Current.Request.RequestContext);
 
             await _userManager.AddToRoleAsync(newUser, "User");
-            //await _signInManager.PasswordSignInAsync(newUser, model.Password, model.RememberMe, true);
-            return result;
+
+            var token = await _userManager.GenerateEmailConfirmationTokenAsync(newUser);
+            var email = newUser.Email;
+            return new ConfirmationVM() { Token = token, Email = email };
         }
     }
 }

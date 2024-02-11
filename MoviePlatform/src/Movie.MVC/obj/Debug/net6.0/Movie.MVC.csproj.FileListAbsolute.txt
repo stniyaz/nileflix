@@ -263,6 +263,7 @@ C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\bin\Debug\net6.0\Micr
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
-C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\bin\Debug\net6.0\SendGrid.dll
-C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\bin\Debug\net6.0\SendGrid.Extensions.DependencyInjection.dll
-C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\bin\Debug\net6.0\StarkbankEcdsa.dll
+C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\bin\Debug\net6.0\MailKit.dll
+C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\bin\Debug\net6.0\MimeKit.dll
+C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\bin\Debug\net6.0\NETCore.MailKit.dll
+C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\bin\Debug\net6.0\BouncyCastle.Crypto.dll

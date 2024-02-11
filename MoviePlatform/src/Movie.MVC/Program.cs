@@ -27,7 +27,7 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
 
 
 builder.Services.AddRepositories();
-builder.Services.AddServices();
+builder.Services.AddServices(builder);
 
 var app = builder.Build();
 
