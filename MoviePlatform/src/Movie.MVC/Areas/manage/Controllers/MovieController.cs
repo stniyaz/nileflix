@@ -35,42 +35,18 @@ namespace Movie.MVC.Areas.manage.Controllers
             _mapper = mapper;
             _movieImageService = movieImageService;
         }
-        public async Task<IActionResult> Index(int? sortBy, string? search, string page = "1")
+        public async Task<IActionResult> Index(string? search)
         {
             try
             {
-                string? sortByValue = string.Empty;
-                string? refererUrl = HttpContext.Request.Headers["Referer"];
-                if (refererUrl != null)
-                {
-                    Uri? uri = new Uri(refererUrl);
-                    sortByValue = System.Web.HttpUtility.ParseQueryString(uri.Query)?.Get("sortBy");
-                    search = System.Web.HttpUtility.ParseQueryString(uri.Query)?.Get("search")
-                          ?? search;
-                    //page = System.Web.HttpUtility.ParseQueryString(uri.Query)?.Get("page")
-                    //    ?? page;
-                }
-                if (int.TryParse(sortByValue, out int intSort))
-                {
-                    sortBy = intSort;
-                }
-
                 MovieIndexVM model = new MovieIndexVM
                 {
                     MovieGenres = await _movieGenreService.GetAllAsync(null, "Genre"),
-                    PaginatedMovies = _movieService.SortByAsync(sortBy, search, page)
+                    Movies = await _movieService.SearchByAsync(search)
                 };
                 return View(model);
             }
             catch (InvalidSearchException)
-            {
-                return NotFound();
-            }
-            catch (InvalidSortByIdException)
-            {
-                return NotFound();
-            }
-            catch (InvalidPageException)
             {
                 return NotFound();
             }

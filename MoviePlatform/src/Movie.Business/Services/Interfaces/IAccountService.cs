@@ -12,5 +12,10 @@ namespace Movie.Business.Services.Interfaces
         Task<List<AppUser>> GetExpiredTokenUserAsync();
         Task DeleteUserAsync(AppUser user);
         Task DeleteUsersAsync(List<AppUser> users);
+        Task DeleteByNameAsync(string name);
+        Task<List<IdentityRole>> GetRolesAsync();
+        Task<AppUser> GetUserByNameAsync(string username);
+        Task<List<AppUser>> SearchByUsersAsync(string? search);
+        Task<List<AppUser>> SearchByModsAsync(string? search);
     }
 }

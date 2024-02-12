@@ -1,6 +1,4 @@
 ﻿using Movie.Business.DTOs.MovieDTOs;
-using Movie.Business.Helpers.Pagination;
-using Movie.Core.Models;
 using System.Linq.Expressions;
 
 namespace Movie.Business.Services.Interfaces
@@ -13,7 +11,7 @@ namespace Movie.Business.Services.Interfaces
         Task HardDeleteAsync(int id);
 
         Task<List<Core.Models.Movie>> GetAllIncludesAsync();
-        PaginatedList<Core.Models.Movie> SortByAsync(int? sortBy, string? search, string page);
+        Task<List<Core.Models.Movie>> SearchByAsync(string? search);
 
         Task<Core.Models.Movie> GetAsync(Expression<Func<Core.Models.Movie, bool>>? expression = null, params string[]? includes);
         Task<List<Core.Models.Movie>> GetAllAsync(Expression<Func<Core.Models.Movie, bool>>? expression = null, params string[]? includes);

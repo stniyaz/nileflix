@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Movie.Business.CustomExceptions.CommonExceptions;
 using Movie.Business.CustomExceptions.UserException;
 using Movie.Business.Services.Interfaces;
 using Movie.Business.ViewModels;
@@ -11,13 +12,17 @@ namespace Movie.Business.Services.Implementations
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
+
         public AccountService(UserManager<AppUser> userManager,
-                              SignInManager<AppUser> signInManager)
+                              SignInManager<AppUser> signInManager,
+                              RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _roleManager = roleManager;
         }
-        string loginFailMessage = "Sorry, login failed. Please double check your credentials";
+        string loginFailMessage = "Sorry, login failed. Please note that if there are too many incorrect attempts, your account will be temporarily blocked.";
         public async Task LoginAsync(LoginVM model)
         {
             AppUser? user = null;
@@ -27,20 +32,21 @@ namespace Movie.Business.Services.Implementations
 
             if (user is null)
                 throw new UserInvalidCredentialsException(loginFailMessage);
-            if (user.IsBanned) throw new BannedUserException("Your account has been permanently banned. If you think there is an error, please contact us.");
+
 
             if (await _userManager.CheckPasswordAsync(user, model.Password) &&
-                user.LockoutEnd >= DateTime.UtcNow.AddHours(4))
+                user.IsBanned)
             {
-                DateTime lastDate = user.LockoutEnd.Value.DateTime;
-                throw new LockedUserException($"For safety reasons, your account has been suspended until {lastDate}. We apologize for the temporary inconvenience.");
+                throw new BannedUserException("Your account has been permanently banned. If you think there is an error, please contact us.");
             }
-            else if (await _userManager.CheckPasswordAsync(user, model.Password) &&
-                user.LockoutEnd < DateTime.UtcNow.AddHours(4))
+
+            if (await _userManager.CheckPasswordAsync(user, model.Password) &&
+                user.LockoutEnd <= DateTime.UtcNow.AddHours(4))
             {
                 user.LockoutEnd = null;
                 await _userManager.UpdateAsync(user);
             }
+
             var result = await _signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, true);
             string messages = string.Empty;
 
@@ -121,5 +127,53 @@ namespace Movie.Business.Services.Implementations
                 }
             }
         }
+
+        public async Task<List<AppUser>> SearchByUsersAsync(string? search)
+        {
+            return await GetByRoleAsync(search, "user");
+        }
+
+        public async Task<List<AppUser>> SearchByModsAsync(string? search)
+        {
+            return await GetByRoleAsync(search, "moderator");
+        }
+
+        public async Task DeleteByNameAsync(string name)
+        {
+            var wantedUser = await _userManager.FindByNameAsync(name);
+            if (wantedUser is null)
+                throw new UserNotFoundException();
+
+            await _userManager.DeleteAsync(wantedUser);
+        }
+
+        public async Task<List<IdentityRole>> GetRolesAsync()
+        {
+            return await _roleManager.Roles.Where(x => x.Name != "Admin").ToListAsync();
+        }
+
+        public async Task<AppUser> GetUserByNameAsync(string username)
+        {
+            return await _userManager.FindByNameAsync(username);
+        }
+
+
+        private async Task<List<AppUser>> GetByRoleAsync(string? search, string role)
+        {
+            var users = await _userManager.GetUsersInRoleAsync(role);
+            if (!string.IsNullOrEmpty(search))
+            {
+                if (search.Length >= 2)
+                    users = users.Where(x => x.UserName.Trim().ToLower().Contains(search.Trim())
+                                          || x.Email.Trim().ToLower().Contains(search.Trim())
+                                          || x.FirstName.Trim().ToLower().Contains(search.Trim())
+                                          || x.LastName.Trim().ToLower().Contains(search.Trim()))
+                                          .ToList();
+                else
+                    throw new InvalidSearchException();
+            }
+            return users.ToList();
+        }
+
     }
 }

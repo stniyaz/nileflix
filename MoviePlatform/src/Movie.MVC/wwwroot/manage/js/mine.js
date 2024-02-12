@@ -1,4 +1,6 @@
-﻿var btns = document.querySelectorAll(".delete-btn");
+﻿// genre
+
+var btns = document.querySelectorAll(".delete-btn");
 
 btns.forEach(btn => btn.addEventListener("click", function (e) {
 	e.preventDefault();
@@ -56,3 +58,32 @@ movieBtns.forEach(btn => btn.addEventListener("click", function (e) {
 
 }))
 
+// user
+
+var userBtns = document.querySelectorAll(".delete-btn-user");
+
+userBtns.forEach(userbtn => userbtn.addEventListener("click", function (e) {
+	e.preventDefault();
+	let url = userbtn.getAttribute("href");
+
+	Swal.fire({
+		title: "Are you sure?",
+		text: "The movie will be deleted. This action cannot be undone.",
+		icon: "warning",
+		showCancelButton: true,
+		confirmButtonColor: "#014709",
+		cancelButtonColor: "#8b0000",
+		confirmButtonText: "Yes, delete it!",
+		background: '#151f30',
+
+	}).then((result) => {
+		if (result.isConfirmed) {
+			fetch(url)
+				.then(response => {
+					if (response.status == 200)
+						window.location.reload(true);
+				})
+		}
+	});
+
+}))

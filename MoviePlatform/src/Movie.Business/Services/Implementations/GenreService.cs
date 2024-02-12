@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using Movie.Business.CustomExceptions.CommonExceptions;
 using Movie.Business.CustomExceptions.GenreExceptions;
 using Movie.Business.DTOs.GenreDTOs;
-using Movie.Business.Helpers.Pagination;
 using Movie.Business.Services.Interfaces;
 using Movie.Core.Models;
 using Movie.Core.Repositories;
@@ -73,19 +72,9 @@ namespace Movie.Business.Services.Implementations
             await _genreRepository.CommitAsync();
         }
 
-        public PaginatedList<Genre> SortBy(int? sortBy, string? search, string page)
+        public async Task<List<Genre>> SearchByAsync(string? search)
         {
             var genres = _genreRepository.GetAllAsync();
-
-            int pageNumber;
-            if (int.TryParse(page, out pageNumber))
-            {
-                if (pageNumber <= 0) throw new InvalidPageException();
-            }
-            else
-            {
-                throw new InvalidPageException();
-            }
 
             if (!string.IsNullOrEmpty(search))
             {
@@ -95,28 +84,7 @@ namespace Movie.Business.Services.Implementations
                     throw new InvalidSearchException();
             }
 
-            if (sortBy is not null)
-            {
-                switch (sortBy)
-                {
-                    case 1:
-                        genres = genres.OrderByDescending(x => x.CreatedDate);
-                        break;
-                    case 2:
-                        genres = genres.OrderBy(x => x.Name);
-                        break;
-                    default:
-                        throw new InvalidSortByIdException();
-                }
-            }
-
-            int totalDataCount = genres.Count();
-            var paginated = Helpers.Pagination.PaginatedList<Genre>.Create(genres, pageNumber, 5);
-            paginated.TotalDataCount = totalDataCount;
-            if (pageNumber > paginated.TotalPageCount && paginated.TotalPageCount != 0)
-                throw new InvalidPageException();
-
-            return paginated;
+            return await genres.ToListAsync();
         }
 
         public async Task UpdateAsync(GenreUpdateDTO dto)

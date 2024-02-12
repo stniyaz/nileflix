@@ -26,6 +26,11 @@ namespace Movie.MVC.Areas.manage.Controllers
             {
                 await _accountService.LoginAsync(model);
             }
+            catch (BannedUserException ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return View(model);
+            }
             catch (LockedUserException ex)
             {
                 ModelState.AddModelError(string.Empty, ex.Message);

@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using Movie.Business.CustomExceptions.CommonExceptions;
 using Movie.Business.CustomExceptions.GenreExceptions;
 using Movie.Business.DTOs.GenreDTOs;
-using Movie.Business.Helpers.Pagination;
 using Movie.Business.Services.Interfaces;
 using Movie.Core.Models;
 
@@ -26,25 +25,15 @@ namespace Movie.MVC.Areas.manage.Controllers
             _mapper = mapper;
             _movieGenreService = movieGenreService;
         }
-        public async Task<IActionResult> Index(int? sortBy, string? search, string page = "1")
+        public async Task<IActionResult> Index(string? search)
         {
             try
             {
-                PaginatedList<Genre> genres = _genreService.SortBy(sortBy, search, page)
-                     /* ?? await _genreService.GetAllAsync()*/;
-                ViewBag.Movies = await _movieGenreService.GetAllAsync();
-
+                ViewBag.Movies = await _movieGenreService.GetAllIncludesAsync();
+                var genres = await _genreService.SearchByAsync(search);
                 return View(genres);
             }
             catch (InvalidSearchException)
-            {
-                return NotFound();
-            }
-            catch (InvalidSortByIdException)
-            {
-                return NotFound();
-            }
-            catch (InvalidPageException)
             {
                 return NotFound();
             }
