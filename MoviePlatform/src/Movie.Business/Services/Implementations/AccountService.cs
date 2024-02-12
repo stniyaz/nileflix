@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Movie.Business.CustomExceptions.UserException;
 using Movie.Business.Services.Interfaces;
 using Movie.Business.ViewModels;
@@ -60,19 +61,19 @@ namespace Movie.Business.Services.Implementations
             AppUser user = null;
 
             // check
-            user = await _userManager.FindByNameAsync(model.UserName);
+            user = await _userManager.FindByNameAsync(model.UserName.Trim());
             if (user is not null)
                 throw new ExistUsernameException("UserName", "This username is already taken. Please enter another username.");
-            user = await _userManager.FindByEmailAsync(model.Email);
+            user = await _userManager.FindByEmailAsync(model.Email.Trim());
             if (user is not null)
                 throw new ExistEmailException("Email", "This email address is already taken. Please enter another e-mail address.");
             // create user
             AppUser newUser = new AppUser
             {
-                UserName = model.UserName,
-                Email = model.Email,
-                FirstName = model.FirstName,
-                LastName = model.LastName,
+                UserName = model.UserName.Trim(),
+                Email = model.Email.Trim(),
+                FirstName = model.FirstName.Trim(),
+                LastName = model.LastName.Trim(),
                 CreatedDate = DateTime.UtcNow.AddHours(4)
             };
 
@@ -87,6 +88,38 @@ namespace Movie.Business.Services.Implementations
             var token = await _userManager.GenerateEmailConfirmationTokenAsync(newUser);
             var email = newUser.Email;
             return new ConfirmationVM() { Token = token, Email = email };
+        }
+
+        public async Task<List<AppUser>> GetExpiredTokenUserAsync()
+        {
+            var now = DateTime.UtcNow.AddHours(4);
+            return await _userManager.Users.Where(
+                              x => now > (x.CreatedDate.AddMinutes(15)) &&
+                              x.EmailConfirmed == false).ToListAsync();
+        }
+
+        public async Task DeleteUserAsync(AppUser user)
+        {
+            var wantedUser = await _userManager.FindByIdAsync(user.Id);
+            if (wantedUser != null)
+            {
+                await _userManager.DeleteAsync(wantedUser);
+            }
+        }
+
+        public async Task DeleteUsersAsync(List<AppUser> users)
+        {
+            if (users is not null && users.Count > 0)
+            {
+                foreach (var userId in users.Select(u => u.Id))
+                {
+                    var wantedUser = await _userManager.FindByIdAsync(userId);
+                    if (wantedUser is not null)
+                    {
+                        await _userManager.DeleteAsync(wantedUser);
+                    }
+                }
+            }
         }
     }
 }

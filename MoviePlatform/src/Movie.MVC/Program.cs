@@ -30,7 +30,7 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
 builder.Services.AddHangfire(x =>
 {
     x.UseSqlServerStorage(builder.Configuration.GetConnectionString("hangfireDb"));
-    RecurringJob.AddOrUpdate<CleanupTokenJob>(c => c.Cleanup(), "*/30 * * * *");
+    RecurringJob.AddOrUpdate<CleanupTokenJob>(c => c.Cleanup(), "*/15 * * * *");
 });
 
 builder.Services.AddHangfireServer();
