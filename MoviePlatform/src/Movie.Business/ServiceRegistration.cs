@@ -35,14 +35,16 @@ namespace Movie.Business
                 opt.Lockout.MaxFailedAccessAttempts = 10;
                 opt.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(241);
             });
+
             var emailConfig = builder.Configuration.GetSection("EmailConfirmation")
                                                    .Get<EmailConfiguration>();
             builder.Services.AddSingleton(emailConfig);
 
             services.Configure<DataProtectionTokenProviderOptions>(opt =>
             {
-                opt.TokenLifespan = TimeSpan.FromMinutes(255);
+                opt.TokenLifespan = TimeSpan.FromMinutes(15);
             });
+
         }
     }
 }

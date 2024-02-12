@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Http.Extensions;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Abstractions;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
-using Microsoft.AspNetCore.Razor.TagHelpers;
+﻿using Microsoft.AspNetCore.Mvc;
 using Movie.Business.CustomExceptions.UserException;
 using Movie.Business.Helpers.Mail;
 using Movie.Business.Services.Interfaces;
@@ -108,11 +104,11 @@ namespace Movie.MVC.Controllers
             }
             catch (UnsuccessfulConfirmationException)
             {
-                Ok("Something went wrong.");
+                return Ok("Something went wrong.");
             }
             catch (UnexceptedException)
             {
-                Ok("Something went wrong.");
+                return Ok("Something went wrong.");
             }
             catch (Exception)
             {

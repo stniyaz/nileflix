@@ -1,9 +1,11 @@
+using Hangfire;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Movie.Business;
 using Movie.Core.Models;
 using Movie.Data;
 using Movie.Data.DAL;
+using Movie.Business.Jobs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +27,13 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
     opt.User.RequireUniqueEmail = true;
 }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 
+builder.Services.AddHangfire(x =>
+{
+    x.UseSqlServerStorage(builder.Configuration.GetConnectionString("hangfireDb"));
+    RecurringJob.AddOrUpdate<CleanupTokenJob>(c => c.Cleanup(), "*/30 * * * *");
+});
+
+builder.Services.AddHangfireServer();
 
 builder.Services.AddRepositories();
 builder.Services.AddServices(builder);
@@ -38,7 +47,7 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseStatusCodePagesWithReExecute("/Error/Error", "?code={0}");
-
+app.UseHangfireDashboard("/myHangfire");
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(

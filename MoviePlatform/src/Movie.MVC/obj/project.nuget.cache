@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Hl6T/Dl6oNijTK7yKoqcj/PmQcPpZKAH+fprz3jXykc4OXy+ZJrkQ/7HcGzRKzCjc5qnTFNLtLXHSZE98yrLBg==",
+  "dgSpecHash": "4Q3KM+8nDTwypdPGt6Dd36DGCRBtKmM3DI/XPSD787KLxAXL6eSRHw1Ckqkc+qH3lqzBHOu2ZBiNkuc4uyqExQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\Movie.MVC.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,10 @@
     "C:\\Users\\Admin\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\hangfire.aspnetcore\\1.8.9\\hangfire.aspnetcore.1.8.9.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\hangfire.core\\1.8.9\\hangfire.core.1.8.9.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\hangfire.netcore\\1.8.9\\hangfire.netcore.1.8.9.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\hangfire.sqlserver\\1.8.9\\hangfire.sqlserver.1.8.9.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",
@@ -97,6 +101,8 @@
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.1\\microsoft.extensions.dependencyinjection.6.0.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\3.0.0\\microsoft.extensions.fileproviders.abstractions.3.0.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\3.0.0\\microsoft.extensions.hosting.abstractions.3.0.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.identity.core\\6.0.26\\microsoft.extensions.identity.core.6.0.26.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.identity.stores\\6.0.26\\microsoft.extensions.identity.stores.6.0.26.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.logging\\6.0.0\\microsoft.extensions.logging.6.0.0.nupkg.sha512",
