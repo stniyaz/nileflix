@@ -279,9 +279,9 @@ C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\obj\Debug\net6.0\stat
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Movie.MVC.props
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\obj\Debug\net6.0\staticwebassets.pack.json
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\obj\Debug\net6.0\scopedcss\bundle\Movie.MVC.styles.css
+C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\obj\Debug\net6.0\Movie.MVC.csproj.Up2Date
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\obj\Debug\net6.0\Movie.MVC.dll
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\obj\Debug\net6.0\refint\Movie.MVC.dll
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\obj\Debug\net6.0\Movie.MVC.pdb
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\obj\Debug\net6.0\Movie.MVC.genruntimeconfig.cache
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\obj\Debug\net6.0\ref\Movie.MVC.dll
-C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\obj\Debug\net6.0\Movie.MVC.csproj.Up2Date

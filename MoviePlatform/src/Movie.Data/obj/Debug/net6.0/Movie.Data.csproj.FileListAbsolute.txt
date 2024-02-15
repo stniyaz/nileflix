@@ -10,9 +10,9 @@ C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Data\obj\Debug\net6.0\Mov
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Data\obj\Debug\net6.0\Movie.Data.AssemblyInfo.cs
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Data\obj\Debug\net6.0\Movie.Data.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Data\obj\Debug\net6.0\Movie.Data.sourcelink.json
+C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Data\obj\Debug\net6.0\Movie.Data.csproj.Up2Date
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Data\obj\Debug\net6.0\Movie.Data.dll
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Data\obj\Debug\net6.0\refint\Movie.Data.dll
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Data\obj\Debug\net6.0\Movie.Data.pdb
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Data\obj\Debug\net6.0\Movie.Data.genruntimeconfig.cache
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Data\obj\Debug\net6.0\ref\Movie.Data.dll
-C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Data\obj\Debug\net6.0\Movie.Data.csproj.Up2Date

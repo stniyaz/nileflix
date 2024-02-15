@@ -150,8 +150,8 @@ namespace Movie.Business.Services.Implementations
             if (!string.IsNullOrEmpty(search))
             {
                 if (search.Length >= 2)
-                    movies = movies.Where(x => x.Title.Trim().ToLower().Contains(search.Trim())
-                                            && x.Description.Trim().ToLower().Contains(search.Trim()));
+                    movies = movies.Where(x => x.Title.Trim().ToLower().Contains(search.Trim().ToLower())
+                                            || x.Description.Trim().ToLower().Contains(search.Trim().ToLower()));
                 else
                     throw new InvalidSearchException();
             }
