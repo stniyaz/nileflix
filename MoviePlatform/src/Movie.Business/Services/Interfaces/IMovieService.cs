@@ -9,8 +9,10 @@ namespace Movie.Business.Services.Interfaces
         Task SoftDeleteAsync(int id);
         Task UpdateAsync(MovieUpdateDTO dto);
         Task HardDeleteAsync(int id);
+        Task<Core.Models.Movie> GetMovieWithAllIncludes(int id);
 
-        Task<List<Core.Models.Movie>> GetAllIncludesAsync();
+        Task<bool> CheckVideoAndUser(int id, string username);
+        Task<List<Core.Models.Movie>> GetAllHome(int? genreId, string? search);
         Task<List<Core.Models.Movie>> SearchByAsync(string? search);
 
         Task<Core.Models.Movie> GetAsync(Expression<Func<Core.Models.Movie, bool>>? expression = null, params string[]? includes);

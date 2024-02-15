@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Movie.Business.DTOs.UserDTOs;
 using Movie.Business.ViewModels;
 using Movie.Core.Models;
 
@@ -15,7 +16,9 @@ namespace Movie.Business.Services.Interfaces
         Task DeleteByNameAsync(string name);
         Task<List<IdentityRole>> GetRolesAsync();
         Task<AppUser> GetUserByNameAsync(string username);
+        Task<string> GetUserRoleAsync(string id);
         Task<List<AppUser>> SearchByUsersAsync(string? search);
         Task<List<AppUser>> SearchByModsAsync(string? search);
+        Task UpdateAsync(UserUpdateDTO dto);
     }
 }

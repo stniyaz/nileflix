@@ -11,8 +11,8 @@ C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\obj\Debug\net6.0
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\obj\Debug\net6.0\Movie.Business.AssemblyInfo.cs
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\obj\Debug\net6.0\Movie.Business.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\obj\Debug\net6.0\Movie.Business.sourcelink.json
-C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\obj\Debug\net6.0\Movie.Business.csproj.CopyComplete
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\obj\Debug\net6.0\Movie.Business.dll
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\obj\Debug\net6.0\refint\Movie.Business.dll
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\obj\Debug\net6.0\Movie.Business.pdb
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\obj\Debug\net6.0\ref\Movie.Business.dll
+C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\obj\Debug\net6.0\Movie.Bu.DE5B11FE.Up2Date

@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Movie.Business.CustomExceptions.CommonExceptions;
 using Movie.Business.CustomExceptions.UserException;
+using Movie.Business.DTOs.UserDTOs;
 using Movie.Business.Services.Interfaces;
 using Movie.Business.ViewModels;
 using Movie.Core.Models;
@@ -13,16 +15,21 @@ namespace Movie.Business.Services.Implementations
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IMapper _mapper;
 
         public AccountService(UserManager<AppUser> userManager,
                               SignInManager<AppUser> signInManager,
-                              RoleManager<IdentityRole> roleManager)
+                              RoleManager<IdentityRole> roleManager,
+                              IMapper mapper)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
+            _mapper = mapper;
         }
-        string loginFailMessage = "Sorry, login failed. Please note that if there are too many incorrect attempts, your account will be temporarily blocked.";
+        private string loginFailMessage = "Sorry, login failed. Please note that if there are too many incorrect attempts, your account will be temporarily blocked.";
+        private string existMailMessage = "This email address is already taken. Please enter another e-mail address.";
+        private string existUsernameMessage = "This username is already taken. Please enter another username.";
         public async Task LoginAsync(LoginVM model)
         {
             AppUser? user = null;
@@ -64,15 +71,15 @@ namespace Movie.Business.Services.Implementations
             if (!model.Privacy)
                 throw new UnacceptablePrivacyException("Please accept the agreement to complete registration.");
 
-            AppUser user = null;
+            AppUser? user = null;
 
             // check
             user = await _userManager.FindByNameAsync(model.UserName.Trim());
             if (user is not null)
-                throw new ExistUsernameException("UserName", "This username is already taken. Please enter another username.");
+                throw new ExistUsernameException("UserName", existUsernameMessage);
             user = await _userManager.FindByEmailAsync(model.Email.Trim());
             if (user is not null)
-                throw new ExistEmailException("Email", "This email address is already taken. Please enter another e-mail address.");
+                throw new ExistEmailException("Email", existMailMessage);
             // create user
             AppUser newUser = new AppUser
             {
@@ -155,6 +162,58 @@ namespace Movie.Business.Services.Implementations
         public async Task<AppUser> GetUserByNameAsync(string username)
         {
             return await _userManager.FindByNameAsync(username);
+        }
+
+        public async Task<string> GetUserRoleAsync(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            var roles = await _userManager.GetRolesAsync(user);
+            var role = await _roleManager.FindByNameAsync(roles.FirstOrDefault());
+            return role.Id;
+        }
+
+        public async Task UpdateAsync(UserUpdateDTO dto)
+        {
+            // check
+            var existUser = await _userManager.FindByIdAsync(dto.Id);
+            if (existUser is null)
+                throw new UserNotFoundException();
+
+            if (_userManager.Users.Any(x => x.Email == dto.Email.Trim() &&
+                                            x.Id != dto.Id))
+                throw new ExistEmailException("Email", existMailMessage);
+
+            if (_userManager.Users.Any(x => x.UserName == dto.UserName.Trim() &&
+                                            x.Id != dto.Id))
+                throw new ExistUsernameException("UserName", existUsernameMessage);
+
+            var role = await _roleManager.FindByIdAsync(dto.RoleId);
+            if (role is null)
+                throw new InvalidRoleIdException("RoleId", "Role not found.");
+
+            // remove role
+            var userRoles = await _userManager.GetRolesAsync(existUser);
+            await _userManager.RemoveFromRolesAsync(existUser, userRoles);
+
+            // add role
+            await _userManager.AddToRoleAsync(existUser, role.Name);
+
+            // trim string properties
+            foreach (var property in dto.GetType().GetProperties())
+            {
+                if (property.PropertyType == typeof(string))
+                {
+                    var value = (string)property.GetValue(dto);
+                    if (value != null)
+                    {
+                        value = value.Trim();
+                        property.SetValue(dto, value);
+                    }
+                }
+            }
+            // map and update
+            existUser = _mapper.Map(dto, existUser);
+            var result = await _userManager.UpdateAsync(existUser);
         }
 
 

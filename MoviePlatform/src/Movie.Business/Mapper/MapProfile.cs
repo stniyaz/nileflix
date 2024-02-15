@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Movie.Business.DTOs.GenreDTOs;
 using Movie.Business.DTOs.MovieDTOs;
+using Movie.Business.DTOs.UserDTOs;
 using Movie.Core.Models;
 
 namespace Movie.Business.Mapper
@@ -14,6 +15,8 @@ namespace Movie.Business.Mapper
 
             CreateMap<Core.Models.Movie, MovieCreateDTO>().ReverseMap();
             CreateMap<Core.Models.Movie, MovieUpdateDTO>().ReverseMap();
+
+            CreateMap<AppUser, UserUpdateDTO>().ReverseMap();
         }
     }
 }

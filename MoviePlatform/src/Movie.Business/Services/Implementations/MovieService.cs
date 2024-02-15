@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Movie.Business.CustomExceptions.CommonExceptions;
 using Movie.Business.CustomExceptions.MoiveExceptions;
+using Movie.Business.CustomExceptions.UserException;
 using Movie.Business.DTOs.MovieDTOs;
 using Movie.Business.Services.Interfaces;
 using Movie.Core.Models;
@@ -21,6 +22,7 @@ namespace Movie.Business.Services.Implementations
         private readonly IWebHostEnvironment _env;
         private readonly IMovieImageRepository _movieImageRepository;
         private readonly IMovieGenreRepository _movieGenreRepository;
+        private readonly IAccountService _accountService;
         private string imagePath = "uploads/movieImages";
         private string videoPath = "uploads/movieVideos";
         public MovieService(IMovieRepository movieRepository,
@@ -29,7 +31,8 @@ namespace Movie.Business.Services.Implementations
                             IMapper mapper,
                             IWebHostEnvironment env,
                             IMovieImageRepository movieImageRepository,
-                            IMovieGenreRepository movieGenreRepository)
+                            IMovieGenreRepository movieGenreRepository,
+                            IAccountService accountService)
         {
             _movieRepository = movieRepository;
             _countryRepository = countryRepository;
@@ -38,6 +41,7 @@ namespace Movie.Business.Services.Implementations
             _env = env;
             _movieImageRepository = movieImageRepository;
             _movieGenreRepository = movieGenreRepository;
+            _accountService = accountService;
         }
         public async Task CreateAsync(MovieCreateDTO dto)
         {
@@ -131,9 +135,28 @@ namespace Movie.Business.Services.Implementations
             return await _movieRepository.GetAllAsync(expression, includes).ToListAsync();
         }
 
-        public async Task<List<Core.Models.Movie>> GetAllIncludesAsync()
+        public async Task<List<Core.Models.Movie>> GetAllHome(int? genreId, string? search)
         {
-            return await _movieRepository.GetAllAsync(null, "MovieImages", "MovieGenres").ToListAsync();
+            var movies = _movieRepository.GetAllAsync(x => x.IsDeleted == false, "MovieImages", "MovieGenres");
+
+            if (genreId is not null && genreId != 0)
+            {
+                var genres = _genreRepository.GetAllAsync();
+                if (!genres.Any(x => x.Id == genreId))
+                    throw new InvalidGenreIdException();
+                movies = movies.Where(x => x.MovieGenres.Where(x => x.GenreId == genreId).Any());
+            }
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                if (search.Length >= 2)
+                    movies = movies.Where(x => x.Title.Trim().ToLower().Contains(search.Trim())
+                                            && x.Description.Trim().ToLower().Contains(search.Trim()));
+                else
+                    throw new InvalidSearchException();
+            }
+
+            return await movies.ToListAsync();
         }
 
         public async Task<Core.Models.Movie> GetAsync(Expression<Func<Core.Models.Movie, bool>>? expression = null, params string[]? includes)
@@ -297,7 +320,26 @@ namespace Movie.Business.Services.Implementations
             await _movieRepository.CommitAsync();
         }
 
+        public async Task<bool> CheckVideoAndUser(int id, string username)
+        {
+            var movie = await _movieRepository.GetAsync(x => x.Id == id, "MovieImages", "MovieGenres");
+            if (movie is null)
+                throw new MovieNotFoundException();
 
+            var user = await _accountService.GetUserByNameAsync(username);
+
+            if (user is null)
+                throw new UserNotFoundException();
+
+            var check = user.IsPremium;
+
+            return check;
+        }
+
+        public async Task<Core.Models.Movie> GetMovieWithAllIncludes(int id)
+        {
+            return await _movieRepository.GetAsync(x => x.Id == id, "MovieImages", "MovieGenres");
+        }
 
 
         // Methods
@@ -317,5 +359,7 @@ namespace Movie.Business.Services.Implementations
                videoFile.ContentType != "video/3gpp")
                 throw new MovieVideoContentTypeException(propertyName, "Please only upload video in avi, mp4, mpeg or 3gp format.");
         }
+
+
     }
 }

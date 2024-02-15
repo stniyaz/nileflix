@@ -86,7 +86,7 @@
                                         <td>
                                             @{
                                                 var genres = Model.MovieGenres.Where(mg => movie.Id ==
-                                                mg.MovieId).ToList();
+                                                mg.MovieId).OrderBy(x=> x.Genre.Name).ToList();
                                                 var genreNames = string.Empty;
                                                 for (int i = 0; i < genres.Count; i++)
                                                 {

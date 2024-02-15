@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Movie.Business.CustomExceptions.CommonExceptions;
+using Movie.Business.CustomExceptions.MoiveExceptions;
 using Movie.Business.Services.Interfaces;
 using Movie.MVC.ViewModels;
 
@@ -18,15 +20,32 @@ namespace Movie.MVC.Controllers
             _genreService = genreService;
             _movieGenreService = movieGenreService;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? search, int? genreId = 0)
         {
-            HomeVM model = new HomeVM
+            try
             {
-                Movies = await _movieService.GetAllIncludesAsync(),
-                Genres = await _genreService.GetAllAsync(),
-                MovieGenres = await _movieGenreService.GetAllIncludesAsync(),
-            };
-            return View(model);
+                ViewBag.Search = search;
+                HomeVM model = new HomeVM
+                {
+                    Movies = await _movieService.GetAllHome(genreId, search),
+                    Genres = await _genreService.GetAllAsync(),
+                    MovieGenres = await _movieGenreService.GetAllIncludesAsync(),
+                    GenreId = genreId,
+                };
+                return View(model);
+            }
+            catch (InvalidGenreIdException)
+            {
+                return NotFound();
+            }
+            catch (InvalidSearchException)
+            {
+                return NotFound();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }
