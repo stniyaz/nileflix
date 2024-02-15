@@ -102,19 +102,24 @@ namespace Movie.MVC.Controllers
             {
                 await _emailService.CheckConfirmationAsync(token, email);
             }
-            catch (UnsuccessfulConfirmationException)
+            catch (UnsuccessfulConfirmationException ex)
             {
-                return Ok("Something went wrong.");
+                return Ok(ex.Message);
             }
-            catch (UnexceptedException)
+            catch (UserNotFoundException)
             {
-                return Ok("Something went wrong.");
+                return NotFound();
             }
             catch (Exception)
             {
                 throw;
             }
-            return Ok("Your account has been successfully activated.");
+            return RedirectToAction("index", "home");
+        }
+        public async Task<IActionResult> LogOut()
+        {
+            await _accountService.LogoutAsync();
+            return RedirectToAction(nameof(SignIn));
         }
     }
 }

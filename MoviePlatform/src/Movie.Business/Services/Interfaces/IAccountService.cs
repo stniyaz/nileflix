@@ -20,5 +20,7 @@ namespace Movie.Business.Services.Interfaces
         Task<List<AppUser>> SearchByUsersAsync(string? search);
         Task<List<AppUser>> SearchByModsAsync(string? search);
         Task UpdateAsync(UserUpdateDTO dto);
+        Task<ChangeMailVM> UserEditAsync(UserEditDTO dto);
+        Task ChangePasswordAsync(string username, ChangePasswordVM model);
     }
 }

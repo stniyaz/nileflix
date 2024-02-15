@@ -21,7 +21,7 @@ namespace Movie.Business
             services.AddScoped<IMovieGenreService, MovieGenreService>();
             services.AddScoped<IMovieImageService, MovieImageService>();
             services.AddScoped<IAccountService, AccountService>();
-            services.AddScoped<ManageLayoutService>();
+            services.AddScoped<LayoutService>();
             services.AddScoped<IEmailService, EmailService>();
             services.AddScoped<UserEditService>();
 

@@ -216,6 +216,64 @@ namespace Movie.Business.Services.Implementations
             var result = await _userManager.UpdateAsync(existUser);
         }
 
+        public async Task ChangePasswordAsync(string username, ChangePasswordVM model)
+        {
+            var user = await _userManager.FindByNameAsync(username);
+            if (user is null)
+                throw new UserNotFoundException();
+
+            var check = await _userManager.CheckPasswordAsync(user, model.OldPassword);
+
+            if (!check) throw new UserInvalidCredentialsException("OldPassword", "The current password is incorrect.");
+
+            var result = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
+            if (!result.Succeeded)
+                throw new UnexceptedException(result.Errors.FirstOrDefault().Description);
+
+        }
+
+        public async Task<ChangeMailVM> UserEditAsync(UserEditDTO dto)
+        {
+            var existUser = await _userManager.FindByIdAsync(dto.Id);
+            if (existUser is null)
+                throw new UserNotFoundException();
+
+            if (_userManager.Users.Any(x => x.Email == dto.Email.Trim() &&
+                                            x.Id != dto.Id))
+                throw new ExistEmailException("Email", existMailMessage);
+
+            if (_userManager.Users.Any(x => x.UserName == dto.UserName.Trim() &&
+                                            x.Id != dto.Id))
+                throw new ExistUsernameException("UserName", existUsernameMessage);
+
+            // trim string properties
+            foreach (var property in dto.GetType().GetProperties())
+            {
+                if (property.PropertyType == typeof(string))
+                {
+                    var value = (string)property.GetValue(dto);
+                    if (value != null)
+                    {
+                        value = value.Trim();
+                        property.SetValue(dto, value);
+                    }
+                }
+            }
+
+            existUser.UserName = dto.UserName;
+            existUser.FirstName = dto.FirstName;
+            existUser.LastName = dto.LastName;
+            existUser.UpdatedDate = DateTime.UtcNow.AddHours(4);
+            await _userManager.UpdateAsync(existUser);
+            await _signInManager.SignInAsync(existUser, isPersistent: true);
+
+            if (existUser.Email.ToLower() != dto.Email.ToLower())
+            {
+                var token = await _userManager.GenerateChangeEmailTokenAsync(existUser, dto.Email);
+                return new ChangeMailVM { UserId = dto.Id, NewMail = dto.Email, Token = token, IsChanged = true };
+            }
+            return new ChangeMailVM { IsChanged = false };
+        }
 
         private async Task<List<AppUser>> GetByRoleAsync(string? search, string role)
         {
@@ -233,6 +291,5 @@ namespace Movie.Business.Services.Implementations
             }
             return users.ToList();
         }
-
     }
 }

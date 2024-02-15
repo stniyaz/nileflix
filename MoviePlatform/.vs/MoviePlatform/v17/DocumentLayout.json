@@ -3,24 +3,52 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{005AB6BC-2A9F-416E-B278-98C2550A87ED}|src\\Movie.MVC\\Movie.MVC.csproj|c:\\users\\admin\\desktop\\nile_tv\\movieplatform\\src\\movie.mvc\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{005AB6BC-2A9F-416E-B278-98C2550A87ED}|src\\Movie.MVC\\Movie.MVC.csproj|solutionrelative:src\\movie.mvc\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{005AB6BC-2A9F-416E-B278-98C2550A87ED}|src\\Movie.MVC\\Movie.MVC.csproj|c:\\users\\admin\\desktop\\nile_tv\\movieplatform\\src\\movie.mvc\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{005AB6BC-2A9F-416E-B278-98C2550A87ED}|src\\Movie.MVC\\Movie.MVC.csproj|solutionrelative:src\\movie.mvc\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{005AB6BC-2A9F-416E-B278-98C2550A87ED}|src\\Movie.MVC\\Movie.MVC.csproj|c:\\users\\admin\\desktop\\nile_tv\\movieplatform\\src\\movie.mvc\\views\\movie\\watch.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{005AB6BC-2A9F-416E-B278-98C2550A87ED}|src\\Movie.MVC\\Movie.MVC.csproj|solutionrelative:src\\movie.mvc\\views\\movie\\watch.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{E434829A-9AF0-45B5-8512-25C1CE260563}|src\\Movie.Business\\Movie.Business.csproj|c:\\users\\admin\\desktop\\nile_tv\\movieplatform\\src\\movie.business\\services\\implementations\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E434829A-9AF0-45B5-8512-25C1CE260563}|src\\Movie.Business\\Movie.Business.csproj|solutionrelative:src\\movie.business\\services\\implementations\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{005AB6BC-2A9F-416E-B278-98C2550A87ED}|src\\Movie.MVC\\Movie.MVC.csproj|c:\\users\\admin\\desktop\\nile_tv\\movieplatform\\src\\movie.mvc\\controllers\\moviecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{005AB6BC-2A9F-416E-B278-98C2550A87ED}|src\\Movie.MVC\\Movie.MVC.csproj|solutionrelative:src\\movie.mvc\\controllers\\moviecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{005AB6BC-2A9F-416E-B278-98C2550A87ED}|src\\Movie.MVC\\Movie.MVC.csproj|c:\\users\\admin\\desktop\\nile_tv\\movieplatform\\src\\movie.mvc\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{005AB6BC-2A9F-416E-B278-98C2550A87ED}|src\\Movie.MVC\\Movie.MVC.csproj|solutionrelative:src\\movie.mvc\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E434829A-9AF0-45B5-8512-25C1CE260563}|src\\Movie.Business\\Movie.Business.csproj|c:\\users\\admin\\desktop\\nile_tv\\movieplatform\\src\\movie.business\\services\\implementations\\movieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E434829A-9AF0-45B5-8512-25C1CE260563}|src\\Movie.Business\\Movie.Business.csproj|solutionrelative:src\\movie.business\\services\\implementations\\movieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E434829A-9AF0-45B5-8512-25C1CE260563}|src\\Movie.Business\\Movie.Business.csproj|c:\\users\\admin\\desktop\\nile_tv\\movieplatform\\src\\movie.business\\services\\implementations\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E434829A-9AF0-45B5-8512-25C1CE260563}|src\\Movie.Business\\Movie.Business.csproj|solutionrelative:src\\movie.business\\services\\implementations\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E434829A-9AF0-45B5-8512-25C1CE260563}|src\\Movie.Business\\Movie.Business.csproj|c:\\users\\admin\\desktop\\nile_tv\\movieplatform\\src\\movie.business\\services\\interfaces\\imovieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E434829A-9AF0-45B5-8512-25C1CE260563}|src\\Movie.Business\\Movie.Business.csproj|solutionrelative:src\\movie.business\\services\\interfaces\\imovieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E434829A-9AF0-45B5-8512-25C1CE260563}|src\\Movie.Business\\Movie.Business.csproj|c:\\users\\admin\\desktop\\nile_tv\\movieplatform\\src\\movie.business\\viewmodels\\changemailvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E434829A-9AF0-45B5-8512-25C1CE260563}|src\\Movie.Business\\Movie.Business.csproj|solutionrelative:src\\movie.business\\viewmodels\\changemailvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E434829A-9AF0-45B5-8512-25C1CE260563}|src\\Movie.Business\\Movie.Business.csproj|c:\\users\\admin\\desktop\\nile_tv\\movieplatform\\src\\movie.business\\dtos\\userdtos\\usereditdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E434829A-9AF0-45B5-8512-25C1CE260563}|src\\Movie.Business\\Movie.Business.csproj|solutionrelative:src\\movie.business\\dtos\\userdtos\\usereditdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{005AB6BC-2A9F-416E-B278-98C2550A87ED}|src\\Movie.MVC\\Movie.MVC.csproj|c:\\users\\admin\\desktop\\nile_tv\\movieplatform\\src\\movie.mvc\\views\\home\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{005AB6BC-2A9F-416E-B278-98C2550A87ED}|src\\Movie.MVC\\Movie.MVC.csproj|solutionrelative:src\\movie.mvc\\views\\home\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E434829A-9AF0-45B5-8512-25C1CE260563}|src\\Movie.Business\\Movie.Business.csproj|c:\\users\\admin\\desktop\\nile_tv\\movieplatform\\src\\movie.business\\services\\interfaces\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E434829A-9AF0-45B5-8512-25C1CE260563}|src\\Movie.Business\\Movie.Business.csproj|solutionrelative:src\\movie.business\\services\\interfaces\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{005AB6BC-2A9F-416E-B278-98C2550A87ED}|src\\Movie.MVC\\Movie.MVC.csproj|c:\\users\\admin\\desktop\\nile_tv\\movieplatform\\src\\movie.mvc\\views\\home\\favorite.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{005AB6BC-2A9F-416E-B278-98C2550A87ED}|src\\Movie.MVC\\Movie.MVC.csproj|solutionrelative:src\\movie.mvc\\views\\home\\favorite.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{005AB6BC-2A9F-416E-B278-98C2550A87ED}|src\\Movie.MVC\\Movie.MVC.csproj|c:\\users\\admin\\desktop\\nile_tv\\movieplatform\\src\\movie.mvc\\views\\home\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{005AB6BC-2A9F-416E-B278-98C2550A87ED}|src\\Movie.MVC\\Movie.MVC.csproj|solutionrelative:src\\movie.mvc\\views\\home\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E434829A-9AF0-45B5-8512-25C1CE260563}|src\\Movie.Business\\Movie.Business.csproj|c:\\users\\admin\\desktop\\nile_tv\\movieplatform\\src\\movie.business\\services\\viewservices\\layoutservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E434829A-9AF0-45B5-8512-25C1CE260563}|src\\Movie.Business\\Movie.Business.csproj|solutionrelative:src\\movie.business\\services\\viewservices\\layoutservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E434829A-9AF0-45B5-8512-25C1CE260563}|src\\Movie.Business\\Movie.Business.csproj|c:\\users\\admin\\desktop\\nile_tv\\movieplatform\\src\\movie.business\\serviceregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E434829A-9AF0-45B5-8512-25C1CE260563}|src\\Movie.Business\\Movie.Business.csproj|solutionrelative:src\\movie.business\\serviceregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,72 +58,156 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IMovieService.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.Business\\Services\\Interfaces\\IMovieService.cs",
-              "RelativeDocumentMoniker": "src\\Movie.Business\\Services\\Interfaces\\IMovieService.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.Business\\Services\\Interfaces\\IMovieService.cs",
-              "RelativeToolTip": "src\\Movie.Business\\Services\\Interfaces\\IMovieService.cs",
-              "ViewState": "AQIAAAEAAAAAAAAAAAAtwAsAAAA+AAAA",
+              "DocumentIndex": 7,
+              "Title": "IAccountService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.Business\\Services\\Interfaces\\IAccountService.cs",
+              "RelativeDocumentMoniker": "src\\Movie.Business\\Services\\Interfaces\\IAccountService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.Business\\Services\\Interfaces\\IAccountService.cs",
+              "RelativeToolTip": "src\\Movie.Business\\Services\\Interfaces\\IAccountService.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAQwBYAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-14T18:39:24.702Z",
+              "WhenOpened": "2024-02-15T12:34:23.828Z",
               "IsPinned": true
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "MovieService.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.Business\\Services\\Implementations\\MovieService.cs",
-              "RelativeDocumentMoniker": "src\\Movie.Business\\Services\\Implementations\\MovieService.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.Business\\Services\\Implementations\\MovieService.cs",
-              "RelativeToolTip": "src\\Movie.Business\\Services\\Implementations\\MovieService.cs",
-              "ViewState": "AQIAANcAAAAAAAAAAAAIwFQBAABgAAAA",
+              "Title": "AccountService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.Business\\Services\\Implementations\\AccountService.cs",
+              "RelativeDocumentMoniker": "src\\Movie.Business\\Services\\Implementations\\AccountService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.Business\\Services\\Implementations\\AccountService.cs",
+              "RelativeToolTip": "src\\Movie.Business\\Services\\Implementations\\AccountService.cs",
+              "ViewState": "AQIAAPoAAAAAAAAAAADgvw0BAABAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-14T18:39:18.037Z",
+              "WhenOpened": "2024-02-15T12:35:19.928Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Detail.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\Views\\Home\\Detail.cshtml",
+              "RelativeDocumentMoniker": "src\\Movie.MVC\\Views\\Home\\Detail.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\Views\\Home\\Detail.cshtml",
+              "RelativeToolTip": "src\\Movie.MVC\\Views\\Home\\Detail.cshtml",
+              "ViewState": "AQIAAFAAAAAAAAAAAAAAAE4AAABGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-15T13:14:48.715Z",
               "IsPinned": true
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MovieController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\Controllers\\MovieController.cs",
-              "RelativeDocumentMoniker": "src\\Movie.MVC\\Controllers\\MovieController.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\Controllers\\MovieController.cs",
-              "RelativeToolTip": "src\\Movie.MVC\\Controllers\\MovieController.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAywBMAAABCAAAA",
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "src\\Movie.MVC\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "src\\Movie.MVC\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAGkAAAAAAAAAAAAAAGwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-14T21:51:57.895Z",
+              "WhenOpened": "2024-02-15T09:28:24.477Z",
               "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "src\\Movie.MVC\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "src\\Movie.MVC\\Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC0AAABOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-02-14T22:46:37.17Z",
-              "EditorCaption": ""
+              "DocumentIndex": 4,
+              "Title": "ChangeMailVM.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.Business\\ViewModels\\ChangeMailVM.cs",
+              "RelativeDocumentMoniker": "src\\Movie.Business\\ViewModels\\ChangeMailVM.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.Business\\ViewModels\\ChangeMailVM.cs",
+              "RelativeToolTip": "src\\Movie.Business\\ViewModels\\ChangeMailVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-15T19:17:20.937Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Watch.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\Views\\Movie\\Watch.cshtml",
-              "RelativeDocumentMoniker": "src\\Movie.MVC\\Views\\Movie\\Watch.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\Views\\Movie\\Watch.cshtml",
-              "RelativeToolTip": "src\\Movie.MVC\\Views\\Movie\\Watch.cshtml",
-              "ViewState": "AQIAAEoAAAAAAAAAAAAAAHEAAACOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-02-14T22:42:22.99Z",
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.Business\\Services\\Implementations\\EmailService.cs",
+              "RelativeDocumentMoniker": "src\\Movie.Business\\Services\\Implementations\\EmailService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.Business\\Services\\Implementations\\EmailService.cs",
+              "RelativeToolTip": "src\\Movie.Business\\Services\\Implementations\\EmailService.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAswC8AAABFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-15T18:37:01.613Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "src\\Movie.MVC\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "src\\Movie.MVC\\Controllers\\AccountController.cs",
+              "ViewState": "AQIAAGIAAAAAAAAAAAA7wHUAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-15T14:15:17.252Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Favorite.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\Views\\Home\\Favorite.cshtml",
+              "RelativeDocumentMoniker": "src\\Movie.MVC\\Views\\Home\\Favorite.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\Views\\Home\\Favorite.cshtml",
+              "RelativeToolTip": "src\\Movie.MVC\\Views\\Home\\Favorite.cshtml",
+              "ViewState": "AQIAADYAAAAAAAAAAAAAADoAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-15T14:34:17.842Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "LayoutService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.Business\\Services\\ViewServices\\LayoutService.cs",
+              "RelativeDocumentMoniker": "src\\Movie.Business\\Services\\ViewServices\\LayoutService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.Business\\Services\\ViewServices\\LayoutService.cs",
+              "RelativeToolTip": "src\\Movie.Business\\Services\\ViewServices\\LayoutService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-15T14:11:26.782Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Profile.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\Views\\Home\\Profile.cshtml",
+              "RelativeDocumentMoniker": "src\\Movie.MVC\\Views\\Home\\Profile.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\Views\\Home\\Profile.cshtml",
+              "RelativeToolTip": "src\\Movie.MVC\\Views\\Home\\Profile.cshtml",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAADQAAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-15T14:05:59.413Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ServiceRegistration.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.Business\\ServiceRegistration.cs",
+              "RelativeDocumentMoniker": "src\\Movie.Business\\ServiceRegistration.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.Business\\ServiceRegistration.cs",
+              "RelativeToolTip": "src\\Movie.Business\\ServiceRegistration.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAQwCkAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-15T13:22:02.515Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UserEditDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.Business\\DTOs\\UserDTOs\\UserEditDTO.cs",
+              "RelativeDocumentMoniker": "src\\Movie.Business\\DTOs\\UserDTOs\\UserEditDTO.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.Business\\DTOs\\UserDTOs\\UserEditDTO.cs",
+              "RelativeToolTip": "src\\Movie.Business\\DTOs\\UserDTOs\\UserEditDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-15T13:18:42.352Z"
             }
           ]
         }

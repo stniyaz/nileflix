@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using MimeKit;
 using Movie.Business.CustomExceptions.UserException;
 using Movie.Business.Helpers.Mail;
+using Movie.Business.Services.Interfaces;
 using Movie.Core.Models;
 
 namespace Movie.Business.Services.Implementations
@@ -11,23 +12,40 @@ namespace Movie.Business.Services.Implementations
     {
         private readonly EmailConfiguration _emailConfiguration;
         private readonly UserManager<AppUser> _userManager;
-
+        private readonly IAccountService _accountService;
+        private readonly SignInManager<AppUser> _signInManager;
+        private string unsuccessfullConfirmation = "Something went wrong.";
         public EmailService(EmailConfiguration emailConfiguration,
-                            UserManager<AppUser> userManager)
+                            UserManager<AppUser> userManager,
+                            IAccountService accountService,
+                            SignInManager<AppUser> signInManager)
         {
             _emailConfiguration = emailConfiguration;
             _userManager = userManager;
+            _accountService = accountService;
+            _signInManager = signInManager;
+        }
+
+        public async Task ChangeEmailAsync(string userId, string newMail, string token)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user is null) throw new UserNotFoundException();
+
+            var result = await _userManager.ChangeEmailAsync(user, newMail, token);
+            if (!result.Succeeded) throw new UnsuccessfulConfirmationException(unsuccessfullConfirmation);
         }
 
         public async Task CheckConfirmationAsync(string token, string email)
         {
             var user = await _userManager.FindByEmailAsync(email);
             if (user is null)
-                throw new UnexceptedException("Something went wrong.");
+                throw new UserNotFoundException();
 
             var result = await _userManager.ConfirmEmailAsync(user, token);
             if (!result.Succeeded)
-                throw new UnsuccessfulConfirmationException();
+                throw new UnsuccessfulConfirmationException(unsuccessfullConfirmation);
+
+            await _signInManager.SignInAsync(user, isPersistent: true);
 
         }
 

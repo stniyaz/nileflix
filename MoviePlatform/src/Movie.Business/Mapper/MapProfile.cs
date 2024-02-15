@@ -17,6 +17,7 @@ namespace Movie.Business.Mapper
             CreateMap<Core.Models.Movie, MovieUpdateDTO>().ReverseMap();
 
             CreateMap<AppUser, UserUpdateDTO>().ReverseMap();
+            CreateMap<AppUser, UserEditDTO>().ReverseMap();
         }
     }
 }

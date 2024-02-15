@@ -6,5 +6,6 @@ namespace Movie.Business.Services.Interfaces
     {
         Task SendMailAsync(Message message);
         Task CheckConfirmationAsync(string token, string email);
+        Task ChangeEmailAsync(string userId, string newMail, string token);
     }
 }
