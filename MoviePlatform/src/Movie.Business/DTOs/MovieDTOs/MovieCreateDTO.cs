@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Movie.Core.Models;
 using System.ComponentModel.DataAnnotations;
 
 namespace Movie.Business.DTOs.MovieDTOs
@@ -17,8 +16,11 @@ namespace Movie.Business.DTOs.MovieDTOs
         public string MovieLong { get; set; }
         [Required(ErrorMessage = "*Please do not leave the ReleaseYear line blank.")]
         public int ReleaseYear { get; set; }
+        [Required(ErrorMessage = "*Please do not leave the trailer url line blank.")]
+        [StringLength(maximumLength: 255, ErrorMessage = "*Please enter a minimum of 1 and a maximum of 255.", MinimumLength = 1)]
+        public string TrailerUrl { get; set; }
         [Required(ErrorMessage = "*Please do not leave the AgeLimit line blank.")]
-        [Range(0,18,ErrorMessage ="Age must be between 0 and 18")]
+        [Range(0, 18, ErrorMessage = "Age must be between 0 and 18")]
         public int AgeLimit { get; set; }
         public bool IsPopular { get; set; }
         public bool IsNewst { get; set; }
@@ -28,14 +30,16 @@ namespace Movie.Business.DTOs.MovieDTOs
         public IFormFile CoverImage { get; set; }
         [Required(ErrorMessage = "*Please do not leave the photos line blank.")]
         public List<IFormFile> OtherImages { get; set; }
-        [Required(ErrorMessage = "*Please do not leave the TrailerVideo line blank.")]
-        public IFormFile TrailerVideo { get; set; }
-        [Required(ErrorMessage = "*Please do not leave the FullVideo line blank.")]
-        public IFormFile FullVideo { get; set; }
+        [Required(ErrorMessage = "*Please do not leave the 480p video line blank.")]
+        public IFormFile Movie480 { get; set; }
+        [Required(ErrorMessage = "*Please do not leave the 1080p video line blank.")]
+        public IFormFile Movie1080 { get; set; }
+        [Required(ErrorMessage = "*Please do not leave the subtitle line blank.")]
+        public IFormFile SubtitleFile { get; set; }
 
 
         public int CountryId { get; set; }
-		[Required(ErrorMessage = "*Please do not leave the genre line blank.")]
-		public List<int> GenreIds { get; set; }
+        [Required(ErrorMessage = "*Please do not leave the genre line blank.")]
+        public List<int> GenreIds { get; set; }
     }
 }

@@ -27,6 +27,5 @@ namespace Movie.Business.ViewModels
         [Compare("Password", ErrorMessage = "*Please enter the confirmation password correctly, the passwords do not match.")]
         public string ConfirmPassword { get; set; }
         public bool Privacy { get; set; }
-        public bool RememberMe { get; set; }
     }
 }

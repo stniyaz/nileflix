@@ -121,5 +121,10 @@ namespace Movie.MVC.Controllers
             await _accountService.LogoutAsync();
             return RedirectToAction(nameof(SignIn));
         }
+
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
     }
 }

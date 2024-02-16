@@ -13,6 +13,7 @@ namespace Movie.Data.Configurations
 
             builder.Property(x => x.CreatedDate);
             builder.Property(x => x.UpdatedDate).IsRequired(false);
+
         }
     }
 }

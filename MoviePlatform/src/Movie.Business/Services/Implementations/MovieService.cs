@@ -25,6 +25,7 @@ namespace Movie.Business.Services.Implementations
         private readonly IAccountService _accountService;
         private string imagePath = "uploads/movieImages";
         private string videoPath = "uploads/movieVideos";
+        private string subPath = "uploads/movieSubs";
         public MovieService(IMovieRepository movieRepository,
                             ICountryRepository countryRepository,
                             IGenreRepository genreRepository,
@@ -46,9 +47,11 @@ namespace Movie.Business.Services.Implementations
         public async Task CreateAsync(MovieCreateDTO dto)
         {
             // Check
+
+            // country
             if (!_countryRepository.Table.Any(x => x.Id == dto.CountryId))
                 throw new InvalidCountryIdException("CountryId", "Country not found!");
-
+            // genre
             if (dto.GenreIds is not null)
             {
                 foreach (var genreId in dto.GenreIds)
@@ -57,6 +60,7 @@ namespace Movie.Business.Services.Implementations
                         throw new InvalidGenreIdException();
                 }
             }
+            // images
             CheckImage(dto.CoverImage, "CoverImage");
 
             if (dto.OtherImages is not null)
@@ -66,12 +70,16 @@ namespace Movie.Business.Services.Implementations
                     CheckImage(img, "OtherImages");
                 }
             }
+            // videos
+            if (dto.Movie1080 is not null)
+                CheckVideo(dto.Movie1080, "Movie1080");
 
-            if (dto.TrailerVideo is not null)
-                CheckVideo(dto.TrailerVideo, "TrailerVideo");
+            if (dto.Movie480 is not null)
+                CheckVideo(dto.Movie480, "Movie480");
 
-            if (dto.FullVideo is not null)
-                CheckVideo(dto.FullVideo, "TrailerVideo");
+            // subtitle
+            if (dto.SubtitleFile is not null)
+                CheckSubtitle(dto.SubtitleFile, "SubtitleFile");
 
             // Create
             var newMovie = _mapper.Map<Core.Models.Movie>(dto);
@@ -114,14 +122,19 @@ namespace Movie.Business.Services.Implementations
             }
             // Video
 
-            if (dto.TrailerVideo is not null)
+            if (dto.Movie1080 is not null)
             {
-                newMovie.TrailerUrl = Helpers.Common.FileManager.Save(_env.WebRootPath, videoPath, dto.TrailerVideo);
+                newMovie.Movie1080pUrl = Helpers.Common.FileManager.Save(_env.WebRootPath, videoPath, dto.Movie1080);
             }
 
-            if (dto.FullVideo is not null)
+            if (dto.Movie480 is not null)
             {
-                newMovie.MovieUrl = Helpers.Common.FileManager.Save(_env.WebRootPath, videoPath, dto.FullVideo);
+                newMovie.Movie480pUrl = Helpers.Common.FileManager.Save(_env.WebRootPath, videoPath, dto.Movie480);
+            }
+            // subtitle
+            if (dto.SubtitleFile is not null)
+            {
+                newMovie.Subtitle = Helpers.Common.FileManager.Save(_env.WebRootPath, subPath, dto.SubtitleFile);
             }
 
             // Create, Save
@@ -179,9 +192,11 @@ namespace Movie.Business.Services.Implementations
             {
                 Helpers.Common.FileManager.Remove(_env.WebRootPath, imagePath, img.ImageUrl);
             }
+            // remove sub
+            Helpers.Common.FileManager.Remove(_env.WebRootPath, subPath, wanted.Subtitle);
             // remove videos
-            Helpers.Common.FileManager.Remove(_env.WebRootPath, videoPath, wanted.MovieUrl);
-            Helpers.Common.FileManager.Remove(_env.WebRootPath, videoPath, wanted.TrailerUrl);
+            Helpers.Common.FileManager.Remove(_env.WebRootPath, videoPath, wanted.Movie1080pUrl);
+            Helpers.Common.FileManager.Remove(_env.WebRootPath, videoPath, wanted.Movie480pUrl);
 
             // remove and save
             _movieRepository.Delete(wanted);
@@ -219,9 +234,10 @@ namespace Movie.Business.Services.Implementations
             if (existMovie is null) throw new MovieNotFoundException();
 
             // Check
+            // country
             if (!_countryRepository.Table.Any(x => x.Id == dto.CountryId))
                 throw new InvalidCountryIdException("CountryId", "Country not found!");
-
+            // genre
             if (dto.GenreIds is not null)
             {
                 foreach (var genreId in dto.GenreIds)
@@ -230,7 +246,7 @@ namespace Movie.Business.Services.Implementations
                         throw new InvalidGenreIdException();
                 }
             }
-
+            // images
             if (dto.CoverImage is not null)
                 CheckImage(dto.CoverImage, "CoverImage");
 
@@ -241,10 +257,14 @@ namespace Movie.Business.Services.Implementations
                     CheckImage(img, "OtherImages");
                 }
             }
-            if (dto.TrailerVideo is not null)
-                CheckVideo(dto.TrailerVideo, "TrailerVideo");
-            if (dto.FullVideo is not null)
-                CheckVideo(dto.FullVideo, "FullVideo");
+            // videos
+            if (dto.Movie1080 is not null)
+                CheckVideo(dto.Movie1080, "Movie1080");
+            if (dto.Movie480 is not null)
+                CheckVideo(dto.Movie480, "Movie480");
+            // subtitle
+            if (dto.SubtitleFile is not null)
+                CheckSubtitle(dto.SubtitleFile, "SubtitleFile");
 
             // Update
 
@@ -304,15 +324,21 @@ namespace Movie.Business.Services.Implementations
                 }
             }
             // video
-            if (dto.FullVideo is not null)
+            if (dto.Movie1080 is not null)
             {
-                Helpers.Common.FileManager.Remove(_env.WebRootPath, videoPath, existMovie.MovieUrl);
-                existMovie.MovieUrl = Helpers.Common.FileManager.Save(_env.WebRootPath, videoPath, dto.FullVideo);
+                Helpers.Common.FileManager.Remove(_env.WebRootPath, videoPath, existMovie.Movie1080pUrl);
+                existMovie.Movie1080pUrl = Helpers.Common.FileManager.Save(_env.WebRootPath, videoPath, dto.Movie1080);
             }
-            if (dto.TrailerVideo is not null)
+            if (dto.Movie480 is not null)
             {
-                Helpers.Common.FileManager.Remove(_env.WebRootPath, videoPath, existMovie.TrailerUrl);
-                existMovie.MovieUrl = Helpers.Common.FileManager.Save(_env.WebRootPath, videoPath, dto.TrailerVideo);
+                Helpers.Common.FileManager.Remove(_env.WebRootPath, videoPath, existMovie.Movie480pUrl);
+                existMovie.Movie480pUrl = Helpers.Common.FileManager.Save(_env.WebRootPath, videoPath, dto.Movie480);
+            }
+            // subtitle
+            if (dto.SubtitleFile is not null)
+            {
+                Helpers.Common.FileManager.Remove(_env.WebRootPath, subPath, existMovie.Subtitle);
+                existMovie.Subtitle = Helpers.Common.FileManager.Save(_env.WebRootPath, subPath, dto.SubtitleFile);
             }
 
             // map and save
@@ -356,10 +382,17 @@ namespace Movie.Business.Services.Implementations
             if (videoFile.ContentType != "video/x-msvideo" &&
                videoFile.ContentType != "video/mp4" &&
                videoFile.ContentType != "video/mpeg" &&
-               videoFile.ContentType != "video/3gpp")
+               videoFile.ContentType != "video/3gpp" &&
+               videoFile.ContentType != "video/x-matroska")
                 throw new MovieVideoContentTypeException(propertyName, "Please only upload video in avi, mp4, mpeg or 3gp format.");
         }
 
+        private void CheckSubtitle(IFormFile subtitleFile, string propertyName)
+        {
+            var extension = Path.GetExtension(subtitleFile.FileName);
+            if (extension.ToLower().Trim() != ".vtt" && extension.ToLower().Trim() != ".srt")
+                throw new InvalidSubtitileContentTypeException(propertyName, "Please upload subtitle only vtt or srt format.");
+        }
 
     }
 }

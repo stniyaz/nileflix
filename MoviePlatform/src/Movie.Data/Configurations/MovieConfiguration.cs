@@ -15,7 +15,9 @@ namespace Movie.Data.Configurations
             builder.Property(x => x.Views).IsRequired().HasDefaultValue(0);
             builder.Property(x => x.IsNewst).IsRequired();
             builder.Property(x => x.IsPopular).IsRequired();
-            builder.Property(x => x.MovieUrl).IsRequired().HasMaxLength(100);
+            builder.Property(x => x.Movie1080pUrl).IsRequired().HasMaxLength(100);
+            builder.Property(x => x.Movie480pUrl).IsRequired().HasMaxLength(100);
+            builder.Property(x => x.Subtitle).IsRequired().HasMaxLength(100);
             builder.Property(x => x.TrailerUrl).IsRequired().HasMaxLength(100);
             builder.HasOne(x => x.Country).WithMany(x => x.Movies);
         }

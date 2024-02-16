@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -44,6 +45,16 @@ namespace Movie.Business
             services.Configure<DataProtectionTokenProviderOptions>(opt =>
             {
                 opt.TokenLifespan = TimeSpan.FromMinutes(15);
+            });
+
+            services.Configure<IISServerOptions>(opt =>
+            {
+                opt.MaxRequestBodySize = 3221225472;
+            });
+
+            services.Configure<FormOptions>(opt =>
+            {
+                opt.MultipartBodyLengthLimit = 3221225472;
             });
 
         }

@@ -89,28 +89,42 @@
                                     </div>
                                     <span asp-validation-for="OtherImages" style="color: red"></span>
                                 </div>
+                                <div class="col-12">
+                                    <div class="form__group">
+                                        <input asp-for="TrailerUrl" type="text" class="form__input" placeholder="TrailerURL">
+                                        <span asp-validation-for="TrailerUrl" style="color: red"></span>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
 
                         <div class="col-12">
                             <div class="row">
 
-
                                 <div class="col-12 row">
                                     <div class="col-12 col-lg-6">
                                         <div class="form__video">
-                                            <label asp-for="FullVideo" id="movie1" for="form__fullVideo-upload">Upload video</label>
-                                            <input asp-for="FullVideo" id="form__fullVideo-upload" class="form__video-upload" accept="video/mp4,video/x-msvideo,video/mpeg,video/3gpp">
+                                            <label asp-for="Movie1080">Upload 1080p</label>
+                                            <input asp-for="Movie1080" class="form__video-upload" accept="video/mp4,video/x-msvideo,video/mpeg,video/3gpp" type="file">
                                         </div>
-                                            <span asp-validation-for="FullVideo" style="color: red"></span>
+                                        <span asp-validation-for="Movie1080" style="color: red"></span>
                                     </div>
 
                                     <div class="col-12 col-lg-6">
                                         <div class="form__video">
-                                            <label asp-for="TrailerVideo" id="movie1" for="form__trailerVideo-upload">Upload trailer</label>
-                                            <input asp-for="TrailerVideo" id="form__trailerVideo-upload" class="form__video-upload" accept="video/mp4,video/x-msvideo,video/mpeg,video/3gpp">
+                                            <label asp-for="Movie480">Upload 480p</label>
+                                            <input asp-for="Movie480" class="form__video-upload" accept="video/mp4,video/x-msvideo,video/mpeg,video/3gpp" type="file">
                                         </div>
-                                            <span asp-validation-for="TrailerVideo" style="color: red"></span>
+                                        <span asp-validation-for="Movie480" style="color: red"></span>
+                                    </div>
+
+                                    <div class="col-12 col-lg-6">
+                                        <div class="form__video">
+                                            <label asp-for="SubtitleFile">Upload Subtitle (VTT format)</label>
+                                            <input asp-for="SubtitleFile" accept=".vtt">
+                                        </div>
+                                        <span asp-validation-for="SubtitleFile" style="color: red"></span>
                                     </div>
                                 </div>
 
@@ -118,7 +132,7 @@
                                 <div class="col-12 col-lg-1">
                                     <div class="sign__group sign__group--checkbox">
                                         <input asp-for="IsNewst" id="isNew" type="checkbox">
-                                        <label asp-for ="IsNewst" for="isNew">New</label>
+                                        <label asp-for="IsNewst" for="isNew">New</label>
                                     </div>
                                 </div>
 

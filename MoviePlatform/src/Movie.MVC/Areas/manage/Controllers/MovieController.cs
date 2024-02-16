@@ -62,7 +62,7 @@ namespace Movie.MVC.Areas.manage.Controllers
 
             return View();
         }
-        [ValidateAntiForgeryToken, HttpPost]
+        [ValidateAntiForgeryToken, HttpPost, DisableRequestSizeLimit]
         public async Task<IActionResult> Create(MovieCreateDTO dto)
         {
             ViewBag.Countires = await _countryService.GetAllAsync();
@@ -80,6 +80,11 @@ namespace Movie.MVC.Areas.manage.Controllers
                 return View(dto);
             }
             catch (InvalidGenreIdException ex)
+            {
+                ModelState.AddModelError(ex.PropertyName, ex.Message);
+                return View(dto);
+            }
+            catch (InvalidSubtitileContentTypeException ex)
             {
                 ModelState.AddModelError(ex.PropertyName, ex.Message);
                 return View(dto);
@@ -134,7 +139,7 @@ namespace Movie.MVC.Areas.manage.Controllers
             var dto = _mapper.Map<MovieUpdateDTO>(wanted);
             return View(dto);
         }
-        [ValidateAntiForgeryToken, HttpPost]
+        [ValidateAntiForgeryToken, HttpPost, DisableRequestSizeLimit]
         public async Task<IActionResult> Update(MovieUpdateDTO dto)
         {
             ViewBag.Countires = await _countryService.GetAllAsync();

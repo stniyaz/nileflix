@@ -17,6 +17,9 @@ namespace Movie.Business.DTOs.MovieDTOs
         public string MovieLong { get; set; }
         [Required(ErrorMessage = "*Please do not leave the ReleaseYear line blank.")]
         public int ReleaseYear { get; set; }
+        [Required(ErrorMessage = "*Please do not leave the trailer url line blank.")]
+        [StringLength(maximumLength: 255, ErrorMessage = "*Please enter a minimum of 1 and a maximum of 255.", MinimumLength = 1)]
+        public string TrailerUrl { get; set; }
         [Required(ErrorMessage = "*Please do not leave the AgeLimit line blank.")]
         [Range(0, 18, ErrorMessage = "Age must be between 0 and 18")]
         public int AgeLimit { get; set; }
@@ -26,8 +29,9 @@ namespace Movie.Business.DTOs.MovieDTOs
 
         public IFormFile? CoverImage { get; set; }
         public List<IFormFile>? OtherImages { get; set; }
-        public IFormFile? TrailerVideo { get; set; }
-        public IFormFile? FullVideo { get; set; }
+        public IFormFile? Movie480 { get; set; }
+        public IFormFile? Movie1080 { get; set; }
+        public IFormFile? SubtitleFile { get; set; }
 
 
         public int CountryId { get; set; }
