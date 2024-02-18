@@ -7,6 +7,7 @@
         public int Dislike { get; set; }
         public List<Comment> Replies { get; set; }
 
+        public string AppUserId { get; set; }
         public AppUser AppUser { get; set; }
         public int MovieId { get; set; }
         public Movie Movie { get; set; }

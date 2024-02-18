@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Movie.Business.CustomExceptions.CommonExceptions;
 using Movie.Business.CustomExceptions.MoiveExceptions;
@@ -19,13 +20,15 @@ namespace Movie.MVC.Controllers
         private readonly IAccountService _accountService;
         private readonly IMapper _mapper;
         private readonly IEmailService _emailService;
+        private readonly IUserSavedMovieService _userSavedMovieService;
 
         public HomeController(IMovieService movieService,
                               IGenreService genreService,
                               IMovieGenreService movieGenreService,
                               IAccountService accountService,
                               IMapper mapper,
-                              IEmailService emailService)
+                              IEmailService emailService,
+                              IUserSavedMovieService userSavedMovieService)
         {
             _movieService = movieService;
             _genreService = genreService;
@@ -33,12 +36,14 @@ namespace Movie.MVC.Controllers
             _accountService = accountService;
             _mapper = mapper;
             _emailService = emailService;
+            _userSavedMovieService = userSavedMovieService;
         }
         public async Task<IActionResult> Index(string? search, int? genreId = 0)
         {
-            //HttpContext.Session.Remove();
             try
             {
+                if (User.Identity.IsAuthenticated)
+                    ViewBag.SavedIds = await _userSavedMovieService.GetUserSavedMoviesIdsAsync(User?.Identity?.Name);
                 ViewBag.Search = search;
                 HomeVM model = new HomeVM
                 {
@@ -77,8 +82,13 @@ namespace Movie.MVC.Controllers
             {
                 return RedirectToAction("signin", "account");
             }
-            var activeUser = await _accountService.GetUserByNameAsync(User.Identity.Name);
-            return View(activeUser);
+            FavoriteVM model = new FavoriteVM
+            {
+                ActiveUser = await _accountService.GetUserByNameAsync(User.Identity.Name),
+                Movies = await _userSavedMovieService.GetUserSavedMoviesAsync(User.Identity.Name),
+                MovieGenres = await _movieGenreService.GetAllIncludesAsync(),
+            };
+            return View(model);
         }
         public async Task<IActionResult> Detail()
         {
@@ -127,7 +137,7 @@ namespace Movie.MVC.Controllers
             {
                 throw;
             }
-            return RedirectToAction(nameof(Profile));
+            return StatusCode(204);
         }
         public async Task<IActionResult> ChangeEmail(string userId, string newMail, string token)
         {
@@ -145,10 +155,9 @@ namespace Movie.MVC.Controllers
             }
             catch (Exception)
             {
-
                 throw;
             }
-            return Ok("Your account has been successfully activated.");
+            return RedirectToAction(nameof(Detail));
         }
         public async Task<IActionResult> ChangePassword()
         {
@@ -188,6 +197,36 @@ namespace Movie.MVC.Controllers
                 throw;
             }
             return RedirectToAction(nameof(Profile));
+        }
+        public async Task<IActionResult> AddOrRemoveFavorite(int id)
+        {
+            if (!User.IsInRole("User") && !User.IsInRole("Admin") && !User.IsInRole("Moderator"))
+            {
+                return RedirectToAction("signin", "account");
+            }
+            try
+            {
+                var check = await _userSavedMovieService.AddOrRemoveAsync(id);
+                if (check) return StatusCode(200);
+                else return StatusCode(204);
+            }
+            catch (UserNotFoundException)
+            {
+                return NotFound();
+            }
+            catch (MovieNotFoundException)
+            {
+                return NotFound();
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        public IActionResult IsAuthenticated()
+        {
+            bool check = User.Identity.IsAuthenticated;
+            return Json(new { loggedIn = check });
         }
 
     }

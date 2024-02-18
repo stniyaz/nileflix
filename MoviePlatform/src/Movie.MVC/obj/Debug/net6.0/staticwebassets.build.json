@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wtmianhlqa6qyOrDIUxXO/edsnz1ngzbuqM5cfbuuOA=",
+  "Hash": "7ib7tujieLS0qgEUcTZaiQ7yu5uzXetilLd8XSfnyIE=",
   "Source": "Movie.MVC",
   "BasePath": "_content/Movie.MVC",
   "Mode": "Default",
@@ -1556,6 +1556,25 @@
       "OriginalItemSpec": "wwwroot\\assets\\js\\main.js"
     },
     {
+      "Identity": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\assets\\js\\mine.js",
+      "SourceId": "Movie.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\",
+      "BasePath": "_content/Movie.MVC",
+      "RelativePath": "assets/js/mine.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\js\\mine.js"
+    },
+    {
       "Identity": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\assets\\js\\owl.carousel.min.js",
       "SourceId": "Movie.MVC",
       "SourceType": "Discovered",
@@ -2088,6 +2107,25 @@
       "OriginalItemSpec": "wwwroot\\uploads\\genreImages\\e6332a73-65b8-4977-b4e2-f795ab54bb327.jpg"
     },
     {
+      "Identity": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\uploads\\movieImages\\22629484-9a6b-409e-b4a3-41306a35dbb41.png",
+      "SourceId": "Movie.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\",
+      "BasePath": "_content/Movie.MVC",
+      "RelativePath": "uploads/movieImages/22629484-9a6b-409e-b4a3-41306a35dbb41.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\movieImages\\22629484-9a6b-409e-b4a3-41306a35dbb41.png"
+    },
+    {
       "Identity": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\uploads\\movieImages\\3d2179b5-5375-462a-9168-e06dc08f51215.jpg",
       "SourceId": "Movie.MVC",
       "SourceType": "Discovered",
@@ -2105,6 +2143,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\movieImages\\3d2179b5-5375-462a-9168-e06dc08f51215.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\uploads\\movieImages\\649ee059-995a-4df1-86bc-63c7a9f0a2e83.jpg",
+      "SourceId": "Movie.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\",
+      "BasePath": "_content/Movie.MVC",
+      "RelativePath": "uploads/movieImages/649ee059-995a-4df1-86bc-63c7a9f0a2e83.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\movieImages\\649ee059-995a-4df1-86bc-63c7a9f0a2e83.jpg"
     },
     {
       "Identity": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\uploads\\movieImages\\ccee2cd7-73d8-43ae-9237-ec847ed606276.png",
@@ -2145,6 +2202,44 @@
       "OriginalItemSpec": "wwwroot\\uploads\\movieSubs\\44b54898-889a-40e3-8b8f-8693182ef4aespidermanbudu.srt"
     },
     {
+      "Identity": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\uploads\\movieSubs\\889794e2-bb07-4988-9652-9436e0e13e4ecaptions.vtt",
+      "SourceId": "Movie.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\",
+      "BasePath": "_content/Movie.MVC",
+      "RelativePath": "uploads/movieSubs/889794e2-bb07-4988-9652-9436e0e13e4ecaptions.vtt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\movieSubs\\889794e2-bb07-4988-9652-9436e0e13e4ecaptions.vtt"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\uploads\\movieVideos\\0627381f-0692-4e0b-9fcf-87a819555d6eUnique Tigers Collection 480p.mp4",
+      "SourceId": "Movie.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\",
+      "BasePath": "_content/Movie.MVC",
+      "RelativePath": "uploads/movieVideos/0627381f-0692-4e0b-9fcf-87a819555d6eUnique Tigers Collection 480p.mp4",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\movieVideos\\0627381f-0692-4e0b-9fcf-87a819555d6eUnique Tigers Collection 480p.mp4"
+    },
+    {
       "Identity": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\uploads\\movieVideos\\2ddfdb88-8c8a-4d5b-85a9-af6ce40735c5SPIDER-MAN [2002] – 480p.mp4",
       "SourceId": "Movie.MVC",
       "SourceType": "Discovered",
@@ -2181,6 +2276,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\movieVideos\\3795d80e-e3ed-4286-90f6-7d51d3b3b796SPIDER-MAN [2002] – 1080p.mp4"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\uploads\\movieVideos\\d8701a93-7a5c-4736-b1b5-728c1810b550Unique Tigers Collection 1080p.mp4",
+      "SourceId": "Movie.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\",
+      "BasePath": "_content/Movie.MVC",
+      "RelativePath": "uploads/movieVideos/d8701a93-7a5c-4736-b1b5-728c1810b550Unique Tigers Collection 1080p.mp4",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\movieVideos\\d8701a93-7a5c-4736-b1b5-728c1810b550Unique Tigers Collection 1080p.mp4"
     }
   ]
 }

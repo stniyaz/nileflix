@@ -13,5 +13,6 @@ namespace Movie.Core.Models
         public DateTime? UpdatedDate { get; set; }
 
         public List<Comment> Comments { get; set; }
+        public List<UserSavedMovie> UserSavedMovies { get; set; }
     }
 }

@@ -25,6 +25,7 @@ namespace Movie.Business
             services.AddScoped<LayoutService>();
             services.AddScoped<IEmailService, EmailService>();
             services.AddScoped<UserEditService>();
+            services.AddScoped<IUserSavedMovieService, UserSavedMovieService>();
 
             services.ConfigureApplicationCookie(opt =>
             {
