@@ -40,7 +40,6 @@ builder.Services.AddServices(builder);
 
 var app = builder.Build();
 
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();

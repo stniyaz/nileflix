@@ -270,6 +270,9 @@
             "projectReferences": {
               "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.Business\\Movie.Business.csproj": {
                 "projectPath": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.Business\\Movie.Business.csproj"
+              },
+              "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.Data\\Movie.Data.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.Data\\Movie.Data.csproj"
               }
             }
           }

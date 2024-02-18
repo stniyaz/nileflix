@@ -25,11 +25,5 @@ namespace Movie.Business.Services.ViewServices
                 Role = await _userManager.GetRolesAsync(user),
             };
         }
-        public async Task<string> GetUserFullName(string name)
-        {
-            var user = await _accountService.GetUserByNameAsync(name);
-
-            return user.FirstName + " " + user.LastName;
-        }
     }
 }

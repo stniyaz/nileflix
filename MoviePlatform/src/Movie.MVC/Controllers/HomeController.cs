@@ -36,6 +36,7 @@ namespace Movie.MVC.Controllers
         }
         public async Task<IActionResult> Index(string? search, int? genreId = 0)
         {
+            //HttpContext.Session.Remove();
             try
             {
                 ViewBag.Search = search;

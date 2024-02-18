@@ -1,13 +1,4 @@
-﻿@inject LayoutService service
-@{
-    var fullName = string.Empty;
-    if (User.Identity.IsAuthenticated)
-    {
-        fullName = await service.GetUserFullName(User.Identity.Name);
-    }
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <!-- Mirrored from flixtv.volkovdesign.com/main/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 29 Jan 2024 17:02:12 GMT -->
@@ -102,7 +93,7 @@
                             @if (User.Identity.IsAuthenticated)
                             {
                                 <a asp-action="profile" asp-controller="home" class="header__user">
-                                    <span>@User.Identity.Name</span>
+                                    <span>@User?.Identity?.Name</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.71,12.71a6,6,0,1,0-7.42,0,10,10,0,0,0-6.22,8.18,1,1,0,0,0,2,.22,8,8,0,0,1,15.9,0,1,1,0,0,0,1,.89h.11a1,1,0,0,0,.88-1.1A10,10,0,0,0,15.71,12.71ZM12,12a4,4,0,1,1,4-4A4,4,0,0,1,12,12Z" /></svg>
                                 </a>
                             }

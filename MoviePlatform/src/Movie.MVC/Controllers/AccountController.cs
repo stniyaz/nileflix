@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Movie.Business.CustomExceptions.CommonExceptions;
 using Movie.Business.CustomExceptions.UserException;
+using Movie.Business.DTOs.UserDTOs;
 using Movie.Business.Helpers.Mail;
 using Movie.Business.Services.Interfaces;
 using Movie.Business.ViewModels;
@@ -102,6 +104,10 @@ namespace Movie.MVC.Controllers
             {
                 await _emailService.CheckConfirmationAsync(token, email);
             }
+            catch (NullDatasException)
+            {
+                return NotFound();
+            }
             catch (UnsuccessfulConfirmationException ex)
             {
                 return Ok(ex.Message);
@@ -125,6 +131,80 @@ namespace Movie.MVC.Controllers
         public IActionResult ForgotPassword()
         {
             return View();
+        }
+        [ValidateAntiForgeryToken, HttpPost]
+        public async Task<IActionResult> ForgotPassword(UserResetPasswordDTO dto)
+        {
+            if (!ModelState.IsValid) return View(dto);
+            try
+            {
+                var vm = await _accountService.CheckEmailAsync(dto);
+                var confiramtionLink = Url.Action(nameof(ResetPassword), "Account",
+                                                  new { vm.Token, vm.Email }, Request.Scheme);
+
+                var message = new Message(new string[]
+                                         { vm.Email }, "nileX Reset", $"Please click on the link to reset your password: {confiramtionLink}");
+                await _emailService.SendMailAsync(message);
+            }
+            catch (UserNotFoundException ex)
+            {
+                ModelState.AddModelError(ex.PropertyName, ex.Message);
+                return View(dto);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            dto.IsSent = true;
+            return View(dto);
+        }
+        public async Task<IActionResult> ResetPassword(string token, string email)
+        {
+            try
+            {
+                await _accountService.GetUserByEmailAsync(email);
+                ResetPasswordVM vm = new ResetPasswordVM()
+                {
+                    Email = email,
+                    Token = token
+                };
+            }
+            catch (UserNotFoundException)
+            {
+                return NotFound();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return View();
+        }
+        [ValidateAntiForgeryToken, HttpPost]
+        public async Task<IActionResult> ResetPassword(ResetPasswordVM model)
+        {
+            if (!ModelState.IsValid) return View();
+            try
+            {
+                await _accountService.ResetPasswordAsync(model);
+            }
+            catch (NullDatasException)
+            {
+                return NotFound();
+            }
+            catch (UserNotFoundException)
+            {
+                return NotFound();
+            }
+            catch (UnexceptedException ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return View();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return RedirectToAction(nameof(SignIn));
         }
     }
 }

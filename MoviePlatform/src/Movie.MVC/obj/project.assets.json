@@ -11579,7 +11579,8 @@
       "Microsoft.EntityFrameworkCore.Design >= 6.0.26",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.26",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.16",
-      "Movie.Business >= 1.0.0"
+      "Movie.Business >= 1.0.0",
+      "Movie.Data >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -11611,6 +11612,9 @@
           "projectReferences": {
             "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.Business\\Movie.Business.csproj": {
               "projectPath": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.Business\\Movie.Business.csproj"
+            },
+            "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.Data\\Movie.Data.csproj": {
+              "projectPath": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.Data\\Movie.Data.csproj"
             }
           }
         }

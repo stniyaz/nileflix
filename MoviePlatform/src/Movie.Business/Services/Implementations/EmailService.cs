@@ -1,6 +1,7 @@
 ﻿using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Identity;
 using MimeKit;
+using Movie.Business.CustomExceptions.CommonExceptions;
 using Movie.Business.CustomExceptions.UserException;
 using Movie.Business.Helpers.Mail;
 using Movie.Business.Services.Interfaces;
@@ -14,7 +15,6 @@ namespace Movie.Business.Services.Implementations
         private readonly UserManager<AppUser> _userManager;
         private readonly IAccountService _accountService;
         private readonly SignInManager<AppUser> _signInManager;
-        private string unsuccessfullConfirmation = "Something went wrong.";
         public EmailService(EmailConfiguration emailConfiguration,
                             UserManager<AppUser> userManager,
                             IAccountService accountService,
@@ -32,18 +32,22 @@ namespace Movie.Business.Services.Implementations
             if (user is null) throw new UserNotFoundException();
 
             var result = await _userManager.ChangeEmailAsync(user, newMail, token);
-            if (!result.Succeeded) throw new UnsuccessfulConfirmationException(unsuccessfullConfirmation);
+            if (!result.Succeeded)
+                throw new UnsuccessfulConfirmationException(result?.Errors?.FirstOrDefault()?.Description);
         }
 
         public async Task CheckConfirmationAsync(string token, string email)
         {
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(token))
+                throw new NullDatasException();
+
             var user = await _userManager.FindByEmailAsync(email);
             if (user is null)
                 throw new UserNotFoundException();
 
             var result = await _userManager.ConfirmEmailAsync(user, token);
             if (!result.Succeeded)
-                throw new UnsuccessfulConfirmationException(unsuccessfullConfirmation);
+                throw new UnsuccessfulConfirmationException(result?.Errors?.FirstOrDefault()?.Description);
 
             await _signInManager.SignInAsync(user, isPersistent: true);
 

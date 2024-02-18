@@ -116,6 +116,7 @@ namespace Movie.Business.Services.Implementations
             var wantedUser = await _userManager.FindByIdAsync(user.Id);
             if (wantedUser != null)
             {
+                await _userManager.UpdateSecurityStampAsync(wantedUser);
                 await _userManager.DeleteAsync(wantedUser);
             }
         }
@@ -274,6 +275,28 @@ namespace Movie.Business.Services.Implementations
             }
             return new ChangeMailVM { IsChanged = false };
         }
+        public async Task<ResetPasswordVM> CheckEmailAsync(UserResetPasswordDTO dto)
+        {
+            var user = await _userManager.FindByEmailAsync(dto.Email);
+            if (user is null)
+                throw new UserNotFoundException("Email", "Please check the e-mail address again because there is no such e-mail address in our system.");
+
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            return new ResetPasswordVM { Token = token, Email = user.Email };
+        }
+        public async Task ResetPasswordAsync(ResetPasswordVM model)
+        {
+            if (string.IsNullOrEmpty(model.Email) || string.IsNullOrEmpty(model.Token))
+                throw new NullDatasException();
+
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if (user is null) throw new UserNotFoundException();
+
+            var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
+            if (!result.Succeeded) throw new UnexceptedException(result?.Errors?.FirstOrDefault()?.Description);
+            user.UpdatedDate = DateTime.UtcNow.AddHours(4);
+            await _userManager.UpdateAsync(user);
+        }
 
         private async Task<List<AppUser>> GetByRoleAsync(string? search, string role)
         {
@@ -290,6 +313,13 @@ namespace Movie.Business.Services.Implementations
                     throw new InvalidSearchException();
             }
             return users.ToList();
+        }
+
+        public async Task<AppUser> GetUserByEmailAsync(string mail)
+        {
+            var user = await _userManager.FindByEmailAsync(mail);
+            if (user is null) throw new UserNotFoundException();
+            return user;
         }
     }
 }

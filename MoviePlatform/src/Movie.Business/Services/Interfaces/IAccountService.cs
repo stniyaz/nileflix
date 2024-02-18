@@ -16,11 +16,14 @@ namespace Movie.Business.Services.Interfaces
         Task DeleteByNameAsync(string name);
         Task<List<IdentityRole>> GetRolesAsync();
         Task<AppUser> GetUserByNameAsync(string username);
+        Task<AppUser> GetUserByEmailAsync(string mail);
         Task<string> GetUserRoleAsync(string id);
         Task<List<AppUser>> SearchByUsersAsync(string? search);
         Task<List<AppUser>> SearchByModsAsync(string? search);
         Task UpdateAsync(UserUpdateDTO dto);
         Task<ChangeMailVM> UserEditAsync(UserEditDTO dto);
         Task ChangePasswordAsync(string username, ChangePasswordVM model);
+        Task<ResetPasswordVM> CheckEmailAsync(UserResetPasswordDTO dto);
+        Task ResetPasswordAsync(ResetPasswordVM model);
     }
 }
