@@ -465,8 +465,12 @@
       "PackagePath": "staticwebassets\\uploads\\movieSubs\\889794e2-bb07-4988-9652-9436e0e13e4ecaptions.vtt"
     },
     {
-      "Id": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\uploads\\movieVideos\\0627381f-0692-4e0b-9fcf-87a819555d6eUnique Tigers Collection 480p.mp4",
-      "PackagePath": "staticwebassets\\uploads\\movieVideos\\0627381f-0692-4e0b-9fcf-87a819555d6eUnique Tigers Collection 480p.mp4"
+      "Id": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\uploads\\movieVideos\\20f86c00-e073-4a7d-b51f-4a9239687ab9sayım tik tak sesi -1 minute countdown timer -plank hareketi.mp4",
+      "PackagePath": "staticwebassets\\uploads\\movieVideos\\20f86c00-e073-4a7d-b51f-4a9239687ab9sayım tik tak sesi -1 minute countdown timer -plank hareketi.mp4"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\uploads\\movieVideos\\2b54a6cb-05a4-431d-b5f8-65dac15997dasayım tik tak sesi -1 minute countdown timer -plank hareketi.mp4",
+      "PackagePath": "staticwebassets\\uploads\\movieVideos\\2b54a6cb-05a4-431d-b5f8-65dac15997dasayım tik tak sesi -1 minute countdown timer -plank hareketi.mp4"
     },
     {
       "Id": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\uploads\\movieVideos\\2ddfdb88-8c8a-4d5b-85a9-af6ce40735c5SPIDER-MAN [2002] – 480p.mp4",
@@ -477,8 +481,12 @@
       "PackagePath": "staticwebassets\\uploads\\movieVideos\\3795d80e-e3ed-4286-90f6-7d51d3b3b796SPIDER-MAN [2002] – 1080p.mp4"
     },
     {
-      "Id": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\uploads\\movieVideos\\d8701a93-7a5c-4736-b1b5-728c1810b550Unique Tigers Collection 1080p.mp4",
-      "PackagePath": "staticwebassets\\uploads\\movieVideos\\d8701a93-7a5c-4736-b1b5-728c1810b550Unique Tigers Collection 1080p.mp4"
+      "Id": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\uploads\\movieVideos\\ae2d3460-a1c5-4c99-a909-9bc83cb9dea410 Second Video Loop.mp4",
+      "PackagePath": "staticwebassets\\uploads\\movieVideos\\ae2d3460-a1c5-4c99-a909-9bc83cb9dea410 Second Video Loop.mp4"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\uploads\\movieVideos\\cb65017b-6c8d-47f1-8b32-9e123a633d6210 Second Video Loop.mp4",
+      "PackagePath": "staticwebassets\\uploads\\movieVideos\\cb65017b-6c8d-47f1-8b32-9e123a633d6210 Second Video Loop.mp4"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.Movie.MVC.Microsoft.AspNetCore.StaticWebAssets.props",

@@ -228,6 +228,16 @@ namespace Movie.MVC.Controllers
             bool check = User.Identity.IsAuthenticated;
             return Json(new { loggedIn = check });
         }
+        public IActionResult PricingPlans()
+        {
+            return View();
+        }
+        public IActionResult Checkout(int id)
+        {
+            var domain = "https://localhost:7161/";
+
+            return View();
+        }
 
     }
 }

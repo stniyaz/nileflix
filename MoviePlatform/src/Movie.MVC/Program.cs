@@ -6,6 +6,7 @@ using Movie.Core.Models;
 using Movie.Data;
 using Movie.Data.DAL;
 using Movie.Business.Jobs;
+using Stripe;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -58,5 +59,7 @@ app.UseEndpoints(endpoints =>
 app.MapControllerRoute(
     name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}");
+
+StripeConfiguration.ApiKey = builder.Configuration.GetSection("Stripe:SecretKey").Get<string>();
 
 app.Run();

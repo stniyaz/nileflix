@@ -364,7 +364,10 @@ namespace Movie.Business.Services.Implementations
 
         public async Task<Core.Models.Movie> GetMovieWithAllIncludes(int id)
         {
-            return await _movieRepository.GetAsync(x => x.Id == id, "MovieImages", "MovieGenres");
+            var movie = await _movieRepository.GetAsync(x => x.Id == id, "MovieImages", "MovieGenres");
+            if (movie is null)
+                throw new MovieNotFoundException();
+            return movie;
         }
 
 
