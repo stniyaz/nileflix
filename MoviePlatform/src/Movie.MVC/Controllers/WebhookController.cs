@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Movie.Business.Services.Interfaces;
 using Stripe;
-using Stripe.Checkout;
 
 namespace Movie.MVC.Controllers
 {
@@ -31,9 +30,19 @@ namespace Movie.MVC.Controllers
                 if (stripeEvent.Type == Events.PaymentIntentSucceeded)
                 {
                     var paymentIntent = stripeEvent.Data.Object as PaymentIntent;
-                    Console.WriteLine(stripeEvent);
+                    var amount = paymentIntent.Amount;
                     // Ödeme başarılı oldu, gerekli işlemleri yapın
+                    await Console.Out.WriteLineAsync("salam------------------------------");
+
+                    string jsonContent = "{\"key1\":\"value1\",\"key2\":\"value2\"}"; // Örnek JSON içerik
+
+                    // İçeriği StringContent nesnesine dönüştür
+                    var content = new StringContent(jsonContent, System.Text.Encoding.UTF8, "application/json");
+                    HttpClient client = new HttpClient();
+                    string url = "https://localhost:7161/home/premium";
+                    HttpResponseMessage response = await client.PostAsync(url, content);
                 }
+
 
                 return Ok();
             }

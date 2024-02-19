@@ -8,8 +8,6 @@ using Movie.Business.Helpers.Mail;
 using Movie.Business.Services.Interfaces;
 using Movie.Business.ViewModels;
 using Movie.MVC.ViewModels;
-using Stripe;
-using Stripe.Climate;
 
 namespace Movie.MVC.Controllers
 {
@@ -247,23 +245,12 @@ namespace Movie.MVC.Controllers
             }
             return RedirectToAction("signin", "account");
         }
-        public async Task<IActionResult> StripeSucces(string sessionId)
-        {
-            var service = new Stripe.Checkout.SessionService();
-            var session = service.Get(sessionId);
 
-            if (session.PaymentStatus == "paid")
-            {
-                // Payment was successful
-                // Perform necessary actions (e.g., update user account, send confirmation email, etc.)
-                return Ok("tebrik");
-            }
-            else
-            {
-                // Payment failed or was canceled
-                // Handle accordingly (e.g., show error message, redirect to error page, etc.)
-                return View("ErrorView");
-            }
+        public async Task<IActionResult> c91d8291b1cd4893b870173f92636708(string userId)
+        {
+            await _accountService.UserToPremiumAsync(userId);
+            return RedirectToAction(nameof(Index));
         }
+
     }
 }

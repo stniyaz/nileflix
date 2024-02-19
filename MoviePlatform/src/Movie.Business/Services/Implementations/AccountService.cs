@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Movie.Business.CustomExceptions.CommonExceptions;
 using Movie.Business.CustomExceptions.UserException;
@@ -17,16 +17,19 @@ namespace Movie.Business.Services.Implementations
         private readonly SignInManager<AppUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IMapper _mapper;
+        private readonly IHttpContextAccessor _httpContext;
 
         public AccountService(UserManager<AppUser> userManager,
                               SignInManager<AppUser> signInManager,
                               RoleManager<IdentityRole> roleManager,
-                              IMapper mapper)
+                              IMapper mapper,
+                              IHttpContextAccessor httpContext)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
             _mapper = mapper;
+            _httpContext = httpContext;
         }
         private string loginFailMessage = "Sorry, login failed. Please note that if there are too many incorrect attempts, your account will be temporarily blocked.";
         private string existMailMessage = "This email address is already taken. Please enter another e-mail address.";
@@ -323,9 +326,9 @@ namespace Movie.Business.Services.Implementations
             return user;
         }
 
-        public async Task UserToPremiumAsync(string email)
+        public async Task UserToPremiumAsync(string userId)
         {
-            var user = await _userManager.FindByEmailAsync(email);
+            var user = await _userManager.FindByIdAsync(userId);
             user.IsPremium = true;
             await _userManager.UpdateAsync(user);
         }

@@ -1,8 +1,9 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Movie.Business.CustomExceptions.MoiveExceptions;
 using Movie.Business.CustomExceptions.UserException;
+using Movie.Business.DTOs.ComentDTOs;
 using Movie.Business.Services.Interfaces;
+using Movie.MVC.ViewModels;
 
 namespace Movie.MVC.Controllers
 {
@@ -10,12 +11,15 @@ namespace Movie.MVC.Controllers
     {
         private readonly IMovieService _movieService;
         private readonly IMovieGenreService _movieGenreService;
+        private readonly ICommentService _commentService;
 
         public MovieController(IMovieService movieService,
-                               IMovieGenreService movieGenreService)
+                               IMovieGenreService movieGenreService,
+                               ICommentService commentService)
         {
             _movieService = movieService;
             _movieGenreService = movieGenreService;
+            _commentService = commentService;
         }
         public async Task<IActionResult> Detail(int id)
         {
@@ -52,8 +56,7 @@ namespace Movie.MVC.Controllers
                 var check = await _movieService.CheckVideoAndUser(id, User.Identity.Name);
                 if (!check) return RedirectToAction("pricing", "movie", new { id = id });
                 var movie = await _movieService.GetMovieWithAllIncludes(id);
-                if (movie is null) return NotFound();
-                return View(movie);
+                return View(new WatchVM { Movie = movie });
             }
             catch (MovieNotFoundException)
             {
@@ -70,6 +73,30 @@ namespace Movie.MVC.Controllers
             }
         }
 
+        [HttpPost]
+        public async Task<IActionResult> PostComment(CommentCreateDTO comment)
+        {
+            try
+            {
+                ViewBag.MovieGenres = await _movieGenreService.GetAllIncludesAsync();
+                var movie = await _movieService.GetMovieWithAllIncludes(comment.MovieId);
+                if (!ModelState.IsValid) return View("watch", new WatchVM { Movie = movie, Comment = comment });
+                await _commentService.CreateAsync(comment);
+                return RedirectToAction("watch", new { id = comment.MovieId });
+            }
+            catch (UserNotFoundException)
+            {
+                return NotFound();
+            }
+            catch (MovieNotFoundException)
+            {
+                return NotFound();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public async Task<IActionResult> Pricing(int id)
         {
             try
@@ -96,5 +123,8 @@ namespace Movie.MVC.Controllers
                 throw;
             }
         }
+
+
+
     }
 }

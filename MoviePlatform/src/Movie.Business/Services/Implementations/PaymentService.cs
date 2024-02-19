@@ -22,12 +22,11 @@ namespace Movie.Business.Services.Implementations
         {
             var user = await _accountService.GetUserByNameAsync(username);
 
-
             var domain = "https://localhost:7161/";
 
             var option = new Stripe.Checkout.SessionCreateOptions
             {
-                SuccessUrl = domain + $"home/index",
+                SuccessUrl = domain + $"home/c91d8291b1cd4893b870173f92636708?userId={user.Id}",
                 CancelUrl = domain + $"home/pricingplans",
                 LineItems = new List<SessionLineItemOptions>(),
                 Mode = "payment",
@@ -38,7 +37,6 @@ namespace Movie.Business.Services.Implementations
                     {"discription", "salam"}
                 },
             };
-
             var sessionLineItem = new SessionLineItemOptions
             {
                 PriceData = new SessionLineItemPriceDataOptions

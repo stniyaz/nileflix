@@ -27,6 +27,7 @@ namespace Movie.Business
             services.AddScoped<UserEditService>();
             services.AddScoped<IUserSavedMovieService, UserSavedMovieService>();
             services.AddScoped<IPaymentService, PaymentService>();
+            services.AddScoped<ICommentService, CommentService>();
 
             services.ConfigureApplicationCookie(opt =>
             {
