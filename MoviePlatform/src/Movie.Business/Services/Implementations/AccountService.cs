@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Movie.Business.CustomExceptions.CommonExceptions;
 using Movie.Business.CustomExceptions.UserException;
@@ -320,6 +321,13 @@ namespace Movie.Business.Services.Implementations
             var user = await _userManager.FindByEmailAsync(mail);
             if (user is null) throw new UserNotFoundException();
             return user;
+        }
+
+        public async Task UserToPremiumAsync(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            user.IsPremium = true;
+            await _userManager.UpdateAsync(user);
         }
     }
 }

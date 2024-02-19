@@ -76,6 +76,7 @@ C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\bin\Debug\net6.0\NuGe
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\bin\Debug\net6.0\NuGet.Protocol.dll
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\bin\Debug\net6.0\NuGet.Versioning.dll
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\bin\Debug\net6.0\BouncyCastle.Crypto.dll
+C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\bin\Debug\net6.0\Stripe.net.dll
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\bin\Debug\net6.0\System.Composition.AttributedModel.dll
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\bin\Debug\net6.0\System.Composition.Convention.dll
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\bin\Debug\net6.0\System.Composition.Hosting.dll
@@ -259,8 +260,8 @@ C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\bin\Debug\net6.0\Movi
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\bin\Debug\net6.0\Movie.Core.dll
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\bin\Debug\net6.0\Movie.Data.dll
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\bin\Debug\net6.0\Movie.Business.pdb
-C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\bin\Debug\net6.0\Movie.Core.pdb
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\bin\Debug\net6.0\Movie.Data.pdb
+C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\bin\Debug\net6.0\Movie.Core.pdb
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\obj\Debug\net6.0\Movie.MVC.csproj.AssemblyReference.cache
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\obj\Debug\net6.0\Movie.MVC.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\obj\Debug\net6.0\Movie.MVC.AssemblyInfoInputs.cache
@@ -285,4 +286,3 @@ C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\obj\Debug\net6.0\refi
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\obj\Debug\net6.0\Movie.MVC.pdb
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\obj\Debug\net6.0\Movie.MVC.genruntimeconfig.cache
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\obj\Debug\net6.0\ref\Movie.MVC.dll
-C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.MVC\bin\Debug\net6.0\Stripe.net.dll

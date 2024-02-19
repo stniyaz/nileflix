@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Movie.Business.CustomExceptions.CommonExceptions;
 using Movie.Business.CustomExceptions.MoiveExceptions;
@@ -9,6 +8,8 @@ using Movie.Business.Helpers.Mail;
 using Movie.Business.Services.Interfaces;
 using Movie.Business.ViewModels;
 using Movie.MVC.ViewModels;
+using Stripe;
+using Stripe.Climate;
 
 namespace Movie.MVC.Controllers
 {
@@ -21,6 +22,7 @@ namespace Movie.MVC.Controllers
         private readonly IMapper _mapper;
         private readonly IEmailService _emailService;
         private readonly IUserSavedMovieService _userSavedMovieService;
+        private readonly IPaymentService _paymentService;
 
         public HomeController(IMovieService movieService,
                               IGenreService genreService,
@@ -28,7 +30,8 @@ namespace Movie.MVC.Controllers
                               IAccountService accountService,
                               IMapper mapper,
                               IEmailService emailService,
-                              IUserSavedMovieService userSavedMovieService)
+                              IUserSavedMovieService userSavedMovieService,
+                              IPaymentService paymentService)
         {
             _movieService = movieService;
             _genreService = genreService;
@@ -37,7 +40,9 @@ namespace Movie.MVC.Controllers
             _mapper = mapper;
             _emailService = emailService;
             _userSavedMovieService = userSavedMovieService;
+            _paymentService = paymentService;
         }
+        private readonly string _stripeSecret = "whsec_34a2ca4cb8579d9bb7a4efdd0c33cd559927cce1eb83f73b66582ea3c2c3977a";
         public async Task<IActionResult> Index(string? search, int? genreId = 0)
         {
             try
@@ -232,12 +237,33 @@ namespace Movie.MVC.Controllers
         {
             return View();
         }
-        public IActionResult Checkout(int id)
+        public async Task<IActionResult> Checkout()
         {
-            var domain = "https://localhost:7161/";
-
-            return View();
+            if (User.Identity.IsAuthenticated)
+            {
+                var model = await _paymentService.PaymentProcess(User.Identity.Name);
+                Response.Headers.Add("Location", model.Session.Url);
+                return new StatusCodeResult(303);
+            }
+            return RedirectToAction("signin", "account");
         }
+        public async Task<IActionResult> StripeSucces(string sessionId)
+        {
+            var service = new Stripe.Checkout.SessionService();
+            var session = service.Get(sessionId);
 
+            if (session.PaymentStatus == "paid")
+            {
+                // Payment was successful
+                // Perform necessary actions (e.g., update user account, send confirmation email, etc.)
+                return Ok("tebrik");
+            }
+            else
+            {
+                // Payment failed or was canceled
+                // Handle accordingly (e.g., show error message, redirect to error page, etc.)
+                return View("ErrorView");
+            }
+        }
     }
 }

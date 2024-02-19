@@ -4134,7 +4134,8 @@
           "Hangfire.AspNetCore": "1.8.9",
           "Hangfire.SqlServer": "1.8.9",
           "Movie.Data": "1.0.0",
-          "NETCore.MailKit": "2.1.0"
+          "NETCore.MailKit": "2.1.0",
+          "Stripe.net": "43.15.0"
         },
         "compile": {
           "bin/placeholder/Movie.Business.dll": {}
