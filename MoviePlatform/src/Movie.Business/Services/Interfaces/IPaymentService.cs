@@ -4,6 +4,6 @@ namespace Movie.Business.Services.Interfaces
 {
     public interface IPaymentService
     {
-        Task<PaymentResultVM> PaymentProcess(/*string date */string username);
+        Task<PaymentResultVM> PaymentProcess(string username,string month);
     }
 }

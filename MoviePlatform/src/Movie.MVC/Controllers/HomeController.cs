@@ -120,7 +120,6 @@ namespace Movie.MVC.Controllers
                     await _emailService.SendMailAsync(message);
                     return Ok("Please check your e-mail address. An activation message has been sent to your e-mail address.");
                 }
-
             }
             catch (UserNotFoundException)
             {
@@ -235,21 +234,51 @@ namespace Movie.MVC.Controllers
         {
             return View();
         }
-        public async Task<IActionResult> Checkout()
+        public async Task<IActionResult> Checkout(string date)
         {
-            if (User.Identity.IsAuthenticated)
+            try
             {
-                var model = await _paymentService.PaymentProcess(User.Identity.Name);
-                Response.Headers.Add("Location", model.Session.Url);
-                return new StatusCodeResult(303);
+                if (User.Identity.IsAuthenticated)
+                {
+                    var model = await _paymentService.PaymentProcess(User.Identity.Name, date);
+                    Response.Headers.Add("Location", model.Session.Url);
+                    return new StatusCodeResult(303);
+                }
+                return RedirectToAction("signin", "account");
             }
-            return RedirectToAction("signin", "account");
+            catch (UserNotFoundException)
+            {
+                return NotFound();
+            }
+            catch (UnexceptedException)
+            {
+                return NotFound();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
-        public async Task<IActionResult> c91d8291b1cd4893b870173f92636708(string userId)
+        public async Task<IActionResult> c91d8291b1cd4893b870173f92636708(string userId, int amount)
         {
-            await _accountService.UserToPremiumAsync(userId);
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                await _accountService.UserToPremiumAsync(userId, amount);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (UserNotFoundException)
+            {
+                return NotFound();
+            }
+            catch (UnexceptedException)
+            {
+                return NotFound();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
     }

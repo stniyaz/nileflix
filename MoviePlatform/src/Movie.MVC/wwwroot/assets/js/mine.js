@@ -62,7 +62,7 @@ document.getElementById("changeMail").addEventListener("click", function (e) {
                 showConfirmButton: false,
                 timer: 1500
             });
-        } else {
+        } else if (xhr.status == 204) {
             Swal.fire({
                 position: "top-end",
                 icon: "success",
@@ -71,6 +71,8 @@ document.getElementById("changeMail").addEventListener("click", function (e) {
                 showConfirmButton: false,
                 timer: 2500
             });
+
+            
         }
     };
     xhr.send(formData);

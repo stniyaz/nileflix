@@ -543,6 +543,12 @@ namespace Movie.Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<DateTime?>("PremiumEndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("PremiumStartDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 

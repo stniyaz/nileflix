@@ -326,11 +326,53 @@ namespace Movie.Business.Services.Implementations
             return user;
         }
 
-        public async Task UserToPremiumAsync(string userId)
+        public async Task UserToPremiumAsync(string userId, int amount)
         {
             var user = await _userManager.FindByIdAsync(userId);
+            if (user is null) throw new UserNotFoundException();
+
+            switch (amount)
+            {
+                case 1399:
+                    user.PremiumStartDate = CheckStartPremium(user);
+                    user.PremiumEndDate = CheckEndPremium(user, 1);
+                    break;
+                case 2399:
+                    user.PremiumStartDate = CheckStartPremium(user);
+                    user.PremiumEndDate = CheckEndPremium(user, 2);
+                    break;
+                case 3399:
+                    user.PremiumStartDate = CheckStartPremium(user);
+                    user.PremiumEndDate = CheckEndPremium(user, 3);
+                    break;
+                default:
+                    throw new UnexceptedException();
+            }
+
             user.IsPremium = true;
             await _userManager.UpdateAsync(user);
+        }
+
+        private DateTime CheckEndPremium(AppUser user, int month)
+        {
+            DateTime sum;
+            if (user.IsPremium)
+            {
+                sum = user.PremiumEndDate.Value.AddMonths(month).AddHours(4);
+            }
+            else
+            {
+                sum = DateTime.UtcNow.AddMonths(month).AddHours(4);
+            }
+            return sum;
+        }
+        private DateTime CheckStartPremium(AppUser user)
+        {
+            if (user.IsPremium)
+            {
+                return user.PremiumStartDate.Value;
+            }
+            return DateTime.UtcNow.AddHours(4);
         }
     }
 }

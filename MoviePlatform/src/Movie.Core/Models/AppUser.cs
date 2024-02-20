@@ -12,6 +12,9 @@ namespace Movie.Core.Models
         public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
 
+        public DateTime? PremiumStartDate { get; set; }
+        public DateTime? PremiumEndDate { get; set; }
+
         public List<Comment> Comments { get; set; }
         public List<UserSavedMovie> UserSavedMovies { get; set; }
     }

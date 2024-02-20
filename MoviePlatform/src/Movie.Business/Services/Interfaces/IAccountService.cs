@@ -25,6 +25,6 @@ namespace Movie.Business.Services.Interfaces
         Task ChangePasswordAsync(string username, ChangePasswordVM model);
         Task<ResetPasswordVM> CheckEmailAsync(UserResetPasswordDTO dto);
         Task ResetPasswordAsync(ResetPasswordVM model);
-        Task UserToPremiumAsync(string userId);
+        Task UserToPremiumAsync(string userId, int amount);
     }
 }
