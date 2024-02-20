@@ -53,6 +53,10 @@
       "PackagePath": "staticwebassets\\assets\\img\\bg.jpg"
     },
     {
+      "Id": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\assets\\img\\blue.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\blue.svg"
+    },
+    {
       "Id": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\assets\\img\\breadcrumb.svg",
       "PackagePath": "staticwebassets\\assets\\img\\breadcrumb.svg"
     },
@@ -309,6 +313,10 @@
       "PackagePath": "staticwebassets\\assets\\img\\series\\6.jpg"
     },
     {
+      "Id": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\assets\\img\\white.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\white.svg"
+    },
+    {
       "Id": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\assets\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\assets\\js\\bootstrap.bundle.min.js"
     },
@@ -377,6 +385,10 @@
       "PackagePath": "staticwebassets\\manage\\img\\bg.jpg"
     },
     {
+      "Id": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\manage\\img\\blue.svg",
+      "PackagePath": "staticwebassets\\manage\\img\\blue.svg"
+    },
+    {
       "Id": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\manage\\img\\checkmark.svg",
       "PackagePath": "staticwebassets\\manage\\img\\checkmark.svg"
     },
@@ -399,6 +411,10 @@
     {
       "Id": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\manage\\img\\video.svg",
       "PackagePath": "staticwebassets\\manage\\img\\video.svg"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\manage\\img\\white.svg",
+      "PackagePath": "staticwebassets\\manage\\img\\white.svg"
     },
     {
       "Id": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\manage\\js\\admin.js",

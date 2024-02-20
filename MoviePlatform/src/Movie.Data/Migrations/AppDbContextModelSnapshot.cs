@@ -306,6 +306,37 @@ namespace Movie.Data.Migrations
                     b.ToTable("Countries");
                 });
 
+            modelBuilder.Entity("Movie.Core.Models.Earning", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("Earnings");
+                });
+
             modelBuilder.Entity("Movie.Core.Models.Genre", b =>
                 {
                     b.Property<int>("Id")
@@ -629,6 +660,17 @@ namespace Movie.Data.Migrations
                     b.Navigation("Movie");
                 });
 
+            modelBuilder.Entity("Movie.Core.Models.Earning", b =>
+                {
+                    b.HasOne("Movie.Core.Models.AppUser", "AppUser")
+                        .WithMany("Earnings")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+                });
+
             modelBuilder.Entity("Movie.Core.Models.Movie", b =>
                 {
                     b.HasOne("Movie.Core.Models.Country", "Country")
@@ -718,6 +760,8 @@ namespace Movie.Data.Migrations
             modelBuilder.Entity("Movie.Core.Models.AppUser", b =>
                 {
                     b.Navigation("Comments");
+
+                    b.Navigation("Earnings");
 
                     b.Navigation("UserSavedMovies");
                 });

@@ -280,6 +280,5 @@ namespace Movie.MVC.Controllers
                 throw;
             }
         }
-
     }
 }

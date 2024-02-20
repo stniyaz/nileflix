@@ -15,6 +15,7 @@ namespace Movie.Data
             services.AddScoped<IMovieImageRepository, MovieImageRepository>();
             services.AddScoped<IUserSavedMovieRepository, UserSavedMovieRepository>();
             services.AddScoped<ICommentRepository, CommentRepository>();
+            services.AddScoped<IEarningRepository, EarningRepository>();
         }
     }
 }

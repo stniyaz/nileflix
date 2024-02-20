@@ -1,12 +1,38 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{005AB6BC-2A9F-416E-B278-98C2550A87ED}|src\\Movie.MVC\\Movie.MVC.csproj|c:\\users\\admin\\desktop\\nile_tv\\movieplatform\\src\\movie.mvc\\controllers\\moviecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{005AB6BC-2A9F-416E-B278-98C2550A87ED}|src\\Movie.MVC\\Movie.MVC.csproj|solutionrelative:src\\movie.mvc\\controllers\\moviecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MovieController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\Controllers\\MovieController.cs",
+              "RelativeDocumentMoniker": "src\\Movie.MVC\\Controllers\\MovieController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\Controllers\\MovieController.cs",
+              "RelativeToolTip": "src\\Movie.MVC\\Controllers\\MovieController.cs",
+              "ViewState": "AQIAAEcAAAAAAAAAAAAgwC4AAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-20T14:19:51.658Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

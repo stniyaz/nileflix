@@ -18,18 +18,21 @@ namespace Movie.Business.Services.Implementations
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IMapper _mapper;
         private readonly IHttpContextAccessor _httpContext;
+        private readonly IEarningService _earningService;
 
         public AccountService(UserManager<AppUser> userManager,
                               SignInManager<AppUser> signInManager,
                               RoleManager<IdentityRole> roleManager,
                               IMapper mapper,
-                              IHttpContextAccessor httpContext)
+                              IHttpContextAccessor httpContext,
+                              IEarningService earningService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
             _mapper = mapper;
             _httpContext = httpContext;
+            _earningService = earningService;
         }
         private string loginFailMessage = "Sorry, login failed. Please note that if there are too many incorrect attempts, your account will be temporarily blocked.";
         private string existMailMessage = "This email address is already taken. Please enter another e-mail address.";
@@ -348,7 +351,7 @@ namespace Movie.Business.Services.Implementations
                 default:
                     throw new UnexceptedException();
             }
-
+            await _earningService.CreateAsync(amount, userId);
             user.IsPremium = true;
             await _userManager.UpdateAsync(user);
         }

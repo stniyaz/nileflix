@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "QiJBnzCoTtiDFyaUutilihpkpq3jCW3mNaaYdLw/tSM=",
+  "Hash": "oD3sn1vi1UKrOFJST5L2545kEZtmwh5EuPTR30hplw0=",
   "Source": "Movie.MVC",
   "BasePath": "_content/Movie.MVC",
   "Mode": "Default",
@@ -262,6 +262,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\bg.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\assets\\img\\blue.svg",
+      "SourceId": "Movie.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\",
+      "BasePath": "_content/Movie.MVC",
+      "RelativePath": "assets/img/blue.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\blue.svg"
     },
     {
       "Identity": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\assets\\img\\breadcrumb.svg",
@@ -1480,6 +1499,25 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\series\\6.jpg"
     },
     {
+      "Identity": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\assets\\img\\white.svg",
+      "SourceId": "Movie.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\",
+      "BasePath": "_content/Movie.MVC",
+      "RelativePath": "assets/img/white.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\white.svg"
+    },
+    {
       "Identity": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\assets\\js\\bootstrap.bundle.min.js",
       "SourceId": "Movie.MVC",
       "SourceType": "Discovered",
@@ -1803,6 +1841,25 @@
       "OriginalItemSpec": "wwwroot\\manage\\img\\bg.jpg"
     },
     {
+      "Identity": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\manage\\img\\blue.svg",
+      "SourceId": "Movie.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\",
+      "BasePath": "_content/Movie.MVC",
+      "RelativePath": "manage/img/blue.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\manage\\img\\blue.svg"
+    },
+    {
       "Identity": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\manage\\img\\checkmark.svg",
       "SourceId": "Movie.MVC",
       "SourceType": "Discovered",
@@ -1915,6 +1972,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\manage\\img\\video.svg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\manage\\img\\white.svg",
+      "SourceId": "Movie.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\",
+      "BasePath": "_content/Movie.MVC",
+      "RelativePath": "manage/img/white.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\manage\\img\\white.svg"
     },
     {
       "Identity": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\manage\\js\\admin.js",

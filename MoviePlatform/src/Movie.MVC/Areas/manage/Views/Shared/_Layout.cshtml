@@ -41,7 +41,7 @@
         <div class="header__content">
             <!-- header logo -->
             <a href="index.html" class="header__logo">
-                <img src="~/manage/img/logo.svg" alt="">
+                <img src="~/manage/img/blue.svg" alt="">
             </a>
             <!-- end header logo -->
             <!-- header menu btn -->
@@ -58,7 +58,7 @@
     <div class="sidebar">
         <!-- sidebar logo -->
         <a asp-action="index" asp-controller="dashboard" class="sidebar__logo">
-            <img src="~/manage/img/logo.svg" alt="">
+            <img src="~/manage/img/blue.svg" alt="">
         </a>
         <!-- end sidebar logo -->
         <!-- sidebar user -->
@@ -127,7 +127,7 @@
             </li>
 
             <li class="sidebar__nav-item">
-                <a href="comments.html"
+                <a asp-action="comment" asp-controller="user"
                    class="sidebar__nav-link sidebar-item" onclick="activateSidebarItem(this)">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8,11a1,1,0,1,0,1,1A1,1,0,0,0,8,11Zm4,0a1,1,0,1,0,1,1A1,1,0,0,0,12,11Zm4,0a1,1,0,1,0,1,1A1,1,0,0,0,16,11ZM12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,2.26,6.33l-2,2a1,1,0,0,0-.21,1.09A1,1,0,0,0,3,22h9A10,10,0,0,0,12,2Zm0,18H5.41l.93-.93a1,1,0,0,0,.3-.71,1,1,0,0,0-.3-.7A8,8,0,1,1,12,20Z" /></svg> <span>Comments</span>
                 </a>
