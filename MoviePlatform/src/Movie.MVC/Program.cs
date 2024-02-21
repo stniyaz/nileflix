@@ -7,11 +7,16 @@ using Movie.Data;
 using Movie.Data.DAL;
 using Movie.Business.Jobs;
 using Stripe;
+using Movie.Business.Hubs;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddJsonOptions(opt =>
+{
+    opt.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+});
 builder.Services.AddDbContext<AppDbContext>(opt =>
 {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("default"));
@@ -38,7 +43,7 @@ builder.Services.AddHangfireServer();
 
 builder.Services.AddRepositories();
 builder.Services.AddServices(builder);
-
+builder.Services.AddSignalR();
 var app = builder.Build();
 
 app.UseHttpsRedirection();
@@ -61,5 +66,5 @@ app.MapControllerRoute(
         pattern: "{controller=Home}/{action=Index}/{id?}");
 
 StripeConfiguration.ApiKey = builder.Configuration.GetSection("Stripe:SecretKey").Get<string>();
-
+app.MapHub<CommentHub>("commentUrl");
 app.Run();

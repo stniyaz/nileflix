@@ -87,3 +87,32 @@ userBtns.forEach(userbtn => userbtn.addEventListener("click", function (e) {
 	});
 
 }))
+
+// comment
+var commentBtns = document.querySelectorAll(".delete-cmnt");
+
+commentBtns.forEach(cmnt => cmnt.addEventListener("click", function (e) {
+	e.preventDefault();
+	let url = cmnt.getAttribute("href");
+
+	Swal.fire({
+		title: "Are you sure?",
+		text: "The movie will be deleted. This action cannot be undone.",
+		icon: "warning",
+		showCancelButton: true,
+		confirmButtonColor: "#014709",
+		cancelButtonColor: "#8b0000",
+		confirmButtonText: "Yes, delete it!",
+		background: '#151f30',
+
+	}).then((result) => {
+		if (result.isConfirmed) {
+			fetch(url)
+				.then(response => {
+					if (response.status == 200)
+						window.location.reload(true);
+				})
+		}
+	});
+
+}))

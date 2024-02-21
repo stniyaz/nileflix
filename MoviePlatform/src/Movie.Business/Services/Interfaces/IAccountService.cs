@@ -2,6 +2,7 @@
 using Movie.Business.DTOs.UserDTOs;
 using Movie.Business.ViewModels;
 using Movie.Core.Models;
+using System.Linq.Expressions;
 
 namespace Movie.Business.Services.Interfaces
 {
@@ -19,12 +20,13 @@ namespace Movie.Business.Services.Interfaces
         Task<AppUser> GetUserByEmailAsync(string mail);
         Task<string> GetUserRoleAsync(string id);
         Task<List<AppUser>> SearchByUsersAsync(string? search);
-        Task<List<AppUser>> SearchByModsAsync(string? search);
+        Task<List<AppUser>> SearchByBannedUsersAsync(string? search);
         Task UpdateAsync(UserUpdateDTO dto);
         Task<ChangeMailVM> UserEditAsync(UserEditDTO dto);
         Task ChangePasswordAsync(string username, ChangePasswordVM model);
         Task<ResetPasswordVM> CheckEmailAsync(UserResetPasswordDTO dto);
         Task ResetPasswordAsync(ResetPasswordVM model);
         Task UserToPremiumAsync(string userId, int amount);
+        Task<List<AppUser>> GetUsersAsync(Expression<Func<AppUser, bool>>? expression = null, params string[]? includes);
     }
 }

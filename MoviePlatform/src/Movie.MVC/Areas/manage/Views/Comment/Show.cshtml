@@ -1,0 +1,54 @@
+﻿@model CommentUpdateDTO
+
+<main class="main">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- main title -->
+            <div class="col-12">
+                <div class="main__title">
+                    <h2>Show</h2>
+
+                    <a asp-action="index" asp-controller="comment" class="main__title-link">back</a>
+                </div>
+            </div>
+            <!-- end main title -->
+            <!-- form -->
+            <div class="col-12">
+                <div class="form__group">
+                    <label asp-for="Text" hidden></label>
+                    <textarea disabled type="text" class="sign__textarea" placeholder="text">@Model.Text</textarea>
+                    <span asp-validation-for="Text" class="modal__text"></span>
+                </div>
+            </div>
+            <div class="col-12">
+                <form method="post" class="form" asp-action="create" asp-controller="genre" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-12 col-md-7 form__content">
+                            <div class="row">
+                                <div class="col-2">
+                                    <span asp-validation-for="IsSpoiler" class="modal__text"></span>
+                                    <div class="col-12 col-lg-1">
+                                        <div class="sign__group sign__group--checkbox">
+                                            <input asp-for="IsSpoiler" id="isPopular" type="checkbox">
+                                            <label asp-for="IsSpoiler" for="isPopular">Popular</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="row">
+
+                                <div class="col-12">
+                                    <button type="submit" class="form__btn">save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- end form -->
+        </div>
+    </div>
+</main>

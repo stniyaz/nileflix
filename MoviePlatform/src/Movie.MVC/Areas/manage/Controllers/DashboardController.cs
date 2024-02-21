@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Movie.Business.Services.Interfaces;
 using Movie.Core.Models;
+using Movie.MVC.Areas.manage.ViewModels;
 
 namespace Movie.MVC.Areas.manage.Controllers
 {
@@ -9,43 +12,29 @@ namespace Movie.MVC.Areas.manage.Controllers
     [Authorize(Roles = "Admin")]
     public class DashboardController : Controller
     {
-        //private readonly UserManager<AppUser> _userManager;
-        //private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly IMovieService _movieService;
+        private readonly ICommentService _commentService;
 
-        //public DashboardController(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
-        //{
-        //    _userManager = userManager;
-        //    _roleManager = roleManager;
-        //}
-        public IActionResult Index()
+        public DashboardController(UserManager<AppUser> userManager,
+                                   IMovieService movieService,
+                                   ICommentService commentService)
         {
-            return View();
+            _userManager = userManager;
+            _movieService = movieService;
+            _commentService = commentService;
         }
-
-        //public async Task<IActionResult> CreateRole()
-        //{
-        //    IdentityRole role1 = new IdentityRole("User");
-
-        //    await _roleManager.CreateAsync(role1);
-
-        //    return Ok();
-        //}
-        //public async Task<IActionResult> CreateAdmin()
-        //{
-        //    AppUser admin = new AppUser()
-        //    {
-        //        FirstName = "Niyaz",
-        //        LastName = "Soltanov",
-        //        UserName = "nilexadmin",
-        //        CreatedDate = DateTime.UtcNow.AddHours(4),
-        //        Email = "n.soltanov13@gmail.com"
-        //    };
-
-        //    await _userManager.CreateAsync(admin, "Salam123!");
-
-        //    await _userManager.AddToRoleAsync(admin, "Admin");
-
-        //    return Ok();
-        //}
+        public async Task<IActionResult> Index()
+        {
+            var date = DateTime.UtcNow.AddHours(4).AddDays(-7);
+            var comments = await _commentService.GetCommentsAsync();
+            DashboardVM model = new DashboardVM()
+            {
+                Movies = await _movieService.GetAllAsync(x => x.CreatedDate > date),
+                Users = await _userManager.Users.Where(x => x.CreatedDate > date).ToListAsync(),
+                CommentsCount = comments.Count,
+            };
+            return View(model);
+        }
     }
 }

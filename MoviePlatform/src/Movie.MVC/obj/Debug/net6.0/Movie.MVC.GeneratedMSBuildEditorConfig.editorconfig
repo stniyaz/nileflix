@@ -22,6 +22,14 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcbWFuYWdlXFZpZXdzXEFjY291bnRcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Admin/Desktop/NILE_Tv/MoviePlatform/src/Movie.MVC/Areas/manage/Views/Comment/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcbWFuYWdlXFZpZXdzXENvbW1lbnRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/Desktop/NILE_Tv/MoviePlatform/src/Movie.MVC/Areas/manage/Views/Comment/Show.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcbWFuYWdlXFZpZXdzXENvbW1lbnRcU2hvdy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Admin/Desktop/NILE_Tv/MoviePlatform/src/Movie.MVC/Areas/manage/Views/Dashboard/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcbWFuYWdlXFZpZXdzXERhc2hib2FyZFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -54,8 +62,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcbWFuYWdlXFZpZXdzXFNoYXJlZFxfTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Desktop/NILE_Tv/MoviePlatform/src/Movie.MVC/Areas/manage/Views/User/Comment.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcbWFuYWdlXFZpZXdzXFVzZXJcQ29tbWVudC5jc2h0bWw=
+[C:/Users/Admin/Desktop/NILE_Tv/MoviePlatform/src/Movie.MVC/Areas/manage/Views/User/Banned.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcbWFuYWdlXFZpZXdzXFVzZXJcQmFubmVkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Admin/Desktop/NILE_Tv/MoviePlatform/src/Movie.MVC/Areas/manage/Views/User/Index.cshtml]

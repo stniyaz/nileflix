@@ -8,6 +8,7 @@ using Movie.Business.DTOs.UserDTOs;
 using Movie.Business.Services.Interfaces;
 using Movie.Business.ViewModels;
 using Movie.Core.Models;
+using System.Linq.Expressions;
 
 namespace Movie.Business.Services.Implementations
 {
@@ -145,12 +146,17 @@ namespace Movie.Business.Services.Implementations
 
         public async Task<List<AppUser>> SearchByUsersAsync(string? search)
         {
-            return await GetByRoleAsync(search, "user");
+            var users = await _userManager.GetUsersInRoleAsync("User");
+            var activeUsers = users.Where(x => !x.IsBanned).ToList();
+
+            return await SearchUser(activeUsers, search);
         }
 
-        public async Task<List<AppUser>> SearchByModsAsync(string? search)
+        public async Task<List<AppUser>> SearchByBannedUsersAsync(string? search)
         {
-            return await GetByRoleAsync(search, "moderator");
+            var users = await _userManager.Users.Where(x => x.IsBanned).ToListAsync();
+
+            return await SearchUser(users, search);
         }
 
         public async Task DeleteByNameAsync(string name)
@@ -169,7 +175,7 @@ namespace Movie.Business.Services.Implementations
 
         public async Task<AppUser> GetUserByNameAsync(string username)
         {
-            return await _userManager.FindByNameAsync(username);
+            return await _userManager.Users.Include(x => x.Comments).Include(x => x.UserSavedMovies).FirstOrDefaultAsync(x => x.UserName == username);
         }
 
         public async Task<string> GetUserRoleAsync(string id)
@@ -305,9 +311,8 @@ namespace Movie.Business.Services.Implementations
             await _userManager.UpdateAsync(user);
         }
 
-        private async Task<List<AppUser>> GetByRoleAsync(string? search, string role)
+        private async Task<List<AppUser>> SearchUser(List<AppUser> users, string? search)
         {
-            var users = await _userManager.GetUsersInRoleAsync(role);
             if (!string.IsNullOrEmpty(search))
             {
                 if (search.Length >= 2)
@@ -319,7 +324,7 @@ namespace Movie.Business.Services.Implementations
                 else
                     throw new InvalidSearchException();
             }
-            return users.ToList();
+            return users;
         }
 
         public async Task<AppUser> GetUserByEmailAsync(string mail)
@@ -327,6 +332,11 @@ namespace Movie.Business.Services.Implementations
             var user = await _userManager.FindByEmailAsync(mail);
             if (user is null) throw new UserNotFoundException();
             return user;
+        }
+        public async Task<List<AppUser>> GetUsersAsync(Expression<Func<AppUser, bool>>? expression = null,
+                                                       params string[]? includes)
+        {
+            return await _userManager.Users.Where(expression).Include(expression).ToListAsync();
         }
 
         public async Task UserToPremiumAsync(string userId, int amount)
@@ -359,7 +369,7 @@ namespace Movie.Business.Services.Implementations
         private DateTime CheckEndPremium(AppUser user, int month)
         {
             DateTime sum;
-            if (user.IsPremium)
+            if (user.IsPremium && user.PremiumEndDate is not null)
             {
                 sum = user.PremiumEndDate.Value.AddMonths(month).AddHours(4);
             }
@@ -371,7 +381,7 @@ namespace Movie.Business.Services.Implementations
         }
         private DateTime CheckStartPremium(AppUser user)
         {
-            if (user.IsPremium)
+            if (user.PremiumStartDate is not null)
             {
                 return user.PremiumStartDate.Value;
             }

@@ -5,6 +5,7 @@ using Movie.Business.CustomExceptions.CommonExceptions;
 using Movie.Business.CustomExceptions.UserException;
 using Movie.Business.DTOs.UserDTOs;
 using Movie.Business.Services.Interfaces;
+using Newtonsoft.Json.Linq;
 
 namespace Movie.MVC.Areas.manage.Controllers
 {
@@ -25,6 +26,7 @@ namespace Movie.MVC.Areas.manage.Controllers
         {
             try
             {
+                ViewBag.Search = search;
                 var users = await _accountService.SearchByUsersAsync(search);
                 return View(users);
             }
@@ -37,11 +39,11 @@ namespace Movie.MVC.Areas.manage.Controllers
                 throw;
             }
         }
-        public async Task<IActionResult> Moderator(string? search)
+        public async Task<IActionResult> Banned(string? search)
         {
             try
             {
-                var users = await _accountService.SearchByModsAsync(search);
+                var users = await _accountService.SearchByBannedUsersAsync(search);
                 return View(users);
             }
             catch (InvalidSearchException)
@@ -112,10 +114,6 @@ namespace Movie.MVC.Areas.manage.Controllers
                 throw;
             }
             return RedirectToAction(nameof(Index));
-        }
-        public IActionResult Comment()
-        {
-            return View();
         }
     }
 }

@@ -29,6 +29,7 @@ namespace Movie.MVC.Areas.manage.Controllers
         {
             try
             {
+                ViewBag.Search = search;
                 ViewBag.Movies = await _movieGenreService.GetAllIncludesAsync();
                 var genres = await _genreService.SearchByAsync(search);
                 return View(genres);
