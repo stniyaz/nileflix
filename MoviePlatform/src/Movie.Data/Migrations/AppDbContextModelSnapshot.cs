@@ -587,6 +587,39 @@ namespace Movie.Data.Migrations
                     b.ToTable("UserSavedMovies");
                 });
 
+            modelBuilder.Entity("Movie.Core.Models.UserWatchedMovie", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("MovieId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("MovieId");
+
+                    b.ToTable("UserWatchedMovies");
+                });
+
             modelBuilder.Entity("Movie.Core.Models.AppUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
@@ -786,6 +819,25 @@ namespace Movie.Data.Migrations
                     b.Navigation("Movie");
                 });
 
+            modelBuilder.Entity("Movie.Core.Models.UserWatchedMovie", b =>
+                {
+                    b.HasOne("Movie.Core.Models.AppUser", "AppUser")
+                        .WithMany("UserWatchedMovies")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("Movie.Core.Models.Movie", "Movie")
+                        .WithMany("UserWatchedMovies")
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Movie");
+                });
+
             modelBuilder.Entity("Movie.Core.Models.Comment", b =>
                 {
                     b.Navigation("CommentReactions");
@@ -812,6 +864,8 @@ namespace Movie.Data.Migrations
                     b.Navigation("MovieImages");
 
                     b.Navigation("UserSavedMovies");
+
+                    b.Navigation("UserWatchedMovies");
                 });
 
             modelBuilder.Entity("Movie.Core.Models.AppUser", b =>
@@ -823,6 +877,8 @@ namespace Movie.Data.Migrations
                     b.Navigation("Earnings");
 
                     b.Navigation("UserSavedMovies");
+
+                    b.Navigation("UserWatchedMovies");
                 });
 #pragma warning restore 612, 618
         }

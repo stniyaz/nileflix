@@ -23,6 +23,6 @@
         public List<MovieGenre> MovieGenres { get; set; }
         public List<Comment> Comments { get; set; }
         public List<UserSavedMovie> UserSavedMovies { get; set; }
-
+        public List<UserWatchedMovie> UserWatchedMovies { get; set; }
     }
 }

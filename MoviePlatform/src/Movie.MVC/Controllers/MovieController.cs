@@ -14,16 +14,19 @@ namespace Movie.MVC.Controllers
         private readonly IMovieGenreService _movieGenreService;
         private readonly ICommentService _commentService;
         private readonly ICommentReactionService _commentReaction;
+        private readonly IUserWatcedMovieService _userWatcedMovie;
 
         public MovieController(IMovieService movieService,
                                IMovieGenreService movieGenreService,
                                ICommentService commentService,
-                               ICommentReactionService commentReaction)
+                               ICommentReactionService commentReaction,
+                               IUserWatcedMovieService userWatcedMovie)
         {
             _movieService = movieService;
             _movieGenreService = movieGenreService;
             _commentService = commentService;
             _commentReaction = commentReaction;
+            _userWatcedMovie = userWatcedMovie;
         }
         public async Task<IActionResult> Detail(int id)
         {
@@ -60,6 +63,7 @@ namespace Movie.MVC.Controllers
                 var check = await _movieService.CheckVideoAndUser(id, User.Identity.Name);
                 if (!check) return RedirectToAction("pricing", "movie", new { id = id });
                 var movie = await _movieService.GetMovieWithAllIncludes(id);
+                await _userWatcedMovie.ViewCounterAsync(movie.Id);
                 return View(new WatchVM { Movie = movie });
             }
             catch (MovieNotFoundException)

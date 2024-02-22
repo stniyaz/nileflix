@@ -19,5 +19,6 @@ namespace Movie.Core.Models
         public List<UserSavedMovie> UserSavedMovies { get; set; }
         public List<Earning> Earnings { get; set; }
         public List<CommentReaction> CommentReactions { get; set; }
+        public List<UserWatchedMovie> UserWatchedMovies { get; set; }
     }
 }
