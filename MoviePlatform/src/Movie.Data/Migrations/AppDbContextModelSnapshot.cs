@@ -279,6 +279,42 @@ namespace Movie.Data.Migrations
                     b.ToTable("Comments");
                 });
 
+            modelBuilder.Entity("Movie.Core.Models.CommentReaction", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("CommentId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsLike")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("CommentId");
+
+                    b.ToTable("CommentReactions");
+                });
+
             modelBuilder.Entity("Movie.Core.Models.Country", b =>
                 {
                     b.Property<int>("Id")
@@ -660,6 +696,25 @@ namespace Movie.Data.Migrations
                     b.Navigation("Movie");
                 });
 
+            modelBuilder.Entity("Movie.Core.Models.CommentReaction", b =>
+                {
+                    b.HasOne("Movie.Core.Models.AppUser", "AppUser")
+                        .WithMany("CommentReactions")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("Movie.Core.Models.Comment", "Comment")
+                        .WithMany("CommentReactions")
+                        .HasForeignKey("CommentId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Comment");
+                });
+
             modelBuilder.Entity("Movie.Core.Models.Earning", b =>
                 {
                     b.HasOne("Movie.Core.Models.AppUser", "AppUser")
@@ -733,6 +788,8 @@ namespace Movie.Data.Migrations
 
             modelBuilder.Entity("Movie.Core.Models.Comment", b =>
                 {
+                    b.Navigation("CommentReactions");
+
                     b.Navigation("Replies");
                 });
 
@@ -759,6 +816,8 @@ namespace Movie.Data.Migrations
 
             modelBuilder.Entity("Movie.Core.Models.AppUser", b =>
                 {
+                    b.Navigation("CommentReactions");
+
                     b.Navigation("Comments");
 
                     b.Navigation("Earnings");

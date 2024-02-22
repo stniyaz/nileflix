@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Movie.Business.CustomExceptions.CommentExceptions;
 using Movie.Business.CustomExceptions.MoiveExceptions;
 using Movie.Business.CustomExceptions.UserException;
 using Movie.Business.DTOs.ComentDTOs;
@@ -12,14 +13,17 @@ namespace Movie.MVC.Controllers
         private readonly IMovieService _movieService;
         private readonly IMovieGenreService _movieGenreService;
         private readonly ICommentService _commentService;
+        private readonly ICommentReactionService _commentReaction;
 
         public MovieController(IMovieService movieService,
                                IMovieGenreService movieGenreService,
-                               ICommentService commentService)
+                               ICommentService commentService,
+                               ICommentReactionService commentReaction)
         {
             _movieService = movieService;
             _movieGenreService = movieGenreService;
             _commentService = commentService;
+            _commentReaction = commentReaction;
         }
         public async Task<IActionResult> Detail(int id)
         {
@@ -123,8 +127,51 @@ namespace Movie.MVC.Controllers
                 throw;
             }
         }
-
-
-
+        [HttpPost]
+        public async Task<IActionResult> LikeComment(int id)
+        {
+            try
+            {
+                var check = await _commentReaction.Like(id);
+                if (check == true) return StatusCode(201);
+                if (check == false) return StatusCode(204);
+                return StatusCode(200);
+            }
+            catch (CommentNotFoundException)
+            {
+                return NotFound();
+            }
+            catch (UserNotFoundException)
+            {
+                return NotFound();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        [HttpPost]
+        public async Task<IActionResult> DislikeComment(int id)
+        {
+            try
+            {
+                var check = await _commentReaction.Dislike(id);
+                if (check == true) return StatusCode(201);
+                if (check == false) return StatusCode(204);
+                return StatusCode(200);
+            }
+            catch (CommentNotFoundException)
+            {
+                return NotFound();
+            }
+            catch (UserNotFoundException)
+            {
+                return NotFound();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

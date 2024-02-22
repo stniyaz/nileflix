@@ -1,9 +1,3 @@
-C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\obj\Debug\net6.0\Movie.Business.csproj.AssemblyReference.cache
-C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\obj\Debug\net6.0\Movie.Business.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\obj\Debug\net6.0\Movie.Business.AssemblyInfoInputs.cache
-C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\obj\Debug\net6.0\Movie.Business.AssemblyInfo.cs
-C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\obj\Debug\net6.0\Movie.Business.csproj.CoreCompileInputs.cache
-C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\obj\Debug\net6.0\Movie.Business.sourcelink.json
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\bin\Debug\net6.0\Movie.Business.deps.json
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\bin\Debug\net6.0\Movie.Business.dll
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\bin\Debug\net6.0\Movie.Business.pdb
@@ -11,6 +5,12 @@ C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\bin\Debug\net6.0
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\bin\Debug\net6.0\Movie.Data.dll
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\bin\Debug\net6.0\Movie.Data.pdb
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\bin\Debug\net6.0\Movie.Core.pdb
+C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\obj\Debug\net6.0\Movie.Business.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\obj\Debug\net6.0\Movie.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\obj\Debug\net6.0\Movie.Business.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\obj\Debug\net6.0\Movie.Business.AssemblyInfo.cs
+C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\obj\Debug\net6.0\Movie.Business.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\obj\Debug\net6.0\Movie.Business.sourcelink.json
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\obj\Debug\net6.0\Movie.Bu.DE5B11FE.Up2Date
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\obj\Debug\net6.0\Movie.Business.dll
 C:\Users\Admin\Desktop\NILE_Tv\MoviePlatform\src\Movie.Business\obj\Debug\net6.0\refint\Movie.Business.dll

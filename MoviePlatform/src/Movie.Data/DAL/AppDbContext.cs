@@ -18,6 +18,7 @@ namespace Movie.Data.DAL
         public DbSet<Comment> Comments { get; set; }
         public DbSet<UserSavedMovie> UserSavedMovies { get; set; }
         public DbSet<Earning> Earnings { get; set; }
+        public DbSet<CommentReaction> CommentReactions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

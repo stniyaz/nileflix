@@ -11,5 +11,7 @@
         public AppUser AppUser { get; set; }
         public int MovieId { get; set; }
         public Movie Movie { get; set; }
+
+        public List<CommentReaction> CommentReactions { get; set; }
     }
 }
