@@ -132,7 +132,16 @@
                                                 <span class="comments__name">@cmnt.AppUser.LastName @cmnt.AppUser.FirstName</span>
                                                 <span class="comments__time">@cmnt.CreatedDate.ToString("dd.MM.yyyy, HH:mm")</span>
                                             </div>
-                                            <p class="comments__text">@cmnt.Text</p>
+                                            @if (cmnt.IsSpoiler)
+                                            {
+                                                <p class="comments__text spoilerBlur" id="@cmnt.Id">@cmnt.Text</p>
+                                                <button style="block-size: 20px;max-width: 115px;" class="article__btn" onclick="toggleBlur(this)">Show spoiler</button>
+                                            }
+                                            else
+                                            {
+                                                <p class="comments__text">@cmnt.Text</p>
+                                            }
+
                                             <div class="comments__actions">
                                                 <div class="comments__rate">
                                                     <a id="@cmnt.Id" asp-action="likecomment" asp-controller="movie" asp-route-id="@cmnt.Id" class="fa-solid fa-thumbs-up"></a>
@@ -479,7 +488,7 @@
     document.querySelectorAll('.fa-thumbs-up').forEach(item => {
         item.addEventListener('click', async event => {
             event.preventDefault();
-            const commentId = item.getAttribute("id"); 
+            const commentId = item.getAttribute("id");
             var url = item.getAttribute("href");
             const response = await fetch(url, { method: 'POST' });
             console.log(response);
@@ -499,7 +508,7 @@
                 likeCountElement.innerText = parseInt(likeCountElement.innerText) + 1;
 
                 const dislikeCountElement = document.querySelector(`.dislike-count-${commentId}`);
-                dislikeCountElement.innerText = parseInt(dislikeCountElement.innerText) - 1; 
+                dislikeCountElement.innerText = parseInt(dislikeCountElement.innerText) - 1;
             }
         });
     });
@@ -508,7 +517,7 @@
         item.addEventListener('click', async event => {
             event.preventDefault();
             var url = item.getAttribute("href")
-            const commentId = item.getAttribute("id") 
+            const commentId = item.getAttribute("id")
             const response = await fetch(`/movie/dislikecomment/${commentId}`, { method: 'POST' });
             const statusCode = response.status;
 
@@ -521,12 +530,18 @@
             }
             else if (statusCode === 200) {
                 const likeCountElement = document.querySelector(`.like-count-${commentId}`);
-                likeCountElement.innerText = parseInt(likeCountElement.innerText) - 1; 
+                likeCountElement.innerText = parseInt(likeCountElement.innerText) - 1;
 
                 const dislikeCountElement = document.querySelector(`.dislike-count-${commentId}`);
                 dislikeCountElement.innerText = parseInt(dislikeCountElement.innerText) + 1;
             }
         });
     });
+
+    function toggleBlur(button) {
+        var commentContainer = button.parentElement;
+        var spoilerText = commentContainer.querySelector('.comments__text');
+        spoilerText.classList.toggle('showSpoiler');
+    }
 </script>
 

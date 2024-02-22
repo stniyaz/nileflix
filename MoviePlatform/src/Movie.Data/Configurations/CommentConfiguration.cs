@@ -11,6 +11,7 @@ namespace Movie.Data.Configurations
             builder.Property(x => x.Text).IsRequired().HasMaxLength(1000);
             builder.Property(x => x.Like).IsRequired().HasDefaultValue(0);
             builder.Property(x => x.Dislike).IsRequired().HasDefaultValue(0);
+            builder.Property(x => x.IsSpoiler).HasDefaultValue(false);
             builder.HasOne(x => x.AppUser).WithMany(x => x.Comments);
             builder.HasOne(x => x.Movie).WithMany(x => x.Comments);
         }

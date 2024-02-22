@@ -1,0 +1,6 @@
+﻿.spoilerBlur {
+    filter: blur(5px); /* İstediğiniz blur miktarını burada belirleyebilirsiniz */
+}
+.showSpoiler{
+    filter:none;
+}

@@ -6,6 +6,7 @@
         public int Like { get; set; }
         public int Dislike { get; set; }
         public List<Comment> Replies { get; set; }
+        public bool IsSpoiler { get; set; }
 
         public string AppUserId { get; set; }
         public AppUser AppUser { get; set; }

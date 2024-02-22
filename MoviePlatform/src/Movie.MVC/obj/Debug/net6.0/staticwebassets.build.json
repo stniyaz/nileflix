@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "oD3sn1vi1UKrOFJST5L2545kEZtmwh5EuPTR30hplw0=",
+  "Hash": "Dh5TPB0E+t8wdtG7MPN6/EZxzQLIR5OK2GURQOhxvzA=",
   "Source": "Movie.MVC",
   "BasePath": "_content/Movie.MVC",
   "Mode": "Default",
@@ -91,6 +91,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\css\\main.css"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\assets\\css\\mine.css",
+      "SourceId": "Movie.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\",
+      "BasePath": "_content/Movie.MVC",
+      "RelativePath": "assets/css/mine.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\css\\mine.css"
     },
     {
       "Identity": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\assets\\css\\owl.carousel.min.css",

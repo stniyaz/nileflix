@@ -252,6 +252,11 @@ namespace Movie.Data.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("IsSpoiler")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
                     b.Property<int>("Like")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
