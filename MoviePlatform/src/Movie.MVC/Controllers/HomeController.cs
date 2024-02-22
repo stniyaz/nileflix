@@ -259,6 +259,10 @@ namespace Movie.MVC.Controllers
                 throw;
             }
         }
+        public IActionResult Privacy()
+        {
+            return View();
+        }
 
         public async Task<IActionResult> c91d8291b1cd4893b870173f92636708(string userId, int amount)
         {

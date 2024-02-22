@@ -1,0 +1,197 @@
+﻿@model List<Genre>
+<!-- head -->
+<section class="section section--head section--head-fixed">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-xl-6">
+                <h1 class="section__title section__title--head">Catalog</h1>
+            </div>
+
+            <div class="col-12 col-xl-6">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb__item"><a href="index-2.html">Home</a></li>
+                    <li class="breadcrumb__item breadcrumb__item--active">Catalog</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end head -->
+<!-- categories -->
+<section class="section section--pb0">
+    <div class="container">
+        <div class="row row--grid">
+
+            @foreach (var genre in Model)
+            {
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <a asp-action="index" asp-controller="home" asp-route-genreId="@genre.Id" class="category">
+                        <div class="category__cover">
+                            <img src="~/uploads/genreImages/@genre.ImageUrl" alt="">
+                        </div>
+                        <h3 class="category__title">@genre.Name</h3>
+                        <span class="category__value">@genre.MovieGenres.Count</span>
+                    </a>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+<!-- endcategories -->
+<!-- plan -->
+<div class="section section--pb0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="plans plans--mt0">
+                    <div class="table-responsive">
+                        <table class="plans__table">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>
+                                        <div class="plans__head">
+                                            <b>Premium</b>
+                                            <p>$13.99</p>
+                                            <span>/ month</span>
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="plans__head">
+                                            <b>PREMIUM</b>
+                                            <p>$23.99</p>
+                                            <span>/ 2 months</span>
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="plans__head">
+                                            <b>PREMIUM</b>
+                                            <p>$33.99</p>
+                                            <span>/ 3 months</span>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span class="plans__title">FlixTV Originals</span>
+                                    </td>
+                                    <td>
+                                        <span class="plans__status plans__status--green">
+                                            <svg width="19" height="14" viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.43994 6.95981L6.77477 12.2924L17.4399 1.62723" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="plans__status plans__status--green">
+                                            <svg width="19" height="14" viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.43994 6.95981L6.77477 12.2924L17.4399 1.62723" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="plans__status plans__status--green">
+                                            <svg width="19" height="14" viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.43994 6.95981L6.77477 12.2924L17.4399 1.62723" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="plans__title">Get unlimited access to the largest streaming library with no ads</span>
+                                    </td>
+                                    <td>
+                                        <span class="plans__status plans__status--green">
+                                            <svg width="19" height="14" viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.43994 6.95981L6.77477 12.2924L17.4399 1.62723" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="plans__status plans__status--green">
+                                            <svg width="19" height="14" viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.43994 6.95981L6.77477 12.2924L17.4399 1.62723" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="plans__status plans__status--green">
+                                            <svg width="19" height="14" viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.43994 6.95981L6.77477 12.2924L17.4399 1.62723" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="plans__title">Watch Live TV online and on supported devices</span>
+                                    </td>
+                                    <td>
+                                        <span class="plans__status plans__status--green">
+                                            <svg width="19" height="14" viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.43994 6.95981L6.77477 12.2924L17.4399 1.62723" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="plans__status plans__status--green">
+                                            <svg width="19" height="14" viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.43994 6.95981L6.77477 12.2924L17.4399 1.62723" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="plans__status plans__status--green">
+                                            <svg width="19" height="14" viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.43994 6.95981L6.77477 12.2924L17.4399 1.62723" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="plans__title">Stream 65+ top Live</span>
+                                    </td>
+                                    <td>
+                                        <span class="plans__status plans__status--green">
+                                            <svg width="19" height="14" viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.43994 6.95981L6.77477 12.2924L17.4399 1.62723" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="plans__status plans__status--green">
+                                            <svg width="19" height="14" viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.43994 6.95981L6.77477 12.2924L17.4399 1.62723" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="plans__status plans__status--green">
+                                            <svg width="19" height="14" viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.43994 6.95981L6.77477 12.2924L17.4399 1.62723" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="last">
+                                    <td>
+                                        <span class="plans__title">TV channels</span>
+                                    </td>
+                                    <td>
+                                        <span class="plans__status plans__status--green">
+                                            <svg width="19" height="14" viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.43994 6.95981L6.77477 12.2924L17.4399 1.62723" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="plans__status plans__status--green">
+                                            <svg width="19" height="14" viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.43994 6.95981L6.77477 12.2924L17.4399 1.62723" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="plans__status plans__status--green">
+                                            <svg width="19" height="14" viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.43994 6.95981L6.77477 12.2924L17.4399 1.62723" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <a class="plans__btn" asp-action="checkout" asp-controller="home" asp-route-date="onemonth">Select plan</a>
+                                    </td>
+                                    <td>
+                                        <a class="plans__btn" asp-action="checkout" asp-controller="home" asp-route-date="twomonths">Select plan</a>
+                                    </td>
+                                    <td>
+                                        <a class="plans__btn" asp-action="checkout" asp-controller="home" asp-route-date="threemonths">Select plan</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end plan -->
