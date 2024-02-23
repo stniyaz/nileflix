@@ -1,0 +1,65 @@
+﻿@model LiveCreateDTO
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap-grid.min.css" integrity="sha512-ZuRTqfQ3jNAKvJskDAU/hxbX1w25g41bANOVd1Co6GahIe2XjM6uVZ9dh0Nt3KFCOA061amfF2VeL60aJXdwwQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- main content -->
+<main class="main">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- main title -->
+            <div class="col-12">
+                <div class="main__title">
+                    <h2>Add new live</h2>
+
+                    <a asp-action="index" asp-controller="live" class="main__title-link">back</a>
+                </div>
+            </div>
+            <!-- end main title -->
+            <!-- form -->
+            <div class="col-12">
+                <form method="post" class="form" asp-action="create" asp-controller="live" enctype="multipart/form-data">
+                    <div class="row">
+
+
+                        <div class="col-12 col-md-7 form__content">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="form__group">
+                                        <label asp-for="Title" hidden></label>
+                                        <input asp-for="Title" type="text" class="form__input" placeholder="Title">
+                                        <span asp-validation-for="Title" class="modal__text"></span>
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <div class="form__group">
+                                        <label asp-for="Url" hidden></label>
+                                        <input asp-for="Url" type="text" class="form__input" placeholder="Url">
+                                        <span asp-validation-for="Url" class="modal__text"></span>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form__gallery">
+                                        <label asp-for="ImageFile" id="gallery1" for="form__gallery-upload">Upload photo</label>
+                                        <input asp-for="ImageFile" data-name="#gallery1" id="form__gallery-upload" class="form__gallery-upload" accept=".png, .jpg, .jpeg">
+                                    </div>
+                                    <span asp-validation-for="ImageFile" class="modal__text"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="row">
+
+                                <div class="col-12">
+                                    <button type="submit" class="form__btn">create</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- end form -->
+        </div>
+    </div>
+</main>
+<!-- end main content -->

@@ -7,5 +7,7 @@ namespace Movie.MVC.Areas.manage.ViewModels
         public List<Core.Models.Movie> Movies { get; set; }
         public int? CommentsCount { get; set; }
         public List<AppUser> Users { get; set; }
+        public int? ViewsCount { get; set; }
+        public double? Earned { get; set; }
     }
 }

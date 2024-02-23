@@ -39,7 +39,7 @@ namespace Movie.MVC.Areas.manage.Controllers
         {
             try
             {
-                ViewBag.Search = search;
+                if (search is not null) ViewBag.Search = search;
                 MovieIndexVM model = new MovieIndexVM
                 {
                     MovieGenres = await _movieGenreService.GetAllAsync(null, "Genre"),

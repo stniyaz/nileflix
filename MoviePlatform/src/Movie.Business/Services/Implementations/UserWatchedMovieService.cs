@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Movie.Business.CustomExceptions.MoiveExceptions;
 using Movie.Business.CustomExceptions.UserException;
 using Movie.Business.Services.Interfaces;
 using Movie.Core.Models;
 using Movie.Core.Repositories;
+using System.Linq.Expressions;
 
 namespace Movie.Business.Services.Implementations
 {
@@ -24,6 +26,12 @@ namespace Movie.Business.Services.Implementations
             _movieService = movieService;
             _accountService = accountService;
         }
+
+        public async Task<List<UserWatchedMovie>> GetAllAsync(Expression<Func<UserWatchedMovie, bool>>? expression = null, params string[]? includes)
+        {
+            return await _userWatcedMovieRepository.GetAllAsync(expression, includes).ToListAsync();
+        }
+
         public async Task ViewCounterAsync(int movieId)
         {
             var movie = await _movieService.GetAsync(x => x.Id == movieId);

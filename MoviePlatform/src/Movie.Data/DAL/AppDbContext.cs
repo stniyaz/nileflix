@@ -20,6 +20,7 @@ namespace Movie.Data.DAL
         public DbSet<Earning> Earnings { get; set; }
         public DbSet<CommentReaction> CommentReactions { get; set; }
         public DbSet<UserWatchedMovie> UserWatchedMovies { get; set; }
+        public DbSet<Live> Lives { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

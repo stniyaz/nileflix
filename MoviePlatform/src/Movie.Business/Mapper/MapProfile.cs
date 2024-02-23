@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Movie.Business.DTOs.ComentDTOs;
 using Movie.Business.DTOs.GenreDTOs;
+using Movie.Business.DTOs.LiveDTOs;
 using Movie.Business.DTOs.MovieDTOs;
 using Movie.Business.DTOs.UserDTOs;
 using Movie.Core.Models;
@@ -21,6 +22,8 @@ namespace Movie.Business.Mapper
             CreateMap<AppUser, UserEditDTO>().ReverseMap();
 
             CreateMap<Comment, CommentUpdateDTO>().ReverseMap();
+            CreateMap<Live, LiveCreateDTO>().ReverseMap();
+            CreateMap<Live, LiveUpdateDTO>().ReverseMap();
         }
     }
 }

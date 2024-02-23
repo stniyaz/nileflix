@@ -86,6 +86,7 @@ namespace Movie.MVC.Controllers
         {
             try
             {
+                if (!User.Identity.IsAuthenticated) return RedirectToAction("signin", "account");
                 ViewBag.MovieGenres = await _movieGenreService.GetAllIncludesAsync();
                 var movie = await _movieService.GetMovieWithAllIncludes(comment.MovieId);
                 if (!ModelState.IsValid) return View("watch", new WatchVM { Movie = movie, Comment = comment });
@@ -131,11 +132,12 @@ namespace Movie.MVC.Controllers
                 throw;
             }
         }
-        [HttpPost]
+        //[HttpPost]
         public async Task<IActionResult> LikeComment(int id)
         {
             try
             {
+                if (!User.Identity.IsAuthenticated) return RedirectToAction("signin", "account");
                 var check = await _commentReaction.Like(id);
                 if (check == true) return StatusCode(201);
                 if (check == false) return StatusCode(204);
@@ -154,11 +156,12 @@ namespace Movie.MVC.Controllers
                 throw;
             }
         }
-        [HttpPost]
+        //[HttpPost]
         public async Task<IActionResult> DislikeComment(int id)
         {
             try
             {
+                if (!User.Identity.IsAuthenticated) return RedirectToAction("signin", "account");
                 var check = await _commentReaction.Dislike(id);
                 if (check == true) return StatusCode(201);
                 if (check == false) return StatusCode(204);

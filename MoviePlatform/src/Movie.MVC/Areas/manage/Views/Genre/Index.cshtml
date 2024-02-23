@@ -77,7 +77,7 @@
 
                         <tbody>
 
-                            @foreach (var genre in Model)
+                            @foreach (var genre in Model.OrderBy(x=> x.Name))
                             {
                                 <tr>
                                     <td>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Dh5TPB0E+t8wdtG7MPN6/EZxzQLIR5OK2GURQOhxvzA=",
+  "Hash": "8XilPC8OM+NDgruSB3QwjY0ObhM3zYbBEW2HEdzAPzI=",
   "Source": "Movie.MVC",
   "BasePath": "_content/Movie.MVC",
   "Mode": "Default",
@@ -2200,6 +2200,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\genreImages\\e6332a73-65b8-4977-b4e2-f795ab54bb327.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\uploads\\liveImages\\c4955a1e-fe7b-48fd-9ddb-d1d2bca2c0f91.jpg",
+      "SourceId": "Movie.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\",
+      "BasePath": "_content/Movie.MVC",
+      "RelativePath": "uploads/liveImages/c4955a1e-fe7b-48fd-9ddb-d1d2bca2c0f91.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\liveImages\\c4955a1e-fe7b-48fd-9ddb-d1d2bca2c0f91.jpg"
     },
     {
       "Identity": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\uploads\\movieImages\\22629484-9a6b-409e-b4a3-41306a35dbb41.png",

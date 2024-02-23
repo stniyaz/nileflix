@@ -1840,6 +1840,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\genreImages\e6332a73-65b8-4977-b4e2-f795ab54bb327.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\liveImages\c4955a1e-fe7b-48fd-9ddb-d1d2bca2c0f91.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>Movie.MVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Movie.MVC</BasePath>
+      <RelativePath>uploads/liveImages/c4955a1e-fe7b-48fd-9ddb-d1d2bca2c0f91.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\liveImages\c4955a1e-fe7b-48fd-9ddb-d1d2bca2c0f91.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\movieImages\22629484-9a6b-409e-b4a3-41306a35dbb41.png))">
       <SourceType>Package</SourceType>
       <SourceId>Movie.MVC</SourceId>

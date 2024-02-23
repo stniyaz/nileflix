@@ -68,7 +68,7 @@
 
                             <tbody>
 
-                                @foreach (var movie in Model.Movies)
+                                @foreach (var movie in Model.Movies.OrderByDescending(x=> x.CreatedDate))
                                 {
                                     <tr>
                                         <td>

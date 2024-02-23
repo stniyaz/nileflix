@@ -24,6 +24,7 @@
     <Folder Include="wwwroot\uploads\movieImages\" />
     <Folder Include="wwwroot\uploads\movieVideos\" />
     <Folder Include="wwwroot\uploads\movieSubs\" />
+    <Folder Include="wwwroot\uploads\liveImages\" />
   </ItemGroup>
 
   <ItemGroup>

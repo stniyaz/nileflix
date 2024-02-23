@@ -31,6 +31,7 @@ namespace Movie.Business
             services.AddScoped<IEarningService, EarningService>();
             services.AddScoped<ICommentReactionService, CommentReactionService>();
             services.AddScoped<IUserWatcedMovieService, UserWatchedMovieService>();
+            services.AddScoped<ILiveService, LiveService>();
 
             services.ConfigureApplicationCookie(opt =>
             {
