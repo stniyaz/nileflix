@@ -9,12 +9,15 @@ namespace Movie.Business.Services.ViewServices
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly IAccountService _accountService;
+        private readonly ISettingService _settingService;
 
         public LayoutService(UserManager<AppUser> userManager,
-                             IAccountService accountService)
+                             IAccountService accountService,
+                             ISettingService settingService)
         {
             _userManager = userManager;
             _accountService = accountService;
+            _settingService = settingService;
         }
         public async Task<ManageLayoutVM> GetUserAndRoleAsync(string name)
         {
@@ -24,6 +27,10 @@ namespace Movie.Business.Services.ViewServices
                 User = user,
                 Role = await _userManager.GetRolesAsync(user),
             };
+        }
+        public async Task<List<Setting>> GetSettings()
+        {
+            return await _settingService.GetAllAsync();
         }
     }
 }

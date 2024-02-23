@@ -9,5 +9,6 @@ namespace Movie.MVC.ViewModels
         public List<Genre> Genres { get; set; }
         public List<MovieGenre> MovieGenres { get; set; }
         public int? GenreId { get; set; }
+        public List<Live> Lives { get; set; }
     }
 }

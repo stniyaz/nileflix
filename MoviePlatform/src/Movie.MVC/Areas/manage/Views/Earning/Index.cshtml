@@ -42,7 +42,7 @@
 
                     <tbody>
 
-                        @foreach (var earn in Model.OrderByDescending(x=> x.CreatedDate))
+                        @foreach (var earn in Model.OrderByDescending(x => x.CreatedDate))
                         {
                             <tr>
                                 <td>
@@ -66,7 +66,10 @@
                                     <div class="main__table-text">@earn.CreatedDate.ToString("dd.MM.yyyy, HH:mm:ss")</div>
                                 </td>
                                 <td>
-                                    <div class="main__table-text">@earn.Amount</div>
+                                    @{
+                                        double amount = (double)earn.Amount / 100;
+                                    }
+                                    <div class="main__table-text">$@amount</div>
                                 </td>
                             </tr>
                             counter++;

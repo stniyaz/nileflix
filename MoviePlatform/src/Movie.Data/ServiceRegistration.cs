@@ -19,6 +19,7 @@ namespace Movie.Data
             services.AddScoped<ICommentReactionRepository, CommentReactionRepository>();
             services.AddScoped<IUserWatcedMovieRepository, UserWatchedMovieRepository>();
             services.AddScoped<ILiveRepository, LiveRepository>();
+            services.AddScoped<ISettingRepository, SettingRepository>();
         }
     }
 }

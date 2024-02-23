@@ -11,5 +11,6 @@ namespace Movie.Business.Services.Interfaces
         Task<Comment> GetCommentAsync(Expression<Func<Comment, bool>>? expression = null, params string[]? includes);
         Task<List<Comment>> GetCommentsByAsync(string search);
         Task DeleteAsync(int id);
+        Task UpdateAsync(CommentUpdateDTO commentUpdateDTO);
     }
 }

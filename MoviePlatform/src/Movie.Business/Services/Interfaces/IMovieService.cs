@@ -18,5 +18,6 @@ namespace Movie.Business.Services.Interfaces
         Task<Core.Models.Movie> GetAsync(Expression<Func<Core.Models.Movie, bool>>? expression = null, params string[]? includes);
         Task<List<Core.Models.Movie>> GetAllAsync(Expression<Func<Core.Models.Movie, bool>>? expression = null, params string[]? includes);
         IQueryable<Core.Models.Movie> GetQuery(Expression<Func<Core.Models.Movie, bool>>? expression = null, params string[]? includes);
+        Task<List<Core.Models.Movie>> GetLatestMoviesAsync();
     }
 }

@@ -1,5 +1,4 @@
-﻿using MailKit;
-using Movie.Business.Services.Interfaces;
+﻿using Movie.Business.Services.Interfaces;
 
 namespace Movie.Business.Services.ViewServices
 {

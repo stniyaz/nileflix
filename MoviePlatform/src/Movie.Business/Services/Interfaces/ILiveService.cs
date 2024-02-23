@@ -12,5 +12,6 @@ namespace Movie.Business.Services.Interfaces
         Task DeleteAsync(int id);
         Task<Live> GetAsync(Expression<Func<Live, bool>>? expression = null, params string[]? includes);
         Task<List<Live>> GetAllAsync(Expression<Func<Live, bool>>? expression = null, params string[]? includes);
+        Task<List<Live>> GetSearchByAsync(string search);
     }
 }

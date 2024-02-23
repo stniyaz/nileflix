@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Movie.Business.CustomExceptions.CommonExceptions;
 using Movie.Business.CustomExceptions.MoiveExceptions;
@@ -373,7 +374,14 @@ namespace Movie.Business.Services.Implementations
                 throw new MovieNotFoundException();
             return movie;
         }
-
+        public async Task<List<Core.Models.Movie>> GetLatestMoviesAsync()
+        {
+            var date = DateTime.UtcNow.AddHours(4).AddDays(-7);
+            return await _movieRepository
+                               .GetAllAsync(x => x.CreatedDate > date, "MovieImages", "MovieGenres")
+                               .Take(4)
+                               .ToListAsync();
+        }
 
         // Methods
         private void CheckImage(IFormFile imageFile, string propertyName)

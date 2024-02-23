@@ -4,6 +4,7 @@ using Movie.Business.CustomExceptions.MoiveExceptions;
 using Movie.Business.CustomExceptions.UserException;
 using Movie.Business.DTOs.ComentDTOs;
 using Movie.Business.Services.Interfaces;
+using Movie.Core.Models;
 using Movie.MVC.ViewModels;
 
 namespace Movie.MVC.Controllers
@@ -60,6 +61,7 @@ namespace Movie.MVC.Controllers
                     return RedirectToAction("signin", "account");
                 }
                 ViewBag.MovieGenres = await _movieGenreService.GetAllIncludesAsync();
+                ViewBag.LatestMovies = await _movieService.GetLatestMoviesAsync();
                 var check = await _movieService.CheckVideoAndUser(id, User.Identity.Name);
                 if (!check) return RedirectToAction("pricing", "movie", new { id = id });
                 var movie = await _movieService.GetMovieWithAllIncludes(id);
@@ -87,15 +89,23 @@ namespace Movie.MVC.Controllers
             try
             {
                 if (!User.Identity.IsAuthenticated) return RedirectToAction("signin", "account");
+                ViewBag.LatestMovies = await _movieService.GetLatestMoviesAsync();
                 ViewBag.MovieGenres = await _movieGenreService.GetAllIncludesAsync();
                 var movie = await _movieService.GetMovieWithAllIncludes(comment.MovieId);
                 if (!ModelState.IsValid) return View("watch", new WatchVM { Movie = movie, Comment = comment });
                 await _commentService.CreateAsync(comment);
+                var movies = await _movieService.GetLatestMoviesAsync();
                 return RedirectToAction("watch", new { id = comment.MovieId });
             }
             catch (UserNotFoundException)
             {
                 return NotFound();
+            }
+            catch (CommentContainArgoException ex)
+            {
+                ModelState.AddModelError(ex.PropertyName, ex.Message);
+                var movie = await _movieService.GetMovieWithAllIncludes(comment.MovieId);
+                return View("watch", new WatchVM { Movie = movie, Comment = comment });
             }
             catch (MovieNotFoundException)
             {
@@ -115,6 +125,7 @@ namespace Movie.MVC.Controllers
                     var check = await _movieService.CheckVideoAndUser(id, User?.Identity?.Name);
                     if (check) return RedirectToAction("watch", "movie", new { id = id });
                 }
+                ViewBag.LatestMovies = await _movieService.GetLatestMoviesAsync();
                 ViewBag.MovieGenres = await _movieGenreService.GetAllIncludesAsync();
                 var movie = await _movieService.GetMovieWithAllIncludes(id);
                 return View(movie);

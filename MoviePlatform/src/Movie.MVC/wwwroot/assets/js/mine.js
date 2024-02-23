@@ -44,35 +44,36 @@ icons.forEach(icon => {
 // change email
 
 document.getElementById("changeMail").addEventListener("click", function (e) {
-    e.preventDefault();
     // Form verilerini al
     var formData = new FormData(document.getElementById("myForm"));
 
+    e.preventDefault();
     // Ajax isteği yap
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "/Home/Detail", true); // Controller ve action belirtin
+    xhr.open("POST", "/Home/Detail", true);
     xhr.onload = function () {
         if (xhr.status == 200) {
-            // Status code 200 ise, işlem başarılı demektir
-            Swal.fire({
-                position: "top-end",
-                icon: "success",
-                title: "Changes saved. We sent an activation message to email address.",
-                background: '#151f30',
-                showConfirmButton: false,
-                timer: 1500
-            });
-        } else if (xhr.status == 204) {
             Swal.fire({
                 position: "top-end",
                 icon: "success",
                 title: "Changes saved.",
                 background: '#151f30',
                 showConfirmButton: false,
+                timer: 1500
+            });
+            window.location.reload(true);
+        } else if (xhr.status == 204) {
+            e.preventDefault();
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Changes saved. We sent an activation message to email address.",
+                background: '#151f30',
+                showConfirmButton: false,
                 timer: 2500
             });
-
-
+        } {
+            xhr.open("POST", "/Home/Detail", true)
         }
     };
     xhr.send(formData);

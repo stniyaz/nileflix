@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="col-12">
-                <form method="post" class="form" asp-action="create" asp-controller="genre" enctype="multipart/form-data">
+                <form method="post" class="form" asp-action="show" asp-controller="comment" asp-route-id="@Model.Id" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-12 col-md-7 form__content">
                             <div class="row">
@@ -30,7 +30,7 @@
                                     <div class="col-12 col-lg-1">
                                         <div class="sign__group sign__group--checkbox">
                                             <input asp-for="IsSpoiler" id="isPopular" type="checkbox">
-                                            <label asp-for="IsSpoiler" for="isPopular">Popular</label>
+                                            <label asp-for="IsSpoiler" for="isPopular">Spoiler</label>
                                         </div>
                                     </div>
                                 </div>

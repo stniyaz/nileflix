@@ -21,6 +21,7 @@ namespace Movie.MVC.Controllers
         private readonly IEmailService _emailService;
         private readonly IUserSavedMovieService _userSavedMovieService;
         private readonly IPaymentService _paymentService;
+        private readonly ILiveService _liveService;
 
         public HomeController(IMovieService movieService,
                               IGenreService genreService,
@@ -29,7 +30,8 @@ namespace Movie.MVC.Controllers
                               IMapper mapper,
                               IEmailService emailService,
                               IUserSavedMovieService userSavedMovieService,
-                              IPaymentService paymentService)
+                              IPaymentService paymentService,
+                              ILiveService liveService)
         {
             _movieService = movieService;
             _genreService = genreService;
@@ -39,6 +41,7 @@ namespace Movie.MVC.Controllers
             _emailService = emailService;
             _userSavedMovieService = userSavedMovieService;
             _paymentService = paymentService;
+            _liveService = liveService;
         }
         private readonly string _stripeSecret = "whsec_34a2ca4cb8579d9bb7a4efdd0c33cd559927cce1eb83f73b66582ea3c2c3977a";
         public async Task<IActionResult> Index(string? search, int? genreId = 0)
@@ -54,6 +57,7 @@ namespace Movie.MVC.Controllers
                     Genres = await _genreService.GetAllAsync(),
                     MovieGenres = await _movieGenreService.GetAllIncludesAsync(),
                     GenreId = genreId,
+                    Lives = await _liveService.GetAllAsync()
                 };
                 return View(model);
             }
@@ -118,7 +122,11 @@ namespace Movie.MVC.Controllers
                     var message = new Message(new string[]
                                              { vm.NewMail }, "nileX confiramtion", $"Please click on the link to confirm your account: {confiramtionLink}");
                     await _emailService.SendMailAsync(message);
-                    return Ok("Please check your e-mail address. An activation message has been sent to your e-mail address.");
+                    return StatusCode(204);
+                }
+                else
+                {
+                    return Ok();
                 }
             }
             catch (UserNotFoundException)
@@ -139,7 +147,6 @@ namespace Movie.MVC.Controllers
             {
                 throw;
             }
-            return StatusCode(204);
         }
         public async Task<IActionResult> ChangeEmail(string userId, string newMail, string token)
         {
@@ -263,7 +270,10 @@ namespace Movie.MVC.Controllers
         {
             return View();
         }
-
+        public IActionResult About()
+        {
+            return View();
+        }
         public async Task<IActionResult> c91d8291b1cd4893b870173f92636708(string userId, int amount)
         {
             try

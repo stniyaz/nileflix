@@ -7,5 +7,6 @@ namespace Movie.MVC.ViewModels
     {
         public Core.Models.Movie Movie { get; set; }
         public CommentCreateDTO Comment { get; set; }
+        public List<Core.Models.Movie> Movies { get; set; }
     }
 }

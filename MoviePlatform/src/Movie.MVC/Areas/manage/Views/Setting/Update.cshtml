@@ -1,0 +1,49 @@
+﻿@model SettingUpdateDTO
+
+<!-- main content -->
+<main class="main">
+	<div class="container-fluid">
+		<div class="row">
+			<!-- main title -->
+			<div class="col-12">
+				<div class="main__title">
+					<h2>Update setting</h2>
+
+					<a asp-action="index" asp-controller="setting" class="main__title-link">go back</a>
+				</div>
+			</div>
+			<!-- end main title -->
+			<!-- form -->
+			<div class="col-12">
+				<form method="post" class="form" enctype="multipart/form-data">
+					<div class="row">
+
+
+						<div class="col-12 col-md-7 form__content">
+							<div class="row">
+								<div class="col-12">
+									<div class="form__group">
+										<label asp-for="Value" hidden></label>
+										<input asp-for="Value" type="text" class="form__input" placeholder="Value">
+										<span asp-validation-for="Value" class="modal__text"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-12">
+							<div class="row">
+
+								<div class="col-12">
+									<button type="submit" class="form__btn">update</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!-- end form -->
+		</div>
+	</div>
+</main>
+<!-- end main content -->

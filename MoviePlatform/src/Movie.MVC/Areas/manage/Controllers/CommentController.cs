@@ -64,7 +64,18 @@ namespace Movie.MVC.Areas.manage.Controllers
         [ValidateAntiForgeryToken, HttpPost]
         public async Task<IActionResult> Show(CommentUpdateDTO dto)
         {
-
+            try
+            {
+                await _commentService.UpdateAsync(dto);
+            }
+            catch (CommentNotFoundException)
+            {
+                return NotFound();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
             return RedirectToAction("index");
         }
     }

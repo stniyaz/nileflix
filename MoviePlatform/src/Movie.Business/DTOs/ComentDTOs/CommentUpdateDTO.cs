@@ -1,8 +1,11 @@
-﻿namespace Movie.Business.DTOs.ComentDTOs
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Movie.Business.DTOs.ComentDTOs
 {
     public class CommentUpdateDTO
     {
-        public string Text { get; set; }
+        public int Id { get; set; }
+        public string? Text { get; set; }
         public bool IsSpoiler { get; set; }
     }
 }

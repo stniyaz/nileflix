@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Movie.Business.CustomExceptions.CommonExceptions;
 using Movie.Business.CustomExceptions.LiveExceptions;
 using Movie.Business.DTOs.LiveDTOs;
 using Movie.Business.Services.Interfaces;
@@ -22,9 +23,19 @@ namespace Movie.MVC.Areas.manage.Controllers
         }
         public async Task<IActionResult> Index(string search)
         {
-            ViewBag.Search = search;
-            var lives = await _liveService.GetAllAsync();
-            return View(lives);
+            try
+            {
+                if (search is not null) ViewBag.Search = search;
+                return View(await _liveService.GetSearchByAsync(search));
+            }
+            catch (InvalidSearchException)
+            {
+                return NotFound();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
         public IActionResult Create()
         {

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Movie.Business.CustomExceptions.CommonExceptions;
 using Movie.Business.CustomExceptions.LiveExceptions;
 using Movie.Business.DTOs.LiveDTOs;
 using Movie.Business.Services.Interfaces;
@@ -52,6 +53,19 @@ namespace Movie.Business.Services.Implementations
         public async Task<Live> GetAsync(Expression<Func<Live, bool>>? expression = null, params string[]? includes)
         {
             return await _liveRepository.GetAsync(expression, includes);
+        }
+
+        public Task<List<Live>> GetSearchByAsync(string search)
+        {
+            var lives = _liveRepository.GetAllAsync();
+            if (!string.IsNullOrEmpty(search))
+            {
+                if (search.Length >= 2)
+                    lives = lives.Where(x => x.Title.Trim().ToLower().Contains(search.Trim()));
+                else
+                    throw new InvalidSearchException();
+            }
+            return lives.ToListAsync();
         }
 
         public async Task SoftDelete(int id)
