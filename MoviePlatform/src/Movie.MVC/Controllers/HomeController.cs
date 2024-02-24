@@ -126,7 +126,7 @@ namespace Movie.MVC.Controllers
                 }
                 else
                 {
-                    return Ok();
+                    return new StatusCodeResult(202);
                 }
             }
             catch (UserNotFoundException)

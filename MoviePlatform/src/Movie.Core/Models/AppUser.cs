@@ -6,6 +6,7 @@ namespace Movie.Core.Models
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string? ConnectionId { get; set; }
 
         public bool IsBanned { get; set; }
         public bool IsPremium { get; set; }

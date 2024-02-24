@@ -3,20 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{005AB6BC-2A9F-416E-B278-98C2550A87ED}|src\\Movie.MVC\\Movie.MVC.csproj|c:\\users\\admin\\desktop\\nile_tv\\movieplatform\\src\\movie.mvc\\wwwroot\\assets\\js\\mine.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{005AB6BC-2A9F-416E-B278-98C2550A87ED}|src\\Movie.MVC\\Movie.MVC.csproj|solutionrelative:src\\movie.mvc\\wwwroot\\assets\\js\\mine.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{005AB6BC-2A9F-416E-B278-98C2550A87ED}|src\\Movie.MVC\\Movie.MVC.csproj|c:\\users\\admin\\desktop\\nile_tv\\movieplatform\\src\\movie.mvc\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{005AB6BC-2A9F-416E-B278-98C2550A87ED}|src\\Movie.MVC\\Movie.MVC.csproj|solutionrelative:src\\movie.mvc\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{005AB6BC-2A9F-416E-B278-98C2550A87ED}|src\\Movie.MVC\\Movie.MVC.csproj|c:\\users\\admin\\desktop\\nile_tv\\movieplatform\\src\\movie.mvc\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{005AB6BC-2A9F-416E-B278-98C2550A87ED}|src\\Movie.MVC\\Movie.MVC.csproj|solutionrelative:src\\movie.mvc\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{005AB6BC-2A9F-416E-B278-98C2550A87ED}|src\\Movie.MVC\\Movie.MVC.csproj|c:\\users\\admin\\desktop\\nile_tv\\movieplatform\\src\\movie.mvc\\views\\home\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{005AB6BC-2A9F-416E-B278-98C2550A87ED}|src\\Movie.MVC\\Movie.MVC.csproj|solutionrelative:src\\movie.mvc\\views\\home\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{B3FA80AA-51E9-445D-973F-CE7A1C57F828}|src\\Movie.Data\\Movie.Data.csproj|c:\\users\\admin\\desktop\\nile_tv\\movieplatform\\src\\movie.data\\dal\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B3FA80AA-51E9-445D-973F-CE7A1C57F828}|src\\Movie.Data\\Movie.Data.csproj|solutionrelative:src\\movie.data\\dal\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "src\\Movie.MVC\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "src\\Movie.MVC\\Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAE4AAAAAAAAAAAAAAFMAAACUAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-02-23T19:40:49.753Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "src\\Movie.MVC\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "src\\Movie.MVC\\Controllers\\HomeController.cs",
-              "ViewState": "AQIAAG8AAAAAAAAAAAAhwIAAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-23T19:18:57.085Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "mine.js",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\assets\\js\\mine.js",
-              "RelativeDocumentMoniker": "src\\Movie.MVC\\wwwroot\\assets\\js\\mine.js",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\wwwroot\\assets\\js\\mine.js",
-              "RelativeToolTip": "src\\Movie.MVC\\wwwroot\\assets\\js\\mine.js",
-              "ViewState": "AQIAADgAAAAAAAAAAAAYwEsAAAAyAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-02-23T19:18:46.675Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Detail.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\Views\\Home\\Detail.cshtml",
-              "RelativeDocumentMoniker": "src\\Movie.MVC\\Views\\Home\\Detail.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.MVC\\Views\\Home\\Detail.cshtml",
-              "RelativeToolTip": "src\\Movie.MVC\\Views\\Home\\Detail.cshtml",
-              "ViewState": "AQIAAGQAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-02-23T19:18:17.181Z",
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.Data\\DAL\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "src\\Movie.Data\\DAL\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\NILE_Tv\\MoviePlatform\\src\\Movie.Data\\DAL\\AppDbContext.cs",
+              "RelativeToolTip": "src\\Movie.Data\\DAL\\AppDbContext.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAYwBIAAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-24T09:29:31.885Z",
               "EditorCaption": ""
             }
           ]

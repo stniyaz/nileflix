@@ -80,7 +80,7 @@ namespace Movie.MVC.Areas.manage.Controllers
             var model = _mapper.Map<UserUpdateDTO>(user);
             return View(model);
         }
-        [HttpPost]
+        [ValidateAntiForgeryToken, HttpPost]
         public async Task<IActionResult> Update(UserUpdateDTO dto)
         {
             ViewBag.Roles = await _accountService.GetRolesAsync();

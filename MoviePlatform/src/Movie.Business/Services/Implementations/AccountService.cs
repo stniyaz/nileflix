@@ -293,6 +293,8 @@ namespace Movie.Business.Services.Implementations
             var user = await _userManager.FindByEmailAsync(dto.Email);
             if (user is null)
                 throw new UserNotFoundException("Email", "Please check the e-mail address again because there is no such e-mail address in our system.");
+            if (user.IsBanned)
+                throw new BannedUserException("Email", "Your account has been permanently banned. If you think there is an error, please contact us.");
 
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
             return new ResetPasswordVM { Token = token, Email = user.Email };

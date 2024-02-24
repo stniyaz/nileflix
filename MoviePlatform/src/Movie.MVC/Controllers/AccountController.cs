@@ -151,6 +151,11 @@ namespace Movie.MVC.Controllers
                 ModelState.AddModelError(ex.PropertyName, ex.Message);
                 return View(dto);
             }
+            catch (BannedUserException ex)
+            {
+                ModelState.AddModelError(ex.PropertyName, ex.Message);
+                return View(dto);
+            }
             catch (Exception)
             {
                 throw;

@@ -52,7 +52,7 @@ document.getElementById("changeMail").addEventListener("click", function (e) {
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "/Home/Detail", true);
     xhr.onload = function () {
-        if (xhr.status == 200) {
+        if (xhr.status == 202) {
             Swal.fire({
                 position: "top-end",
                 icon: "success",
@@ -61,7 +61,6 @@ document.getElementById("changeMail").addEventListener("click", function (e) {
                 showConfirmButton: false,
                 timer: 1500
             });
-            window.location.reload(true);
         } else if (xhr.status == 204) {
             e.preventDefault();
             Swal.fire({
@@ -72,8 +71,6 @@ document.getElementById("changeMail").addEventListener("click", function (e) {
                 showConfirmButton: false,
                 timer: 2500
             });
-        } {
-            xhr.open("POST", "/Home/Detail", true)
         }
     };
     xhr.send(formData);
